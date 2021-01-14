@@ -4,8 +4,6 @@
 \usepackage{pdfrender,xcolor}
 \usepackage{graphicx}
 
-
-
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{mathtools,graphicx,tikz-cd}
 \usepackage{blindtext}
@@ -27,7 +25,6 @@
 \newtheorem*{remark}{Remark}
 \newtheorem{exercise}{Exercise}
 \newtheorem{example}{Example}[definition]
-
 
 \DeclareMathOperator{\ab}{ab}
 \DeclareMathOperator{\Aut}{Aut}
@@ -122,8 +119,172 @@
 
 \begin{document}
 
-\section{Introduction}
+\section{Introduction and History Lesson}
+
+    Welcome to week 3 of Math Club!
+    A \textbf{probability} is a value between 0 and 1 that represents the likelyhood of a certain event happening.
+    We write the probability of event \(A\) happening as \(P(A)\).
+    Convince yourself that the probability of \(A\) not happening is \(1-P(A)\).
+    Probability theory is important in problem-solving, but it's even more important in the real world because it gives us tools to quantify problems that have uncertain results.
+
+    Now for a brief history lesson: Chevalier de M\'er\'e, a gambler of the \(17^{\text{th}}\) century, observed while gambling that the odds of getting a six while rolling a die four times seem to be greater than \(\frac12\), while the odds of getting a double six when rolling two dice 24 times seem to be less than \(\frac12\).
+    De M\'er\'e thought that this contradicted mathematics itself because \(\frac46=\frac{24}{36}\).
+    He posed the question the Blaise Pascal and Pierre de Fermat.
+    They answered the question and probability theory was born!
+    Let us work through what Pascal and Fermat told de M\'er\'e.
+
+    \begin{definition}
+        Let \(A\) and \(B\) be events with \(P(B)\neq 0\).
+        The \textbf{conditional probability} of \(A\) given \(B\) is
+        \[P(A\mid B)=\frac{P(A\cap B)}{P(B)},\]
+        where \(A\cap B\) represents both \(A\) and \(B\) happening.
+        \(A\cup B\) represents either \(A\) or \(B\) (inclusive) happening.
+    \end{definition}
+
+    \begin{definition}
+        Informally, two events \(A\) and \(B\) are called \textbf{independent} if they do not affect each other.
+        More formally, \(A\) and \(B\) are independent if \(P(A\cap B)=P(A)P(B)\).
+    \end{definition}
+
+    \begin{theorem}
+        Here are two classic and important formulas:
+        \begin{itemize}
+            \item Addition formula:
+            \[P(A\cup B)=P(A)+P(B)-P(A\cap B)\]
+            \item Multiplication formula:
+            \[P(A\cap B)=P(A)P(B\mid A)\]
+        \end{itemize}
+    \end{theorem}
+
+    \begin{theorem}[Bayes' Theorem]
+        Let \(A\) and \(B\) be events with \(P(B)\neq 0\).
+        Then
+        \[P(A\mid B)=\frac{P(B\mid A)P(A)}{P(B)}.\]
+        Bayes' theorem gives us a useful tool for reframing questions of conditional probability into problems that are more easily solved.
+    \end{theorem}
 
 \section{Resources}
+
+    These problems were taken from a few different sources, including:
+    \begin{itemize}
+        \item Putnam and Beyond by Andreescu and Gelca
+        \item \href{http://www.math.utoronto.ca/barbeau/putnamprob.pdf}{Ed Barbeau's website at UToronto}
+    \end{itemize}
+
+\section{Easy(ish)}
+
+    \begin{exercise}[Monty Hall Problem]
+        Suppose you're on a game show, and you're given the choice of three doors: Behind one door is a car; behind the others, goats. 
+        You pick a door, say No. 1, and the host, who knows what's behind the doors, opens another door, say No. 3, which has a goat. 
+        He then says to you, ``Do you want to pick door No. 2?" Is it to your advantage to switch your choice?
+    \end{exercise}
+
+    \begin{exercise}[Birthday Problem]
+        Assume there are 365 days in the year and the chance of being born on a given day is the same for each day.
+        What is the probability that in a room of 23 people, some pair of people have the same birthday?
+        Feel free to use a calculator for this one.
+        More generally, find the same probability for a room of \(n\) people.
+    \end{exercise}
+
+    \begin{exercise}[2014 AIME, Problem 2]
+        An urn contains 4 green balls and 6 blue balls.
+        A second urn contains 16 green balls and \(N\) blue balls.
+        A single ball is drawn at random from each urn.
+        The probability that both balls are of the same color is \(0.58\).
+        Find \(N\).
+    \end{exercise}
+
+    \begin{exercise}
+        One hundred people line up to board an airplane. 
+        Each has a boarding pass with assigned seat. 
+        However, the first person to board has lost his boarding pass and takes a random seat. 
+        After that, each person takes the assigned seat if it is unoccupied, and one of unoccupied seats at random otherwise. 
+        What is the probability that the last person to board gets to sit in his assigned seat?
+    \end{exercise}
+
+    \begin{exercise}
+        Emmy writes down fifteen 1's in a row and randomly writes \(+\) or \(-\) between each pair of consecutive 1's.
+        One such example is
+        \[1+1+1-1-1+1-1+1-1+1-1-1-1+1+1.\]
+        What is the probability that the value of the expression Emmy wrote down is 7?
+    \end{exercise}
+
+\section{Medium}
+
+    \begin{exercise}
+        The temperatures in Chicago and Detroit are \(x^\circ\) and \(y^\circ\), respectively.
+        These temperatures are not assumed independent; namely we are given the following:
+        \begin{enumerate}
+            \item \(P(x^\circ=70^\circ)=a\), the probability that the temperature in Chicago is \(70^\circ\),
+            \item \(P(y^\circ=70^\circ)=b\), and
+            \item \(P(\max(x^\circ,y^\circ)=70^\circ)=c\).
+        \end{enumerate}
+        Determine \(P(\min(x^\circ,y^\circ)=70^\circ)\) in terms of \(a\), \(b\), and \(c\).
+    \end{exercise}
+
+    \begin{exercise}
+        Mr. Knuth works on the \(13^{\text{th}}\) floor of a 15-floor building.
+        The only elevator moves continuously through floors 1, 2,\dots, 15, 14,\dots, 2, 1, 2,\dots, except that it stops on a floor on which the button has been pressed.
+        Assume the time spent loading and unloading passengers is negligible.
+
+        Mr. Knuth complains that at 5pm, when he wants to go home, the elevator almost always goes up when it stops on his floor.
+        What is the explanation for this?
+
+        Now assume that the building has \(n\) elevators which move independently as previously described.
+        Compute the proportion of time the first elevator on Mr. Knuth's floor moves up.
+    \end{exercise}
+
+    \begin{exercise}
+        Prove the identity
+        \[1+\frac{n}{m+n-1}+\cdots+\frac{n(n-1)\cdots 1}{(m+n-1)(m+n-2)\cdots m}=\frac{m+n}{m}.\]
+        (ideally using probabilistic methods)
+    \end{exercise}
+
+\section{Putnam Practice}
+
+    This section simulates one block of a Putnam exam, in which you are presented with 6 problems (labeled 1-6) and you are given 3 hours to complete them. 
+    Of course, these are all probability questions, which would not happen on the actual exam.
+
+    \begin{exercise}[2002 B1]
+        Shanille O'Keal shoots free throws on a basketball court.
+        She hits the first and misses the second, and thereafter the probability that she hits the next shot is equal to the proportion of shots she has hit so far.
+        What is the probability that she hits exactly 50 of her first 100 shots?
+    \end{exercise}
+
+    \begin{exercise}[2001 A2]
+        You have coins \(C_1,\ldots,C_n\).
+        For each \(k\), coin \(C_k\) is biased so that, when tossed, it has probability \(1/(2k+1)\) of falling heads.
+        If the \(n\) coins are tossed, what is the probability that the number of heads is odd?
+        Express your answer as a rational function of \(n\).
+    \end{exercise}
+
+    \begin{exercise}[1993 B3]
+        Two real numbers \(x\) and \(y\) are chosen at random in the interval \((0,1)\) with respect to the uniform distribution.
+        What is the probability that the closest integer to \(x/y\) is even? 
+        Express your answer in the form \(r+s\pi\), where \(r,s\in\QQ\).
+    \end{exercise}
+
+    \begin{exercise}[2016 B4]
+        Let \(A\) be a \(2n\times 2n\) matrix with entries chosen at random.
+        Each entry is chosen to be 0 or 1, each with probability \(1/2\).
+        Find the expected value of \(\det(A-A^T)\) as a function of \(n\), where \(A^T\) denoted the transpose of \(A\).
+    \end{exercise}
+
+    \begin{exercise}[2004 A5]
+        An \(m\times n\) checkerboard is colored randomly: each square is independently assigned red or black with probability \(1/2\).
+        We say that two squares \(p\) and \(q\) are in the same connected monochromatic region if there is a sequence of squares, all of the same color, starting at \(p\) and ending at \(q\), in which successive squares in the sequence share a common side.
+        SHow that the expected number of monochromatic regions is greater than \(mn/8\).
+    \end{exercise}
+
+    \begin{exercise}[2011 A6]
+        Let \(G\) be an abelian group with \(n\) elements, and let
+        \[\{g_1=e,g_2,\ldots,g_k\}\subseteq G\]
+        be a (not necessarily minimal) set of distinct generators of \(G\).
+        A special die, which randomly selects one of the elements \(g_1,\ldots,g_k\) with equal probability, is rolled \(m\) times and the selected elements are multiplied to produce an element \(g\in G\).
+
+        Prove that there exists a real number \(b\in(0,1)\) such that
+        \[\lim_{m\to\infty}\frac{1}{b^{2m}}\left(\text{Prob}(g=x)-\frac{1}{n}\right)^2\]
+        is positive and finite.
+    \end{exercise}
 
 \end{document}
