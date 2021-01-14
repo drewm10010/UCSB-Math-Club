@@ -1,0 +1,272 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{pdfrender,xcolor}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage[charter]{mathdesign}
+
+
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools,graphicx,tikz-cd}
+\usepackage{blindtext}
+\usepackage[margin = 1.25 in]{geometry}
+\usepackage{enumitem}
+
+\usepackage{fancyhdr,accents,lastpage}
+\pagestyle{fancy}
+\setlength{\headheight}{25pt}
+
+\linespread{1.3}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem{exercise}{Exercise}
+\newtheorem{example}{Example}[definition]
+\newtheorem*{solution}{Solution}
+
+
+\DeclareMathOperator{\ab}{ab}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\BGL}{BGL}
+\DeclareMathOperator{\Br}{Br}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\CHur}{CHur}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\et}{\text{\'et}}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Hur}{Hur}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Out}{Out}
+\DeclareMathOperator{\Perm}{Perm}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Pin}{Pin}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\Surj}{Surj}
+\DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\tame}{tame}
+\DeclareMathOperator{\Tr}{Tr}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\QED}{\hspace{\stretch{1}} $\blacksquare$}
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcC}{\mathcal{C}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcN}{\mathcal{N}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcQ}{\mathcal{Q}}
+\newcommand{\mfa}{\mathfrak{a}}
+\newcommand{\mfb}{\mathfrak{b}}
+\newcommand{\mfI}{\mathfrak{I}}
+\newcommand{\mfM}{\mathfrak{M}}
+\newcommand{\mfm}{\mathfrak{m}}
+\newcommand{\mfo}{\mathfrak{o}}
+\newcommand{\mfO}{\mathfrak{O}}
+\newcommand{\mfP}{\mathfrak{P}}
+\newcommand{\mfp}{\mathfrak{p}}
+\newcommand{\mfq}{\mathfrak{q}}
+\newcommand{\mfz}{\mathfrak{z}}
+\newcommand{\AGL}{\mathbb{A}\GL}
+\newcommand{\Qbar}{\overline{\QQ}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\newcommand{\isp}[1]{\quad\text{#1}\quad}
+
+
+\lhead{A Little Algebra} 
+\chead{Math Club}
+\rhead{Fall 2020} 
+
+
+\begin{document}
+
+
+\section{Introduction}
+Today, we will be discussing algebra: the ``$4x^3+5x=10$, solve for $x$'' kind, also known as elementary algebra. But don't be fooled! Elementary does \emph{not} mean easy; it just means that it doesn't require any deep mathematical machinery that takes a semester to develop. We will be going over several clever algebraic tricks that are invaluable to any problem-solver's toolkit and may help you on the Putnam.
+
+There are three main tricks to consider when proving algebraic identities:
+\begin{enumerate}[label=\Roman*.]
+    \item Adding and subtracting the same thing: \[a^4+4b^4 = a^4 + 4b^4 + 0 = a^4 + 4b^4 + 4b^2-4b^2 = (a^4+ 4b^2 + 4b^4) - 4b^2\]
+    This adding and subtracting of $4b^2$ might seem useless, but it is actually very powerful, because both terms on the right hand side are squares, so it combines very well with the next trick.
+    \item Factoring and Expanding: 
+    \[(a^4 + 4b^2 + 4b^4) - 4b^2 = (a^2+2b^2)^2 - (2b)^2 = (a^2 + 2b^2 + 2b)(a^2+2b^2-2b)\]
+    First we used the square-of-sum expansion, $(x+y)^2 = x^2 + 2xy + y^2$, with $x=a^2$, $y=2b^2$, and then we used the difference-of-squares factorization, $x^2-y^2 = (x+y)(x-y)$, with $x=a^2+2b^2$ and $y=2b$. This concludes the proof of the \emph{Sophie-Germain identity}: $a^4+4b^4 = (a^2+2b^2 + 2b)(a^2+2b^2-2b)$.
+    
+    An essential part of this kind of algebraic manipulation is \emph{knowing how to create and recognize squares and cubes}. Examples are given.
+    \begin{enumerate}[label=(\alph*)]
+    \item $x^n - y^n = (x-y)(x^{n-1}+x^{n-2}y + \cdots + xy^{n-2}+y^{n-1})$ 
+    \item If $n$ is odd, $x^n + y^n=(x+y)(x^{n-1}-x^{n-2}y+x^{n-3}y^2-\cdots + x^2y^{n-3}-xy^{n-2}+y^{n-1})$
+    \item $x^{4} + 4y^{4} = (x^2 + 2y^2 + 2y)(x^2 + 2y^2-2y)$ 
+    \item $x^3 + y^3 + z^3 - 3xyz = (x + y + z)(x^2 + y^2 + z^2 -xy - xz - yz)$\\$ = \frac{1}{2}(x+y+z)\left[ (x-y)^2 + (y-z)^2 + (x-z)^2\right]$ 
+    \item $(x+y)^2 =x^2+2xy+y^2$
+    \item $(x-y)^2 = x^2 -2xy+y^2$
+    \item $(x+y)^3 = x^3 + 3x^2y +3xy^2 + y^3 = x^3 + y^3 +3xy(x+y)$
+    \item $(x-y)^3 = x^3 - 3x^2y+3xy^2-y^3 = x^3 - y^3 -3xy(x-y)$
+    \item (The Binomial Theorem) $(x+y)^n = \sum_{k=0}^n \binom{n}{k} x^{n-k}y^k$
+\end{enumerate}
+    \item Substitution and Simplification
+    This final trick is often used to vastly simplify complicated-looking equations. The heuristic here is, \emph{always move in the direction of greater beauty or simplicity}. In other words, \emph{be lazy!} For example, supposed you're asked to find the product of the solutions to the equation \begin{equation}x^2+18x+30 = 2\sqrt{x^2 + 18x + 45}\end{equation} While you could certainly square both sides and solve the resulting quartic (ugh) equation, it would be much easier to let $y=\sqrt{x^2 + 18x + 45}$, and find all possible solutions for $y$. The equation would become
+    \[y^2-15 = 2y\]
+    Now it's easy: solve the quadratic equation for $y$ (by factoring or the quadratic formula), and once you have the value of $y$, you can plug back into $y=\sqrt{x^2 + 18x + 45}$ to find the solutions for $x$. \emph{We essentially just reduced the problem of solving a quartic equation into that of solving two quadratic equations}.
+\end{enumerate}
+
+\section{Easy-Mediumish}
+
+To the problems! Each exercise relies on some technique mentioned above.
+
+\begin{exercise}[]
+If $x+y = 4$ and $x^2 + y^2 = 3$, then find $xy$.
+\end{exercise}
+
+\begin{exercise}[]
+If $xy=x+y = 3$, find $x^3+y^3$.
+\end{exercise}
+
+\begin{exercise}[]
+Simplify
+\[\left(\sqrt{5}+\sqrt{6}+\sqrt{7}\right)\left(\sqrt{5}+\sqrt{6}-\sqrt{7}\right)\left(\sqrt{5}-\sqrt{6}-\sqrt{7}\right)\left(\sqrt{5}-\sqrt{6}+\sqrt{7}\right)\]
+\end{exercise}
+
+\begin{exercise}[]
+Given $x^2 + y^2 + z^2 = 1$, find the minimum value of $xy+xz+yz$. No calculus!
+\end{exercise}
+
+\begin{exercise}[]
+Solve the system of equations (you don't need row reduction here!)
+\begin{align*}
+    2x_1+x_2+x_3+x_4+x_5&=6 \\
+    x_1+2x_2+x_3+x_4+x_5&=12 \\
+    x_1+x_2+2x_3+x_4+x_5&=24 \\
+    x_1+x_2+x_3+2x_4+x_5&=48 \\
+    x_1+x_2+x_3+x_4+2x_5&=96 \\
+\end{align*}
+\end{exercise}
+
+\begin{exercise}
+How many integer solutions \((a,b)\) does \(ab-3b-2a=7\) have?
+\end{exercise}
+
+\begin{exercise}
+Verify that
+\[\sqrt[3]{20+14\sqrt{2}}+\sqrt[3]{20-14\sqrt{2}}=4\]
+\end{exercise}
+
+\begin{exercise}
+If the expression 
+\[(x^3-x^2y+xy^2+y^3)^5\] 
+is expanded and simplified, what is the sum of all the coefficients of the resulting polynomial?
+\end{exercise}
+
+\section{Hard}
+
+\begin{exercise}
+Find all triples $x,y,z$ of integers such that 
+\begin{equation*}
+    x^3 + y^3 + z^3 -3xyz = p
+\end{equation*}
+where $p$ is a prime strictly greater than 3.
+\end{exercise}
+
+\begin{exercise}
+Solve for $x$:
+\[\sqrt[3]{x-1} + \sqrt[3]{x}  + \sqrt[3]{x+1} = 0\]
+\end{exercise}
+
+\begin{exercise}
+Suppose that $a,b,c$ are distinct real numbers. Show that 
+\begin{equation*}
+    \sqrt[3]{a - b} + \sqrt[3]{b - c}  + \sqrt[3]{c - a} \neq 0
+\end{equation*}
+\end{exercise}
+
+\begin{exercise}
+Show that for no positive integer $n$ can both $n+3$ and $n^2+3n+3$ be perfect cubes.
+\end{exercise}
+
+\begin{exercise}
+Prove that for any nonnegative integer $n$, the number
+\[5^{5^{n+1}}+5^{5^n} +1\] is not prime.
+\end{exercise}
+
+\begin{exercise}
+Prove that the number
+\[\frac{5^{125}-1}{5^{25}-1}\]
+is not prime.
+\end{exercise}
+
+\begin{exercise}[2019 A1]
+Determine all possible values of the expression
+\[A^3+B^3+C^3-3ABC,\]
+where \(A\), \(B\), and \(C\) are nonnegative integers. Note that solving exercise 7 first would be helpful.
+\end{exercise}
+
+\begin{exercise}[1977 A2]
+Determine all solutions in real numbers $x,y,z,w$ of the system
+\begin{align*}
+    x+y+z&= w \\
+    \frac{1}{x}+\frac{
+    1}{y}+\frac{1}{z} &= \frac{1}{w}
+\end{align*}
+\end{exercise}
+
+\pagebreak
+
+\section{Hints}
+
+\begin{enumerate}
+    \item Expand $(x+y)^2$ and plug in the given information to find the quantity you want.
+    \item Expand $(x+y)^3$ and plug in the given information to find the quantity you want. 
+    \item Can you use the difference of squares factorization $x^2-y^2 = (x-y)(x+y)$ here?
+    \item Squares are positive, so $(x+y+z)^2\geq 0$. Now expand.
+    \item Add!
+    \item 6 is an important number
+    \item You can do this one.
+    \item Don't expand this. Your time is worth more than that.
+\end{enumerate}
+
+\end{document}

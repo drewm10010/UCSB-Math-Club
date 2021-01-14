@@ -1,0 +1,330 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{pdfrender,xcolor}
+\usepackage{graphicx}
+
+
+\usepackage{indentfirst}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools,graphicx,tikz-cd}
+\usepackage{blindtext}
+\usepackage[margin = 1.25 in]{geometry}
+\usepackage{enumitem}
+
+\usepackage{fancyhdr,accents,lastpage}
+\pagestyle{fancy}
+\setlength{\headheight}{25pt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem{exercise}{Exercise}
+\newtheorem{example}{Example}[definition]
+
+\linespread{1.2}
+
+\DeclareMathOperator{\ab}{ab}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\BGL}{BGL}
+\DeclareMathOperator{\Br}{Br}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\CHur}{CHur}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\et}{\text{\'et}}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Hur}{Hur}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Out}{Out}
+\DeclareMathOperator{\Perm}{Perm}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Pin}{Pin}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\Surj}{Surj}
+\DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\tame}{tame}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\sign}{sign}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\QED}{\hspace{\stretch{1}} $\blacksquare$}
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcC}{\mathcal{C}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcN}{\mathcal{N}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcQ}{\mathcal{Q}}
+\newcommand{\mfa}{\mathfrak{a}}
+\newcommand{\mfb}{\mathfrak{b}}
+\newcommand{\mfI}{\mathfrak{I}}
+\newcommand{\mfM}{\mathfrak{M}}
+\newcommand{\mfm}{\mathfrak{m}}
+\newcommand{\mfo}{\mathfrak{o}}
+\newcommand{\mfO}{\mathfrak{O}}
+\newcommand{\mfP}{\mathfrak{P}}
+\newcommand{\mfp}{\mathfrak{p}}
+\newcommand{\mfq}{\mathfrak{q}}
+\newcommand{\mfz}{\mathfrak{z}}
+\newcommand{\AGL}{\mathbb{A}\GL}
+\newcommand{\Qbar}{\overline{\QQ}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\lhead{Matrix Tricks} 
+\chead{Math Club}
+\rhead{Fall 2020} 
+
+
+\begin{document}
+
+\section{Introduction}
+\indent Linear algebra is the simplest type of algebra to do, as vector spaces tend to be far more concrete than groups and rings. Indeed, most people start learning it from matrices, yet it specializes quite quickly and is the starting point (and provides many examples for) functional analysis, PDEs, abstract algebra, and more. Here, we focus on some rather elementary tricks; the field we work over (for those who know fields) will primarily be $\mathbb{R}$ or $\mathbb{C}$, and everything will be finite dimensional. Some things you should be familiar with before you attempt to solve the problems are: 1) matrix multiplication, 2) the inverse and transpose of a matrix, 3) the trace and determinant operations. \\
+\\
+\indent 1) Matrix Multiplication: If $A$ is an $m \times n$ matrix and $B$ is an $n \times p$ matrix,  
+\[A = \begin{bmatrix}
+a_{11}&a_{12}&\cdots&a_{1n}\\
+a_{21}&a_{22}&\cdots&a_{2n}\\
+\vdots&\vdots&\ddots&\vdots\\
+a_{m1}&a_{m2}&\cdots&a_{mn}
+\end{bmatrix}, \hspace*{3mm} B = \begin{bmatrix}
+b_{11}&b_{12}&\cdots&b_{1p}\\
+b_{21}&b_{22}&\cdots&b_{2p}\\
+\vdots&\vdots&\ddots&\vdots\\
+b_{n1}&b_{n2}&\cdots&b_{np}
+\end{bmatrix},
+\]
+then the matrix product $C = AB$ is defined to be the $m \times p$ matrix 
+\[C = \begin{bmatrix}
+c_{11}&c_{12}&\cdots&c_{1p}\\
+c_{21}&c_{22}&\cdots&c_{2p}\\
+\vdots&\vdots&\ddots&\vdots\\
+c_{m1}&c_{m2}&\cdots&c_{mp}
+\end{bmatrix}
+\]
+such that $c_{ij} = \sum_{k = 1}^{n} a_{ik}b_{kj}$ for $i = 1, 2, \ldots, m$ and $j \in 1, 2, \ldots, p$. The matrix multiplication may not be commutative!\\
+\\
+\indent 2) An $n \times n$ matrix is called invertible if there exists an $n \times n$ matrix $A^{
+-1}$ such that $A A^{-1} = A^{-1} A = I_{n}$. An important fact is that a matrix $A$ is invertible if and only if $\det{A} \neq 0$. Given the matrix $A = (a_{ij})$, $A^{T}$ denotes the transpose of $A$, in which the $i, j$ entry is $a_{ji}$. Intuitively, $A^{T}$ is constructed by reflecting $A$ over its main diagonal. Some properties for the transpose: 
+\begin{itemize}
+    \item $(A^{T})^{T} = A$
+    \item $(A + cB)^{T} = A^{T} + cB^{T}$
+    \item $(AB)^{T} = B^{T}A^{T}$ 
+\end{itemize}
+\leavevmode
+\\
+\indent 3) Let $A = (a_{ij})$ be a $n \times n$ matrix. The trace of $A$ is the sum of elements on the main diagonal, $\tr A = \sum_{i = 1}^{n} a_{ii}$. Some properties for the trace: 
+\begin{itemize}
+    \item $\tr(A + cB) = \tr(A) + c\tr(B)$
+    \item $\tr(AB) = \tr(BA)$
+    \item $\tr(A) = \tr(A^{T})$
+    \item $\tr(ABC) = \tr(CAB)$ but $\tr(ABC) = \tr(ACB)$ does not always hold true
+\end{itemize}
+
+\noindent The determinant of an $n \times n$ matrix $A = (a_{ij})$, denoted by $\det A$, has the formula 
+\[\det A = \sum_{\sigma} \sign(\sigma) a_{1 \sigma(1)} a_{2 \sigma(2)} \cdots a_{n \sigma(n)},  
+\]
+with the sum taken over all permutations $\sigma$ of $\{1, 2, \ldots, n\}$. Recall that $\sign: \Perm(S) \rightarrow \{\pm{1}\}$ is a function which sends even permutations to $1$ and odd permutations to $-1$. Another way of computing the determinant of an $n \times n$ matrix $A$ is given by
+\[\det A = a_{11} \det A_{11} - a_{12} \det A_{12} + \cdots + (-1)^{n + 1} \det A_{1n}, 
+\]
+where $A_{ij}$ is the $(n - 1) \times (n - 1)$ matrix obtained by deleting the $i$-th row and $j$-th column. Some properties for the determinant: 
+\begin{itemize}
+    \item $\det(AB) = \det(A) \cdot \det(B)$ 
+    \item $\det(A^{T}) = \det(A)$
+\end{itemize}
+
+Using the matrix tricks, we solve the following problem together: 
+
+\begin{exercise}
+Show that if $A$, $B$ are similar square matrices ($A = QBQ^{-1}$ for some invertible matrix $Q$), then $A$ and $B$ have the same determinant.   
+\end{exercise}
+
+\section{Resources}
+The problems above and below are shamelessly ripped from the books \textit{Putnam and Beyond} by Andreescu and Gelca and \textit{Problem Solving Strategies} by Arthur Engel. We also stole some problems from the Putnam competition. Many other problem solving books have sections on linear algebra as well. These problems are arranged roughly in order of difficulty, but difficulty is relative to each person so take it with a grain of salt.
+
+\section{Easy (not really)}
+\begin{exercise}
+    Do there exist square matrices $A, B$ such that $AB - BA = I_{n}?$  
+\end{exercise}
+
+\begin{exercise}
+    Show that if $A, B$ are square matrices such that $A + B = AB$, then $AB = BA$. 
+\end{exercise}
+
+\begin{exercise}
+The Fibonacci sequence $(F_{n})$ is defined by $F_{0} = 0$, $F_{1} = 1$, $F_{n} = F_{n - 1} + F_{n - 2}$. Prove that 
+\[\begin{bmatrix}
+    1&1\\
+    1&0\\
+\end{bmatrix}^{n} = \begin{bmatrix}
+    F_{n + 1}&F_{n}\\
+    F_{n}&F_{n - 1}\\
+    \end{bmatrix}.
+\]
+\end{exercise}
+
+\begin{exercise}
+Show that 
+\[F_{n + 1}F_{n - 1} - F_{n}^{2} = (-1)^{n} \hspace*{3mm} \text{for } n \geq 1. 
+\]
+\end{exercise}
+
+\begin{exercise}
+Prove that 
+\[
+\det \begin{bmatrix}
+(x^{2} + 1)^{2}&(xy + 1)^{2}&(xz + 1)^{2}\\
+(xy + 1)^{2}&(y^{2} + 1)^{2}&(yz + 1)^{2}\\
+(xz + 1)^{2}&(yz + 1)^{2}&(z^{2} + 1)^{2}
+\end{bmatrix} = 2(y - z)^{2}(z - x)^{2}(x - y)^{2}.\]
+\end{exercise}
+
+\begin{exercise}
+For any $n \times n$ matrix $A$ with real entries,
+\[
+\det(I_{n} + A^{2}) \geq 0.
+\]
+\end{exercise}
+
+\begin{exercise}
+(Shoelace formula) Show that if a triangle in the plane has coordinates $(x_{1}, y_{1})$, $(x_{2}, y_{2})$, and $(x_{3}, y_{3})$, then its area is the absolute value of:
+\[\frac{1}{2} \cdot \det \begin{bmatrix}
+x_{1}&y_{1}&1\\
+x_{2}&y_{2}&1\\
+x_{3}&y_{3}&1\\
+\end{bmatrix}.
+\]
+\end{exercise}
+
+
+\section{Medium}
+\begin{exercise}
+Let $A$ and $B$ be $n \times n$ matrices with real entries satisfying 
+\[\tr(A A^{T} + B B^{T}) = \tr(AB + A^{T}B^{T}).  
+\]
+Prove that $A = B^{T}$. 
+\end{exercise}
+
+\begin{exercise}
+    Let $A, B, C$ be $n \times n$ matrices, $n \geq 1$, satisfying 
+\[ABC + AB + BC + AC + A + B + C = 0.
+\]
+Prove that $A$ and $B + C$ commute if and only if $A$ and $BC$ commute. 
+\end{exercise}
+
+\begin{exercise}
+Let $p < m$ be two positive integers. Prove that 
+\[\det \begin{bmatrix}
+\binom{m}{0}&\binom{m}{1}&\cdots&\binom{m}{p}\\
+\binom{m + 1}{0}&\binom{m + 1}{1}&\cdots&\binom{m + 1}{p}\\
+\vdots&\vdots&\ddots&\vdots\\
+\binom{m + p}{0}&\binom{m + p}{1}&\cdots&\binom{m + p}{p} 
+\end{bmatrix} = 1.
+\]
+\end{exercise}
+
+\begin{exercise}
+(Vandermonde Matrices) Show that the matrix (where $x_{1}, \ldots, x_{n} \in \mathbb{R}$)
+\[\begin{bmatrix}
+1&1&\cdots&1\\
+x_{1}&x_{2}&\cdots&x_{n}\\
+x_{1}^{2}&x_{2}^{2}&\cdots&x_{n}^{2}\\
+\vdots&\vdots&\ddots&\vdots\\
+x_{1}^{n - 1}&x_{2}^{n - 1}&\cdots&x_{n}^{n - 1}\\
+\end{bmatrix}
+\]
+is invertible if and only if $x_{i} \neq x_{j}$ whenever $i \neq j$. 
+\end{exercise}
+
+\section{Hard}
+
+\begin{exercise}
+Let $M_n$ be the $(2n+1)\times (2n+1)$ matrix for which \[(M_n)_{ij}=\begin{cases} 0 & i=j \\
+1 & i-j=1,\dots,n \pmod{2n+1} \\ -1 & i-j=n+1,\dots,2n \pmod{2n+1}\end{cases}\] Find the rank of $M_n$.
+\end{exercise}
+
+For those that wish to challenge themselves further, we provide some Putnam problems that may be solved with matrix tricks.
+
+\begin{exercise}[1990 A5]
+If $A$ and $B$ are square matrices of the same size such that $ABAB = 0$, does it follow that $BABA = 0$?
+\end{exercise}
+
+\begin{exercise}[1991 A2]
+Let $A$ and $B$ be different $n \times n$ matrices with real entries. If $A^{3}$ = $B^{3}$ and $A^{2}B = B^{2}A$, can $A^{2} + B^{2}$ be invertible?
+\end{exercise}
+
+\begin{exercise}[2011 A4]
+For which positive integers $n$ is there an $n \times n$ matrix with integer entries such that every dot product of a row with itself is even, while every dot product of two different rows is odd?
+\end{exercise}
+
+\begin{exercise}[2014 A2]
+Let $A$ be the $n \times n$ matrix whose entry in the $i$-th row and $j$-th column is
+\[\frac{1}{\min(i, j)}
+\]
+for $1 \leq i, j \leq n$. Compute $\det(A)$.
+\end{exercise}
+
+
+
+\begin{exercise}[1999 B5]
+Let $n\geq 3$. Let $A_n$ be the $n\times n$ matrix with $A_{ij}=\cos(2\pi (i+j)/n)$. Find $\det(I+A)$.
+\end{exercise}
+
+\newpage
+\section{Hints} 
+\begin{itemize}
+    \item 2. Trace. 
+    \item 3. Factorize the matrix equation.
+    \item 4. Argue by induction.
+    \item 5. Determinant. 
+    \item 6. Express it as a product of two matrices. 
+    \item 7. This involves the complex conjugate.
+    \item 8. How about computing the area of the rectangle and then subtracting the areas of the other three triangles?
+    \item 9. $\tr(X \cdot X^{T}) = 0$ if and only if $X = 0$. Replace $X$ by $A - B^{T}$. 
+    \item 10. Factorize the matrix equation. 
+    \item 11. Use the formula $\binom{n}{k} - \binom{n - 1}{k} = \binom{n - 1}{k - 1}$.
+    \item 12. Inductively compute the determinant. 
+\end{itemiz

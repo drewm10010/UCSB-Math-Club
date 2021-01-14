@@ -1,0 +1,259 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{pdfrender,xcolor}
+\usepackage{graphicx}
+
+
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools,graphicx,tikz-cd}
+\usepackage{blindtext}
+\usepackage[margin = 1.25 in]{geometry}
+\usepackage{enumitem}
+
+\usepackage{fancyhdr,accents,lastpage}
+\pagestyle{fancy}
+\setlength{\headheight}{25pt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem{exercise}{Exercise}
+\newtheorem{example}{Example}[definition]
+
+\linespread{1.2}
+
+\DeclareMathOperator{\ab}{ab}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\BGL}{BGL}
+\DeclareMathOperator{\Br}{Br}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\CHur}{CHur}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\et}{\text{\'et}}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Hur}{Hur}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Out}{Out}
+\DeclareMathOperator{\Perm}{Perm}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Pin}{Pin}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\Surj}{Surj}
+\DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\tame}{tame}
+\DeclareMathOperator{\Tr}{Tr}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\QED}{\hspace{\stretch{1}} $\blacksquare$}
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcC}{\mathcal{C}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcN}{\mathcal{N}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcQ}{\mathcal{Q}}
+\newcommand{\mfa}{\mathfrak{a}}
+\newcommand{\mfb}{\mathfrak{b}}
+\newcommand{\mfI}{\mathfrak{I}}
+\newcommand{\mfM}{\mathfrak{M}}
+\newcommand{\mfm}{\mathfrak{m}}
+\newcommand{\mfo}{\mathfrak{o}}
+\newcommand{\mfO}{\mathfrak{O}}
+\newcommand{\mfP}{\mathfrak{P}}
+\newcommand{\mfp}{\mathfrak{p}}
+\newcommand{\mfq}{\mathfrak{q}}
+\newcommand{\mfz}{\mathfrak{z}}
+\newcommand{\AGL}{\mathbb{A}\GL}
+\newcommand{\Qbar}{\overline{\QQ}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+
+
+\lhead{Mathematical Induction} 
+\chead{Math Club}
+\rhead{Fall 2020} 
+
+
+\begin{document}
+
+\section{Introduction}
+
+Throughout Math Club, we will introduce various ways to solve problems and think creatively that may help you in math competitions as well as your classes. Today, we will focus on  induction.
+
+Induction is a powerful technique for proving assertions that are ``indexed'' by the integers. For instance, if we want to prove that the sum of the interior angles of an \(n\)-gon (a regular polygon with $n$ sides) is \(180(n-2)\) or that \(n!>2^n\) for \(n\geq 4\), we may want to use induction. The standard form of induction follows:
+
+\begin{theorem}[The Principle of Mathematical Induction]
+Given \(P(n)\), a property depending on a positive integer \(n\),
+\begin{enumerate}
+    \item (Base case) if \(P(n_0)\) is true for some positive integer \(n_0\), and
+    \item (Inductive step) if for every \(k\geq n_0\), \(P(k)\) true implies \(P(k+1)\) true,
+\end{enumerate}
+then \(P(n)\) is true for all \(n\geq n_0\).
+\end{theorem}
+Intuitively, induction is kind of like a row of dominoes. If I tip over the first domino, it will fall and then knock over the second domino, which will then fall and knock over the third, which will then knock over the fourth, and so on. In the same way, if I prove $P(1)$ is true, then by \#2 above, $P(2)$ is true. But again by \#2 above, this implies $P(3)$ is true, which in turn implies $P(4)$ is true, and so on. The point is that if we just prove \#1 and \#2 above, we will have proven \emph{infinitely many} statements $\{P(1),P(2),P(3),\dots\}$ \emph{all at once}.
+
+We will provide solutions to the following two problems together:
+
+\begin{exercise}
+    Prove that
+    \[1+2+3+\cdots+n = \frac{n(n+1)}{2}.\]
+\end{exercise}
+
+\begin{exercise}
+    Prove that for any positive integer \(n\), there exists an \(n\)-digit number divisible by \(2^n\) containing only the digits \(2\) and \(3\).
+\end{exercise}
+
+\section{Resources}
+
+The problems above and below are shamelessly ripped from the books \textit{Putnam and Beyond} by Andreescu and Gelca and \textit{Problem Solving Strategies} by Arthur Engel. We also stole some problems from the Putnam competition. Many other problem solving books have induction sections as well. These problems are arranged roughly in order of difficulty, but difficulty is relative to each person so take it with a grain of salt.
+
+\section{Easy (not really)}
+
+\begin{exercise}
+    Prove that
+    \[1^3 + 2^3 +\cdots+n^3 = \left(\frac{n(n+1)}{2}\right)^2\]
+\end{exercise}
+
+\begin{exercise}
+    Prove that a set with $n$ elements has $2^n$ subsets, including the empty set and the set itself. For example, the set $\{a,b,c\}$ has the eight subsets
+    \[\emptyset,\{a\},\{b\},\{c\},\{a,b\},\{a,c\},\{b,c\},\{a,b,c\}\]
+\end{exercise}
+
+\begin{exercise}
+    Given an unlimited supply of 3 and 5 cent stamps, prove that you can make any amount worth more than 7 cents.
+\end{exercise}
+
+\begin{exercise}
+    The plane is divided into regions by straight lines. Show that it is always possible to color the regions with two colors so that the adjacent regions are never the same color (like a checkerboard).
+\end{exercise}
+
+\begin{exercise}
+    Prove that \(3^n\geq n^3\) for all positive integers \(n\).
+\end{exercise}
+
+\begin{exercise}
+    Prove that every number has a unique representation in binary form.
+\end{exercise}
+
+\section{Medium}
+
+\begin{exercise}
+    Let \(\alpha\in\mathbb R\) such that \(\alpha + 1/\alpha\in\mathbb Z\). Prove that
+    \[\alpha^n+\frac{1}{\alpha^n}\in\ZZ \text{ for any }n\in\NN.\]
+\end{exercise}
+
+\begin{exercise}
+    In the plane, $n$ lines are drawn such that no two lines are parallel and no three meet in a point. Prove that these $n$ lines subdivide the plane into $\frac{1}{2}(n^2+n+2)$ regions.
+\end{exercise}
+
+\begin{exercise}[Needed: Binomial Theorem]
+    Prove Fermat's Little Theorem. i.e., let \(p\) be a prime and \(a\in\mathbb{Z}\). Then \(a^p\equiv a\pmod p\). That is, \(p\mid a^p-a\).
+\end{exercise}
+
+If you study computer science, recursion will show up frequently. It is important to notice how recursion and induction are intimately related. The next two problems explore this.
+
+\begin{exercise}[Recurrences]
+    \begin{enumerate}
+        \item Let \(I_n=\int_0^{\pi/2}\sin^nx\,dx\). Find a recurrence relation for \(I_n\).
+        \item Show that
+        \[I_{2n}=\frac{1\times 3\times 5\times\cdots\times(2n-1)}{2\times4\times6\times\cdots\times2n}\cdot\frac{\pi}{2}\]
+        \item Show that
+        \[I_{2n+1}=\frac{2\times4\times6\times\cdots\times2n}{1\times 3\times 5\times\cdots\times(2n-1)}\]
+    \end{enumerate}
+\end{exercise}
+
+The sequence $\{I_n\}$ is \emph{extremely} useful, with applications including the Wallis product and a proof of Stirling's formula, one of the most beautiful in mathematics. The next exercise contains a few results related to the Fibonacci sequence, defined by \(F_0=0\), \(F_1=1\), \(F_{n+2}=F_{n+1}+F_n\).
+
+\begin{exercise}
+    Prove the following:
+    \begin{enumerate}
+        \item \(F_nF_{n+2}=F_{n+1}^2+(-1)^{n+1}\)
+        \item \(\sum_{i=1}^nF_i^2=F_nF_{n+1}\)
+        \item \(F_n=(\alpha^n-\beta^n)/\sqrt5\), where \(\alpha=(1+\sqrt5)/2\) and \(\beta=(1-\sqrt5)/2\)
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+    Prove that $\frac{1}{\sqrt{1}}+\frac{1}{\sqrt{2}}+\cdots+\frac{1}{\sqrt{n}}<2\sqrt{n}$ for $n\geq 1$.
+\end{exercise}
+
+\section{Hard}
+
+\begin{exercise}
+    If $n$ is even, prove that the volume of the $n$-dimensional hypersphere of radius $r$ (the set of points $(x_1,\dots,x_n)\in \RR^n$ such that $x_1^2+\cdots+x_n^2 = r^2$) is
+    \[\frac{\pi^{n/2}r^n}{(n/2)!}\]
+\end{exercise}
+
+For those that wish to challenge themselves further, we provide some Putnam problems that may be solved with induction. Note that induction may not be the only (or simplest) solution necessarily.
+
+\begin{exercise}[1992 A1]
+    Prove that \(f(n)=1-n\) is the only integer-valued function defined on the integers that satisfies the following condtions:
+    \begin{enumerate}
+        \item \(f(f(n))=n\) for all integers \(n\);
+        \item \(f(f(n+2)+2)=n\) for all integers \(n\);
+        \item \(f(0)=1\).
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[2017 A2]
+    Let \(Q_0(x)=1\), \(Q_1(x)=x\), and
+    \[Q_n(x)=\frac{(Q_{n-1}(x))^2-1}{Q_{n-2}(x)}\]
+    for all \(n\geq 2\). Show that whenever \(n\) is a positive integer, \(Q_n(x)\) is a polynomial with integer coefficients.
+\end{exercise}
+
+\begin{exercise}[2012 B4]
+    Suppose that \(a_0=1\) and that \(a_{n+1}=a_n+e^{-a_n}\) for \(n=0,1,2,\ldots\). Does \(a_n-\log n\) have a finite limit as \(n\to\infty\)? (Here, \(\log n=\log_en=\ln n\).)
+\end{exercise}
+
+
+\begin{exercise}
+    Recall that the Fibonacci numbers are defined by $F_0=0$, $F_1=1$, and $F_{n+2}=F_{n+1}+F_n$. Prove that
+    \[\sum_{n=2}^\infty \arctan\frac{(-1)^n}{F_{2n}} = \frac{1}{2}\arctan{\frac{1}{2}}\]
+\end{exercise}
+
+\end{document}

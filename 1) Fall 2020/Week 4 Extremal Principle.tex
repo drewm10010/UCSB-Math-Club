@@ -1,0 +1,222 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{pdfrender,xcolor}
+\usepackage{graphicx}
+
+
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools,graphicx,tikz-cd}
+\usepackage{blindtext}
+\usepackage[margin = 1.25 in]{geometry}
+\usepackage{enumitem}
+
+\usepackage{fancyhdr,accents,lastpage}
+\pagestyle{fancy}
+\setlength{\headheight}{25pt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem{exercise}{Exercise}
+\newtheorem{example}{Example}[definition]
+
+\linespread{1.2}
+
+\DeclareMathOperator{\ab}{ab}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\BGL}{BGL}
+\DeclareMathOperator{\Br}{Br}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\CHur}{CHur}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\et}{\text{\'et}}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Hur}{Hur}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Out}{Out}
+\DeclareMathOperator{\Perm}{Perm}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Pin}{Pin}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\Surj}{Surj}
+\DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\tame}{tame}
+\DeclareMathOperator{\Tr}{Tr}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\QED}{\hspace{\stretch{1}} $\blacksquare$}
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcC}{\mathcal{C}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcN}{\mathcal{N}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcQ}{\mathcal{Q}}
+\newcommand{\mfa}{\mathfrak{a}}
+\newcommand{\mfb}{\mathfrak{b}}
+\newcommand{\mfI}{\mathfrak{I}}
+\newcommand{\mfM}{\mathfrak{M}}
+\newcommand{\mfm}{\mathfrak{m}}
+\newcommand{\mfo}{\mathfrak{o}}
+\newcommand{\mfO}{\mathfrak{O}}
+\newcommand{\mfP}{\mathfrak{P}}
+\newcommand{\mfp}{\mathfrak{p}}
+\newcommand{\mfq}{\mathfrak{q}}
+\newcommand{\mfz}{\mathfrak{z}}
+\newcommand{\AGL}{\mathbb{A}\GL}
+\newcommand{\Qbar}{\overline{\QQ}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+
+
+\lhead{The Extremal Principle} 
+\chead{Math Club}
+\rhead{Fall 2020} 
+
+
+\begin{document}
+
+\section{Introduction}
+The Extremal Principle provides us an efficient tool to show the existence of an object with certain properties. Basically, we pick an object which maximizes or minimizes some function, and then argue by contradiction that a slight violation will further increase or decrease the given function. Before exploring into particular problems, we present three fundamental facts regarding the extrema: 
+
+\begin{itemize}
+    \item Every finite nonempty set $A$ of real numbers has a minimal element $\min{A}$ and a maximal element $\max{A}$.
+    By definition, $\forall a \in A, \min{A} \leq a \leq \max{A}$. 
+    
+    \item Every nonempty set of positive integers has a smallest element (the well ordering principle).
+    
+    \item An infinite set $A$ of real numbers might not have a minimal or maximal element. However, the completeness axiom of $\mathbb{R}$ guarantees that if $A$ is a nonempty subset in $\mathbb{R}$ bounded above, then $A$ has a least upper bound denoted by $\sup{A}$. Likewise, if $A$ is bounded below, then $\inf{A}$ is the largest lower bound. 
+\end{itemize}
+
+Using the extremal principle, we solve the following problem together: 
+
+\begin{exercise}
+    There are $n$ distinct points in the plane. Any three of the points form a triangle of area $\leq 1$. Show that all $n$ points lie in a triangle of area $\leq 4$. 
+\end{exercise}
+
+\section{Resources}
+
+The problems above and below are shamelessly ripped from the books \textit{Putnam and Beyond} by Andreescu and Gelca and \textit{Problem Solving Strategies} by Arthur Engel. We also stole some problems from the Putnam competition. Many other problem solving books have induction sections as well. These problems are arranged roughly in order of difficulty, but difficulty is relative to each person so take it with a grain of salt.
+
+\section{Easy (not really)}
+\begin{exercise}
+    Prove that $\sqrt{2}$ is irrational by using the extremal principle. (\emph{Hint}: Suppose $\sqrt{2}$ is rational, and let $n$ be the least positive integer such that $n\sqrt{2}$ is an integer. Derive a contradiction.)
+\end{exercise}
+
+\begin{exercise}
+Imagine an infinite chessboard that contains a positive integer in each square. If the value in each square is equal to the average of its four neighbors to the north, south, west, and east, prove the values in all the squares are equal. 
+\end{exercise}
+
+\begin{exercise}
+    There are $2000$ points on a circle, and each point is given a number that is equal to the average of the numbers of its two nearest neighbors. Show that all the numbers must be equal.
+\end{exercise}
+
+\begin{exercise}
+   Let $B$ and $W$ be finite sets of black and white points, respectively, in the plane, with the property that every line segment that joins two points of the same color contains a point of the other color. Prove that both sets must lie on a single line segment.
+\end{exercise}
+
+\begin{exercise}
+    In the plane, $n$ lines are given ($n \geq 3$), no two of them parallel. Through every intersection of two lines passes at least an additional line. Prove that all lines pass through one point. 
+\end{exercise}
+
+
+\begin{exercise}[Sylvester Problem]
+    A finite set $S$ of points in the plane has the property that any line through two of them passes through a third. Show that all the points lie on a line. 
+\end{exercise}
+
+\begin{exercise}
+    The Sikinian Parliament consists of one house. Every member has three enemies at most among the remaining members. Show that one can split the house into two houses so that every member has one enemy at most in his house. 
+\end{exercise}
+
+\section{Medium}
+
+\begin{exercise}
+    There is no quadruple of positive integers $(x, y, z, u)$ satisfying 
+    \[x^2 + y^2 = 3(z^{2} + u^{2}). 
+    \]
+\end{exercise}
+
+\begin{exercise}
+    In some country all roads between cities are one-way and such that once you leave a city you cannot return to it again. Prove that there exists a city into which all roads enter and a city from which all roads exit (Hint: consider the oriented graph with cities as vertices and roads as directed edges).  
+\end{exercise}
+
+\begin{exercise}
+    Place the integers $1, 2, \ldots, n^2$ (without duplication) in any order onto an $n \times n$ chessboard, with one integer per square. Show that there exist two adjacent entries whose difference is at least $n + 1$ (Adjacent means horizontally or vertically or diagonally adjacent). 
+\end{exercise}
+
+\begin{exercise}
+    Let $a_{1}, a_{2}, \ldots a_{n}$ be nonnegative reals satisfying $\sum_{i = 1}^{n} a_{i} = 3$ and $\sum_{i = 1}^{n} a_{i}^{2} > 1$. Prove that you may choose three of these numbers with sum $> 1$.
+\end{exercise}
+
+\begin{exercise}
+    Find all real solutions of the system $(x + y)^{3} = z$, $(y + z)^{3} = x$, $(z + x)^{3} = y$. 
+\end{exercise}
+
+
+\begin{exercise}
+A polynomial with integer coefficients is called \emph{primitive} if its coefficients are relatively prime (don't share a common prime factor). Prove that the product of two primitive polynomials is primitive.
+\end{exercise}
+
+
+\section{Hard}
+For those that wish to challenge themselves further, we provide some Putnam problems that may be solved with the extremal principle.
+
+\begin{exercise}[1979 A4]
+Let $A$ be a set of $2n$ points in the plane, no three of which are collinear. Suppose that $n$ of them are colored red, and the remaining $n$ blue. Prove or disprove: there are n straight line segments, no two with a point in common, such that the endpoints of each segment are points of $A$ having different colors. 
+\end{exercise}
+
+\begin{exercise}[1995 A4]
+Suppose we have a necklace of $n$ beads. Each bead is labeled with an integer and the sum of all these labels is $n - 1$. Prove that we can cut the necklace to form a string whose consecutive labels $x_1,x_2, \ldots, x_n$ satisfy
+\[\sum_{i = 1}^{k} x_{i} \leq k - 1 \hspace{3mm} \text{for $k = 1, 2, \ldots, n$}.
+\]
+\end{exercise}
+
+
+
+
+\end{document}

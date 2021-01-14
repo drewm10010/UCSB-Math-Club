@@ -1,0 +1,182 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{pdfrender,xcolor}
+\usepackage{graphicx}
+
+
+\usepackage{indentfirst}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools,graphicx,tikz-cd}
+\usepackage{blindtext}
+\usepackage[margin = 1.25 in]{geometry}
+\usepackage{enumitem}
+
+\usepackage{fancyhdr,accents,lastpage}
+\pagestyle{fancy}
+\setlength{\headheight}{25pt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem{exercise}{Exercise}
+\newtheorem{example}{Example}[definition]
+
+\linespread{1.2}
+
+\DeclareMathOperator{\ab}{ab}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\BGL}{BGL}
+\DeclareMathOperator{\Br}{Br}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\CHur}{CHur}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\et}{\text{\'et}}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Hur}{Hur}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Out}{Out}
+\DeclareMathOperator{\Perm}{Perm}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Pin}{Pin}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\Surj}{Surj}
+\DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\tame}{tame}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\sign}{sign}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\QED}{\hspace{\stretch{1}} $\blacksquare$}
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcC}{\mathcal{C}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcN}{\mathcal{N}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcQ}{\mathcal{Q}}
+\newcommand{\mfa}{\mathfrak{a}}
+\newcommand{\mfb}{\mathfrak{b}}
+\newcommand{\mfI}{\mathfrak{I}}
+\newcommand{\mfM}{\mathfrak{M}}
+\newcommand{\mfm}{\mathfrak{m}}
+\newcommand{\mfo}{\mathfrak{o}}
+\newcommand{\mfO}{\mathfrak{O}}
+\newcommand{\mfP}{\mathfrak{P}}
+\newcommand{\mfp}{\mathfrak{p}}
+\newcommand{\mfq}{\mathfrak{q}}
+\newcommand{\mfz}{\mathfrak{z}}
+\newcommand{\AGL}{\mathbb{A}\GL}
+\newcommand{\Qbar}{\overline{\QQ}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\lhead{Recreational Mathematics} 
+\chead{Math Club}
+\rhead{Fall 2020} 
+
+
+\begin{document}
+
+
+\section{Introduction}
+
+    Welcome to week 10 of math club! Congratulations on making it to dead week and good luck on your finals. Today, we will be doing something a little different. Usually in the fall, we prepare for the Putnam exam by problem solving through various topics. Today, we will focus on the fun stuff in math - recreational mathematics. We will be looking at various puzzles and games designed purely for entertainment (although many have deep mathematical undertones). Some of you may have heard of the solutions to some of these before, so please no spoilers. So without further ado, let's get problem solving!
+
+\section{Resources}
+
+    We have taken some of these puzzles from \textit{Green-Eyed Dragons and Other Mathematical Mosters} by David Morin. Many of these puzzles came from Martin Gardner's column \textit{Mathematical Games} in Scientific American magazine.
+
+\section{Exercises}
+
+    \begin{exercise}[Green-eyed dragons]
+        You visit a remote desert island inhabited by one hundred very friendly dragons, all of whom have green eyes. They haven’t seen a human for many centuries and are very excited about your visit. They show you around their island and tell you all about their dragon way of life (dragons can talk, of course).
+    
+        They seem to be quite normal, as far as dragons go, but then you find out something rather odd. They have a rule on the island that states that if a dragon ever finds out that he/she has green eyes, then at precisely midnight at the end of the day of this discovery, he/she must relinquish all dragon powers and transform into a long-tailed sparrow. However, there are no mirrors on the island, and the dragons never talk about eye color, so they have been living in blissful ignorance throughout the ages.
+
+        Upon your departure, all the dragons get together to see you off, and in a tearful farewell you thank them for being such hospitable dragons. You then decide to tell them something that they all already know (for each can see the colors of the eyes of all the other dragons): You tell them all that at least one of them has green eyes. Then you leave, not thinking of the consequences (if any). Assuming that the dragons are (of course) infallibly logical, what happens? If something interesting does happen, what exactly is the new information you gave the dragons?
+    \end{exercise}
+    
+    \begin{exercise}[The Unexpected Hanging Paradox]
+        A prisoner is told that he will be hanged on some day between Monday and Friday, but that he will not know on which day the hanging will occur before it happens. He cannot be hanged on Friday, because if he were still alive on Thursday, he would know that the hanging will occur on Friday, but he has been told he will not know the day of his hanging in advance. He cannot be hanged Thursday for the same reason, and the same argument shows that he cannot be hanged on any other day. Nevertheless, the executioner unexpectedly arrives on Wednesday, surprising the prisoner. What is wrong with the prisoner's argument?
+    \end{exercise}
+
+    \begin{exercise}[Ant on a rubber rope]
+        An ant starts to crawl along a taut rubber rope 1 km long at a speed of 1 cm per second (relative to the rubber it is crawling on). At the same time, the rope starts to stretch uniformly at a constant rate of 1 km per second, so that after 1 second it is 2 km long, after 2 seconds it is 3 km long, etc. Will the ant ever reach the end of the rope?
+    \end{exercise}
+
+    \begin{exercise}[Four fours]
+        Pick your favorite integer \(x\). Using exactly four 4's and the operators \(+\), \(\times\), \(-\), \(\div\), brackets, decimals, roots, exponents, factorials, and concatenation, form your integer \(x\). Four example, 
+        \[5 = \frac{4\times 4 + 4}{4}\quad\text{and}\quad 16 = .4\times (44-4).\]
+        Now include logarithms of a specified base. Prove that you can write any integer \(n\) using the above and logarithms in a systematic way. (a ``nice'' formula).
+    \end{exercise}
+    
+    \begin{exercise}[Cold war]
+        Two missiles speed directly toward each other, one at 9,000 miles per hour and the other at 21,000 miles per hour. They start at 4,857 miles apart. Without using pencil and paper (or similar tools), calculate how far apart they are one minute before they collide.
+    \end{exercise}
+    
+    \begin{exercise}[Round trip]
+        Mr. Smith planned to drive from Chicago to Detroit, then back again. He wanted to average 60 miles an hour for the entire round trip. After arriving in Detroit, he found that his average speed for the trip was only 30 miles an hour. What must Smith's average speed be on the return trip in order to raise his average for the round trip to 60 miles an hour? Recall that average speed is defined by the total distance travelled divided by the total time taken.
+    \end{exercise}
+    
+    \begin{exercise}[Brick in a Boat]
+        You are sitting in a rowboat on a small lake. You have a brick in your boat. You toss the brick out of your boat and into the lake, where it quickly sinks to the bottom. Does the water level rise slightly, drop slightly, or stay the same?
+    \end{exercise}
+    
+    \begin{exercise}[Licking Frogs]
+        You are lost in the jungles of Brazil. After days of wandering, your food supplies dwindle, and you make a fatal mistake by eating a poisonous mushroom. You can feel the poison coursing through your veins, sure that you will collapse any second. But there is hope. The antidote to the poison is secreted by a certain species of frog found in this rainforest, and you can save yourself by licking one of these frogs. But, only the female frogs secret the antidote you need. The male and female frogs look identical, and they occur in equal numbers across the population. The only distinguishing feature is that the male frogs have a unique croak.
+
+        As your vision starts to blur, you look up and see one of these frogs sitting on a stump in front of you. You are about to make a mad dash to the frog, praying that it is female, when you hear the male frog's distinctive croak behind you. You turn around and see that there are two frogs on the grass in a clearing, just about as far away from you as the one on the stump. You do not know which one of the two frogs in the clearing croaked.
+
+        You only have time to reach the one frog on the stump, or the two frogs in the clearing (one of which croaked) before you pass out. Should you dash to the stump and lick the one frog, or into the clearing and lick the two?
+    \end{exercise}
+    
+    \begin{exercise}[The game of Nim]
+        Determine the best strategy for each player in the following two-player game. There are three piles, each of which contains some number of coins. Players alternate turns, each turn consisting of removing any (non-zero) number of coins from a single pile. The player who removes the last coin(s) wins.
+    \end{exercise}
+
+
+\end{document}

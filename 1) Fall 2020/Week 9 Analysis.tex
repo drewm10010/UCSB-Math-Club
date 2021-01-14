@@ -1,0 +1,229 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{pdfrender,xcolor}
+\usepackage{graphicx}
+
+
+\usepackage{indentfirst}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools,graphicx,tikz-cd}
+\usepackage{blindtext}
+\usepackage[margin = 1.25 in]{geometry}
+\usepackage{enumitem}
+
+\usepackage{fancyhdr,accents,lastpage}
+\pagestyle{fancy}
+\setlength{\headheight}{25pt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem{exercise}{Exercise}
+\newtheorem{example}{Example}[definition]
+
+\linespread{1.2}
+
+\DeclareMathOperator{\ab}{ab}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\BGL}{BGL}
+\DeclareMathOperator{\Br}{Br}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\CHur}{CHur}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\et}{\text{\'et}}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Hur}{Hur}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Out}{Out}
+\DeclareMathOperator{\Perm}{Perm}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Pin}{Pin}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\Surj}{Surj}
+\DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\tame}{tame}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\sign}{sign}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\QED}{\hspace{\stretch{1}} $\blacksquare$}
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcC}{\mathcal{C}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcN}{\mathcal{N}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcQ}{\mathcal{Q}}
+\newcommand{\mfa}{\mathfrak{a}}
+\newcommand{\mfb}{\mathfrak{b}}
+\newcommand{\mfI}{\mathfrak{I}}
+\newcommand{\mfM}{\mathfrak{M}}
+\newcommand{\mfm}{\mathfrak{m}}
+\newcommand{\mfo}{\mathfrak{o}}
+\newcommand{\mfO}{\mathfrak{O}}
+\newcommand{\mfP}{\mathfrak{P}}
+\newcommand{\mfp}{\mathfrak{p}}
+\newcommand{\mfq}{\mathfrak{q}}
+\newcommand{\mfz}{\mathfrak{z}}
+\newcommand{\AGL}{\mathbb{A}\GL}
+\newcommand{\Qbar}{\overline{\QQ}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\lhead{Analysis} 
+\chead{Math Club}
+\rhead{Fall 2020} 
+
+
+\begin{document}
+
+
+\section{Introduction}
+For Week $9$ of Math Club, we will be discussing a few techniques from (real) analysis, which is basically calculus, but more rigorous. The Putnam exam often includes problems which will test your knowledge of the theorems and computational methods of single- and multi-variable analysis---they did so last year, in fact. We hope this handout should enable you to attack such problems with a little more confidence.
+
+We will only concentrate on a few topics today, because analysis is such a vast and beautiful subject; we would get nowhere if we tried to cover all of it, and this would likely do you no good. Therefore, you should know that there are several more important concepts within this field which you may see on a Putnam exam or in a future class. To learn about them, you may consult the list of resources compiled below. Through doing so you will understand, the breadth, the beauty, and the transcendent power of analysis, and you'll understand why so many people (including many of my fellow CCS compatriots) are enthusiastic to learn more about it.
+
+\section{Resources}
+Problems were mainly taken from the ``Analysis'' or ``Calculus'' focused sections of \emph{Problem Solving Through Problems}, \emph{The Art and Craft of Problem Solving}, and \emph{Putnam and Beyond}. To learn analysis in more depth, check out \emph{A Primer of Real Functions} for a more introductory approach or \emph{Principles of Mathematical Analysis} for a more terse, advanced approach. For learning about the theorems of multi-variable calculus which are prominent in PDE theory, there are several decent texts you can check out, so just ask if you want to know. Finally, the problem books \emph{Problems and Theorems in Analysis}, volumes $1$ and $2$, are very highly regarded. To clarify, these are sources on \emph{real} analysis, rather than \emph{complex} analysis. The latter is an extraordinary subject in its own right.
+
+\section{The Calculus}
+You'll see a lot of familiar faces in this section. A brief review of important rules. Intermediate Value Theorem: if $f$ is continuous on $[a,b]$ then every value between $f(a)$ and $f(b)$ is of the form $f(c) $ for some $c\in [a,b]$. Extreme Value Theorem: if $f$ is continuous on $[a,b]$, there exists $y\in [a,b]$ such that $f(y)\leq f(x)$ for all $x\in [a,b]$. Rolle's Theorem: if $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, and $f(a)=f(b)$, then there exists $u$ with $a < u < b$ such that $f'(u)=0$. Mean Value Theorem: if $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, then there exists $u$ with $a < u < b$ such that $f'(u)=\frac{f(b)-f(a)}{b-a}$. Fundamental Theorem of Calculus: if $f$ is continuous at $c$, the function $F(x) = \int_a^x f(t)\ dt$ is differentiable at $c$ and $F'(c)=f(c)$.
+
+\begin{exercise}
+Recall integration by parts:
+\[ \int f\ dg = fg- \int g\ df\] Substitute $f(x)=1/x$, $g(x)=x$ to get
+\[\int \frac{1}{x}\ dx = 1+ \int \frac{1}{x}\ dx\] and therefore $0=1$. Find the fallacy in this argument. \emph{Hint: 3}
+\end{exercise}
+
+\begin{exercise}[Intermediate Value Theorem]
+Suppose $g:[0,1]\to [0,1]$ is a continuous function. Prove that $g$ has a fixed point in $[0,1]$, i.e., some $x\in [0,1]$ such that $g(x)=x$.
+\end{exercise}
+
+\begin{exercise}[Extreme Value Theorem]
+Suppose $f$ is continuous on $[a,b]$, and assume $f(x)>0$ for all $a\leq x \leq b$. Prove that there is a positive constant $c$ for which $c\leq f(x)$ for all $x\in [a,b]$.
+\end{exercise}
+
+\begin{exercise}[Rolle's Theorem]
+Suppose $f$ is a differentiable function on $(-\infty, +\infty)$ with at least $n$ roots. Prove that $f'$ has at least $n-1$ roots.
+\end{exercise}
+
+\begin{exercise}[Fundamental Theorem of Calculus]
+Find all real-valued continuously differentiable functions on the real line such that for all $x$
+\[(f(x))^2 = \int_0^x \left((f(t))^2 + (f'(t))^2\right)\ dt + 1990\]
+\end{exercise}
+
+\begin{exercise} Let $f(x)=a_1\sin{x}+a_2\sin{2x}+\cdots + a_n\sin{nx}$, where $a_1,a_2,\dots,a_n$ are real numbers and $n$ is a positive integer. Given that $|f(x)|\leq |\sin{x}|$ for all $x$, prove that $|a_1+2a_2+\cdots+na_n|<1$. \emph{Hint: 7}
+\end{exercise}
+
+\begin{exercise}
+Suppose $f$ is differentiable on $(-\infty, \infty)$ and that there is some constant $k<1$ for which $|f'(x)|\leq k$ for all real $x$. Prove that $f$ has a fixed point. 
+\end{exercise}
+
+\begin{exercise}[1992 A4]
+Let $f$ be an infinitely differentiable real-valued function defined on the real numbers. If \[f\left(\frac{1}{n}\right) =\frac{n^2}{n^2+1}\] for $n=1,2,3,\cdots$, compute the values of the derivatives $f^{(k)}(0)$. \emph{Hint: 8}
+\end{exercise}
+
+\begin{exercise}[A fun little integral]
+Compute
+\[\int_2^4 \frac{\log\sqrt{9-x}}{\log\sqrt{9-x}+\log\sqrt{x+3}}\ dx\] where $\log$ denotes the natural logarithm. \emph{Hint: 1}
+\end{exercise}
+
+\section{Limits}
+You may find this section fun. Some relevant definitions are listed. A sequence $\{x_n\}$ \emph{converges to a limit $L$} if $\lim_{n\to \infty} x_n = L$, that is, if for every $\eps > 0$ there exists a positive integer $N$ such that $|x_n - L| < \eps $ for $n\geq N$. Otherwise, we say the sequence \emph{diverges}. A series $\sum a_n$ is just a type of sequence where we take $x_n = \sum_{k=1}^n a_k=a_1+a_2+\cdots + a_n$. A sequence $\{x_n\}$ is \emph{monotonic} if $x_n \leq x_{n+1}$ for all $n$, or $x_n \geq x_{n+1}$ for all $n$, i.e., it is increasing or decreasing. An important technique is using Riemann sums to compute series; this is done by noting the identity $\lim_{n\to\infty} (1/n)\sum_{k=1}^n f(k/n) = \int_0^1 f(x)dx$.
+
+\begin{exercise}
+Let $\{x_n\}$ be a sequence satisfying \[\lim_{n\to\infty} (x_n-x_{n-1}) = 0\] Prove that \[\lim_{n\to\infty} \frac{x_n}{n}= 0\]
+\end{exercise}
+
+\begin{exercise}
+Let $\{x_n\}$ be a sequence of real numbers such that \[ \lim_{n\to\infty} (2x_{n+1}-x_n)=L\] Prove that $\{x_n\}$ converges and its limit is $L$.
+\end{exercise}
+
+\begin{exercise}
+Evaluate
+\[1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\cdots}}}\]
+That is, compute the limit of the sequence $\{x_n\}$, where $x_1 = 1$ and $x_{n+1}=1+\frac{1}{x_n}$. \emph{Hint: 2}
+\end{exercise}
+
+\begin{exercise}[1995 B4]
+Evaluate
+\[\sqrt[8]{2207 - \frac{1}{2207-\frac{1}{2207-\cdots}}}\] and express your answer in the form $\frac{a+b\sqrt{c}}{d}$ where $a$, $b$, $c$, and $d$ are integers.
+\end{exercise}
+
+\begin{exercise}
+Compute
+\[\lim_{n\to\infty}\left(\sum_{k=1}^n \frac{n}{k^2+n^2}\right)\] \emph{Hint: 5}
+\end{exercise}
+
+\begin{exercise}[1996 B2]
+Prove that for every integer $n$, 
+\[\left(\frac{2n-1}{e}\right)^{\frac{2n-1}{2}} < 1\cdot 3 \cdot 5 \cdots (2n-1) < \left(\frac{2n+1}{e}\right)^{\frac{2n+1}{2}}\]
+\end{exercise}
+
+\begin{exercise}[1970 B1]
+Evaluate \[\lim_{n\to\infty}\left(\frac{1}{n^4} \prod_{i=1}^{2n} (n^2+i^2)^{1/n}\right)\]
+\end{exercise}
+
+\section{Challenge}
+
+\begin{exercise}[2019 A6]
+Let $g$ be a real-valued function that is continuous on $[0,1]$ and twice differentiable on the open interval $(0,1)$. Suppose that for some real number $r>1$, 
+\[\lim_{x\to 0^+} \frac{g(x)}{x^r}=0\] Prove that either 
+\[\lim_{x\to 0^+} g(x)=0 \ \ \ \ \ \text{     or   }\ \ \ \ \  \limsup_{x\to 0^+}x^r|g''(x)| = +\infty\]
+\end{exercise}
+
+\pagebreak
+\section{Hints}
+\begin{enumerate}
+    \item There is symmetry in the variables $9-x$ and $x+3$. Think about a variable change.
+    \item Let $x$ be the limit in question and try to express $x$ in terms of itself.
+    \item The erroneous move is subtracting $\int \frac{1}{x}\ dx$ from both sides. Why?
+    \item Use the definition of convergence. Let me see some $\eps$'s.
+    \item Recognize the Riemann sum; an integral is lurking.
+    \item Let $g(x)=f(x)-x$.
+    \item Remember the definition of the derivative!
+    \item Since each $f^{(k)}$ is differentiable, $f^{(k)}$ is continuous. And we know that if $g$ is continuous and $\{x_n\}$ is a sequence converging to zero, $g(x_n)$ converges to $g(x_0)$. Can we find a sequence $\{x_n\}$ for which $x_n \to 0$ and $f^{(k)}(x_n)\to 

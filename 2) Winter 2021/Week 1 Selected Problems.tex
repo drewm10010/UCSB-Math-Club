@@ -1,0 +1,229 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{pdfrender,xcolor}
+\usepackage{graphicx}
+
+
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools,graphicx,tikz-cd}
+\usepackage{blindtext}
+\usepackage[margin = 1.25 in]{geometry}
+\usepackage{enumitem}
+
+\usepackage{fancyhdr,accents,lastpage}
+\pagestyle{fancy}
+\setlength{\headheight}{25pt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem{exercise}{Exercise}
+\newtheorem{example}{Example}[definition]
+
+
+\DeclareMathOperator{\ab}{ab}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\BGL}{BGL}
+\DeclareMathOperator{\Br}{Br}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\CHur}{CHur}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\et}{\text{\'et}}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Hur}{Hur}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Out}{Out}
+\DeclareMathOperator{\Perm}{Perm}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Pin}{Pin}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\Surj}{Surj}
+\DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\tame}{tame}
+\DeclareMathOperator{\Tr}{Tr}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\QED}{\hspace{\stretch{1}} $\blacksquare$}
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcC}{\mathcal{C}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcN}{\mathcal{N}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcQ}{\mathcal{Q}}
+\newcommand{\mfa}{\mathfrak{a}}
+\newcommand{\mfb}{\mathfrak{b}}
+\newcommand{\mfI}{\mathfrak{I}}
+\newcommand{\mfM}{\mathfrak{M}}
+\newcommand{\mfm}{\mathfrak{m}}
+\newcommand{\mfo}{\mathfrak{o}}
+\newcommand{\mfO}{\mathfrak{O}}
+\newcommand{\mfP}{\mathfrak{P}}
+\newcommand{\mfp}{\mathfrak{p}}
+\newcommand{\mfq}{\mathfrak{q}}
+\newcommand{\mfz}{\mathfrak{z}}
+\newcommand{\AGL}{\mathbb{A}\GL}
+\newcommand{\Qbar}{\overline{\QQ}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\lhead{Introduction and Selected Problems} 
+\chead{Math Club}
+\rhead{Winter 2021} 
+
+\begin{document}
+
+\section{Introduction}
+
+    Welcome back to Math Club! Today, we will go over what the rest of this quarter looks like, talk about the Putnam exam, and solve some fun and interesting problems.
+    
+    If anyone has a burning desire for a certain mathematical topic to cover this quarter, let us know and we'd be more than willing to make it happen.
+    
+    The fifth, sixth, and seventh weeks of this quarter will be devoted to Putnam preparation. Because of the pandemic, the exam will be completed remotely, and you will not be assigned a ranking. However, you do receive an official score, so this would be a great chance to see how you do without the subsequent shaming/flexing. If you're looking to take the Putnam, make sure you're here on Feb 1, 8, and 16.
+    
+    Happy problem solving!
+
+\section{Resources}
+
+    As usual, most of these problems are taken from various books and other sources listed under the \#book\_resources tab on our Slack page.
+\section{(Relatively) Easy}
+
+\begin{exercise}
+Prove that for all real numbers $x$, 
+\[2^x + 3^x - 4^x + 6^x - 9^x \leq 1.
+\]
+\end{exercise}
+
+\begin{exercise}[Use algebra]
+Imagine that the earth is a smooth sphere and that a string is wrapped around it at the equator. Now suppose that the string is lengthened by six feet and the new length is evenly pushed out to form a larger circle just over the equator. Is the distance between the string and the surface of the earth more or less than one inch?
+\end{exercise}
+
+\begin{exercise}[Construction]
+Cover the plane with non-overlapping squares such that only two of them are the same size.
+\end{exercise}
+
+\begin{exercise}
+All the students in a school are arranged in a rectangular array. After that, the tallest student in each row was chosen, and then among these John Smith happened to be the shortest. Then, in each column, the shortest student was chosen, and Mary Brown was the tallest of these. Who is taller: John or Mary?
+\end{exercise}
+
+\begin{exercise}[Contradiction]
+None of the numbers $a,b,c,d,e,f$ equals zero. Prove that there are both positive and negative numbers among the numbers $ab,cd,ef,-ac,-be,$ and $-df$.
+\end{exercise}
+
+\begin{exercise}[Exploit Symmetry]
+How many subsets of $\{1,2,3,4,\dots,30\}$ have the property that the sum of the elements of the subset is greater than $232$?
+\end{exercise}
+
+\begin{exercise}
+Devise an experiment which uses only tosses of a fair coin, but which has success probability $1/3$. (More difficult) Do the same for any success probability $p$ with $1\leq p\leq 1$.
+\end{exercise}
+
+\section{Medium}
+\begin{exercise}
+For $a, b$ nonnegative integers, define $T(a, b) = \binom{6}{a}\binom{6}{b}\binom{6}{a + b}$. Compute
+\[S = \sum_{a + b \leq 6} T(a, b).
+\]
+\end{exercise}
+
+\begin{exercise}
+Determine all functions $f: \mathbb{N} \rightarrow \mathbb{N}$ satisfying 
+\[xf(y) + yf(x) = (x + y)(x^2 + y^2)
+\]
+for all positive integers $x$ and $y$. 
+\end{exercise}
+
+\begin{exercise}[Formulate an Equivalent Problem]
+The number $3$ can be expressed as a sum of one or more positive integers, taking order into account, in four ways, namely, as $3$, $1+2$, $2+1$, and $1+1+1$. Show that any positive integer $n$ can so be expressed in $2^{n-1}$ ways.
+\end{exercise}
+
+\begin{exercise}[Contradiction]
+Prove that if a function $f:\NN\to\NN$ satisfies
+\[xf(y)+yf(x)=(x+y)f(x^2+y^2)\] for all $x,y \in \NN$, then $f$ must be constant.
+\end{exercise}
+
+\begin{exercise}
+Suppose $f:[0,+\infty)\to \RR$ be a twice-differentiable function satisfying $f(0)\geq 0$ and $f'(x) > f(x)$ for all $x> 0$. Prove that $f(x)>0$ for all $x>0$. (\emph{Hint:} Consider $g(x)=e^{-x}f(x)$)
+\end{exercise}
+
+\begin{exercise}
+Let $f(x)$ be a polynomial of degree $n$ with real coefficients and such that $f(x)\geq 0$ for every real number $x$. Show that $f(x)+f'(x)+\cdots + f^{(n)}(x)\geq 0$ for all real $x$. 
+\end{exercise}
+
+
+\section{Difficult}
+\begin{exercise}[1985 A1]
+Determine, with proof, the number of ordered triples $(A_1, A_2, A_3)$ of sets which have the property that\\
+(i) $A_{1} \cup A_{2} \cup A_{3} = \{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\}$, and\\
+(ii) $A_{1} \cap A_{2} \cap A_{3} = \emptyset$.\\
+Express the answer in the form $2^{a}3^{b}5^{c}7^{d}$, where $a, b, c,$ and $d$ are nonnegative integers. 
+\end{exercise}
+
+\begin{exercise}
+Let $a_{0} = \sqrt{2} + \sqrt{3} + \sqrt{6}$ and let $a_{n + 1} = \frac{a_{n}^{2} - 5}{2(a_{n} + 2)}$ for $n \geq 0$. Prove that 
+\[a_{n} = \cot{\left(\frac{2^{n - 3}\pi}{3}\right)} - 2 \text{ for all $n$.}
+\]
+\end{exercise}
+
+\begin{exercise}[1989 B4]
+Can a countably infinite set have an uncountable collection of nonempty subsets such that the intersection of any two of them is finite?
+\end{exercise}
+
+\begin{exercise}
+The first $2n$ numbers (the numbers $1,2,\dots,2n$) are arbitrarily divided into two groups of $n$ numbers each. The numbers in the first group are sorted in ascending order, i.e., $a_1<\dots <a_n$, and the numbers in the second group are sorted in descending order, i.e., $b_1>\cdots > b_n$. Find, with proof, the sum
+\[|a_1-b_1|+|a_2-b_2|+\cdots +|a_n-b_n|\]
+\end{exercise}
+
+\begin{exercise}[1986 B4]
+For a positive real number $r$, let $G(r)$ be the minimum value of $\left|r-\sqrt{m^2+2n^2}\right|$ over all choices of integers $m$ and $n$. Prove or disprove the assertion that $\lim_{r\to\infty} G(r)$ exists and equals $0$.
+\end{exercise}
+
+\begin{exercise}[1986 A5] 
+Suppose $f_1(\mathbf{x}),f_2(\mathbf{x}),\dots,f_n(\mathbf{x})$ are functions of $n$ real variables $\mathbf{x}=\begin{pmatrix}x_1 \\ \vdots \\ x_n\end{pmatrix}$ with continuous second-order partial derivatives everywhere on $\RR^n$. Suppose further that there are constants $c_{ij}$ such that
+\[\frac{\partial f_i}{\partial x_j}-\frac{\partial f_j}{\partial x_i} = c_{ij}\] for all $i$ and $j$, $1\leq i \leq n$, $1\leq j \leq n$. Prove that there is a function $g(\mathbf{x})$ on $\RR^n$ such that $f_i+\partial g/\partial x_i$ is linear for all $i$, $1\leq i \leq n$ (A linear function is one of the form $a_0+a_1x_1+a_2x_2+\cdots +a_nx_n$).
+\end{exercise}
+
+\end{document}

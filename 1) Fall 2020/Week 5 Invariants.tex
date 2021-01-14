@@ -1,0 +1,263 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{pdfrender,xcolor}
+\usepackage{graphicx}
+
+
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools,graphicx,tikz-cd}
+\usepackage{blindtext}
+\usepackage[margin = 1.25 in]{geometry}
+\usepackage{enumitem}
+
+\usepackage{fancyhdr,accents,lastpage}
+\pagestyle{fancy}
+\setlength{\headheight}{25pt}
+
+\linespread{1.3}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem{exercise}{Exercise}
+\newtheorem{example}{Example}[definition]
+\newtheorem*{solution}{Solution}
+
+
+\DeclareMathOperator{\ab}{ab}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\BGL}{BGL}
+\DeclareMathOperator{\Br}{Br}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\CHur}{CHur}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\et}{\text{\'et}}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Hur}{Hur}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Out}{Out}
+\DeclareMathOperator{\Perm}{Perm}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Pin}{Pin}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\Surj}{Surj}
+\DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\tame}{tame}
+\DeclareMathOperator{\Tr}{Tr}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\QED}{\hspace{\stretch{1}} $\blacksquare$}
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcC}{\mathcal{C}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcN}{\mathcal{N}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcQ}{\mathcal{Q}}
+\newcommand{\mfa}{\mathfrak{a}}
+\newcommand{\mfb}{\mathfrak{b}}
+\newcommand{\mfI}{\mathfrak{I}}
+\newcommand{\mfM}{\mathfrak{M}}
+\newcommand{\mfm}{\mathfrak{m}}
+\newcommand{\mfo}{\mathfrak{o}}
+\newcommand{\mfO}{\mathfrak{O}}
+\newcommand{\mfP}{\mathfrak{P}}
+\newcommand{\mfp}{\mathfrak{p}}
+\newcommand{\mfq}{\mathfrak{q}}
+\newcommand{\mfz}{\mathfrak{z}}
+\newcommand{\AGL}{\mathbb{A}\GL}
+\newcommand{\Qbar}{\overline{\QQ}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\newcommand{\isp}[1]{\quad\text{#1}\quad}
+
+
+
+\lhead{Invariants} 
+\chead{Math Club}
+\rhead{Fall 2020} 
+
+
+\begin{document}
+%\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}
+
+\section{Introduction}
+
+    Welcome back to Math Club in week 5! Today we will be looking at the concept of an invariant and how it can be used to solve mathematical problems. On the last page, I have left some hints to the exercises (not full solutions though).
+
+    The principle of \textbf{invariants} is a powerful problem solving strategy that extracts the most useful information out of a problem. The strategy is to find some aspect (usually some numerical value) of a mathematical problem that does not change. We provide two examples to illustrate the principle.
+
+    \begin{exercise}[The Hotel Room Paradox]
+        Three guests check into a hotel room. The manager says the bill is \$30, so each guest pays \$10. Later the manager realizes the bill should only have been \$25. To rectify this, he gives the bellhop \$5 as five one-dollar bills to return to the guests.
+
+        On the way to the guests' room to refund the money, the bellhop realizes that he cannot equally divide the five one-dollar bills among the three guests. As the guests aren't aware of the total of the revised bill, the bellhop decides to just give each guest \$1 back and keep \$2 as a tip for himself, and proceeds to do so.
+
+        As each guest got \$1 back, each guest only paid \$9, bringing the total paid to \$27. The bellhop kept \$2, which when added to the \$27, comes to \$29. So if the guests originally handed over \$30, what happened to the remaining \$1?
+    \end{exercise}
+
+    \begin{solution}
+        Let \(g\), \(p\), and \(m\) be the amounts the guests spent, the amount the bellhop pocketed, and the amount the manager at the hotel desk received, respectively. The value \(g-p-m\) is invariant and always equal to zero.
+    \end{solution}
+
+    \begin{exercise}
+        Suppose two opposite corners of a chessboard \((8\times 8)\) are removed. Is it possible for the remaining 62 squares to be tiled with dominos \((2\times 1)\)?
+    \end{exercise}
+
+    \begin{solution}
+        Suppose without loss of generality that the opposite corners removed were white squares. Let \(S\) be the number of visible black squares minus the number of visible white squares. Since we removed two white squares, we are left with 32 black and 30 white squares, meaning \(S=2\). Note that when we place a domino, we cover exactly one black and one white square, meaning the value of \(S\) is invariant (\(S=2\) always). A completely covered board has \(S=0\), so this board cannot be tiled with dominos.
+    \end{solution}
+
+    Similarly to invariants are so-called monovariants, in which a certain value only strictly decreases or strictly increases. Where an invariant is a fixed value, a monovariant has a constant increase or decrease that allows for some conclusions to be drawn. Happy problem solving!
+
+\section{Resources}
+
+    Today's problems were stolen from a variety of sources, including the CCS problem solving class (Math CS 101AB), \textit{Mathematical Olympiad Challenges} by Andreescu and Gelca, \textit{Problem Solving Strategies} by Engel, \textit{Putnam and Beyond} by Andreescu and Gelca, and \textit{The Art and Craft of Problem Solving} by Zeitz.
+
+\section{Easy (not really)}
+
+    \begin{exercise}[The Pizza Problem]
+        Suppose a pizza is divided into six slices. Moving clockwise, we add one slice of pepperoni to the first slice, none to the second, one to the third, and none to the remaining slices. You may only add one pepperoni to each adjacent slice. For instance, you may add one to slice 3 and 4, or slice 6 and 1. Is it possible to make every slice contain the same number of pepperoni?
+    \end{exercise}
+
+    \begin{exercise}
+        In an elimination-style tournament of a two-person game (for example, chess or judo), once you lose, you are out, and the tournament proceeds until only one person is left. Find a formula for the number of games that must be played in an elimination-style tournament starting with \(n\) contestants.
+    \end{exercise}
+
+    \begin{exercise}
+        Suppose the integer \(n\) is odd. First Kevin writes up the numbers \(1, 2, \ldots, 2n\) on the blackboard. Then he picks any two numbers \(a, b,\) erases them, and writes, instead, \(|a-b|\). Prove that an odd number will remain at the end.
+    \end{exercise}
+
+    \begin{exercise}
+        At first, a room is empty. Each minute, either one person enters the room or two people leave. After exactly 2,147,483,647 minutes, could the room contain 65,535 people? (commas are just for readability, not separate numbers)
+    \end{exercise}
+
+    \begin{exercise}
+        A dragon has 100 heads. A strange knight can cut off 15, 17, 20, or 5 heads, respectively with one blow of his sword. However, the dragon has mystical regenerative powers, and it will grow back 24, 2, 14, or 17 heads, respectively, in each case. If all heads are blown off, the dragon dies. Will the dragon ever die?
+    \end{exercise}
+
+    \begin{exercise}
+        There is a heap of 1001 stones on a table. You are allowed to perform the following operation: you choose one of the heaps containing more than one stone, throw away a stone from the heap, then divide it into two smaller (not necessarily equal) heaps. Is it possible to reach a situation in which all the heaps on the table contain exactly 3 stones by performing the operation finitely many times?
+    \end{exercise}
+
+\section{Medium}
+
+    \begin{exercise}
+        If 127 people play in a singles tennis tournament, prove that at the end of the tournament, the number of people who have played an odd number of games is even. Would this still be true if the number of players was even?
+    \end{exercise}
+
+    \begin{exercise}
+        Let \(a_1,a_2,\ldots,a_n\) represent an arbitrary arrangement of the numbers \(1,2,\ldots,n\). Prove that if \(n\) is odd, the product
+        \[(a_1-1)(a_2-2)\cdots(a_n-n)\]
+        is an even number.
+    \end{exercise}
+
+    \begin{exercise}
+        To a polynomial \(P(x)=ax^3+bx^2+cx+d\), of degree at most 3, one can apply two operations: (a) switch simultaneiously \(a\) and \(d\), respectively \(b\) and \(c\), (b) translate the variable \(x\) to \(x+t\), where \(t\in\RR\). Can one transform by successive application of these rules the polynomial \(P_1(x)=x^3+x^2-2x\) into \(P_2(x)=x^3-3x-2\). 
+    \end{exercise}
+
+    \begin{exercise}[St. Petersburg City Math Olympiad 1997]
+        The number \(99\ldots99\) (having 1997 nines) is written on a blackboard. Each minute, one number written on the blackboard is factored into two factors and erased, each factor is (independently) increased or decreased by \(2\), and the resulting two numbers are written. Is it possible that at some point all of the numbers on the blackboard are equal to 9?
+    \end{exercise}
+
+\section{Difficult}
+
+    \begin{exercise}
+        Set, recursively, \((x_0,y_0)\) with \(0<x_0<y_0\) and
+        \[x_{n+1}=\frac{x_n+y_n}{2}\isp{and}y_{n+1}=\sqrt{x_{n+1}y_n}.\]
+        Moreover, we are given (although one may derive it) that
+        \[x_n<y_n\implies x_{n+1}<y_{n+1}\isp{and}y_{n+1}-x_{n+1}<\frac{y_n-x_n}{4}\text{ for all }n.\]
+        Find the common limit \(\displaystyle\lim_{n\to\infty}x_n=\lim_{n\to\infty}y_n=x=y\).
+    \end{exercise}
+
+    \begin{exercise}[IMO 1985]
+        Consider a set of 1985 positive integers, not necessarily distinct, and none with prime factors bigger than 23. Prove that there must exist four integers in this set whose product is equal to the fourth power of an integer.
+    \end{exercise}
+
+    \begin{exercise}
+        There are 2000 white balls in a box. There are also unlimited supplies of white, green, and red balls, initially outside the box. During each turn, we can replace two balls in the box with one or two balls as follows: two whites with a green, two reds with a green, two greens with a white and red, a white and a green with a red, or a green and red with a white. (a) After finitely many of the above operations there are three balls left in the box. Prove that at least one of them is green. (b) Is it possible that after finitely many operations only one ball is left in the box?
+    \end{exercise}
+    
+    \begin{exercise}[2008 A3]
+    Start with a finite sequence $a_1,a_2,\dots,a_n$ of positive integers. If possible, choose two indices $j < k$ such that $a_j$ does not divide $a_k$, and replace $a_j$ and $a_k$ by $\gcd(a_j , a_k )$ and $\lcm(a_j , a_k )$, respectively. Prove that if this process is repeated, it must eventually stop and the final sequence does not depend on the choices made. (Note: $\gcd$ means greatest common divisor and $\lcm$ means least common multiple.)
+    \end{exercise}
+
+\pagebreak
+
+\section{Hints!}
+
+    Often, we get the question ``how do we start?'' This set of hints should help you either start a problem, or speed up the process of getting to the ``ah-ha!'' moment. These hints are in no particular order within each category. Also, since this is problem solving, the hints do not suggest the \textit{only} way to solve a problem, only a \textit{possible} way to do so.
+
+    \subsection{Easy hints}
+
+    \begin{itemize}
+        \item \(4\nmid 1002\)
+        \item 3 cases based on parity
+        \item Adjacent\dots
+        \item subtract, respectively. Notice anything?
+        \item mod 3 (i.e., the remainder left upon division by 3)
+        \item If you can't find an \textit{in}variant, find a \textit{mono}variant
+    \end{itemize}
+
+    \subsection{Medium hints}
+
+    \begin{itemize}
+        \item Sum!
+        \item If you factor \(x=ab\equiv 3\pmod{4}\), then \(a\) and \(b\) are congruent to 3 and 1 modulo 4 in some order.
+        \item Doesn't matter if it's round robin, single elimination, double elimination, etc.
+        \item Let \(N(P)\) be the number of distinct (including complex) roots of a polynomial
+    \end{itemize}
+
+    \subsection{Difficult hints}
+
+    \begin{itemize}
+        \item Identify colors with (complex) numbers
+        \item \(\gcd(a,b)\lcm(a,b)=ab\)
+        \item \(\frac{x_{n+1}}{y_{n+1}}\) and then recall the half angle formula for cosine, \(\cos\frac{\alpha}{2}=\sqrt{\frac{1+\cos\alpha}{2}}\)
+        \item Let \(p=p_1^{\alpha_1}\cdots p_9^{\alpha_9}\) and \(q=q_1^{\beta_1}\cdots q_9^{\beta_9}\). Under what conditions is \(pq\) a perfect square? (consider parity. Also 9 is not random)
+    \end{itemize}
+
+\end{document}

@@ -1,0 +1,372 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{pdfrender,xcolor}
+\usepackage{graphicx}
+
+
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools,graphicx,tikz-cd}
+\usepackage{blindtext}
+\usepackage[margin = 1.25 in]{geometry}
+\usepackage{enumitem}
+
+\usepackage{fancyhdr,accents,lastpage}
+\pagestyle{fancy}
+\setlength{\headheight}{25pt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem{exercise}{Exercise}
+\newtheorem{example}{Example}[definition]
+
+
+\DeclareMathOperator{\ab}{ab}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\BGL}{BGL}
+\DeclareMathOperator{\Br}{Br}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\CHur}{CHur}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\et}{\text{\'et}}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Hur}{Hur}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Out}{Out}
+\DeclareMathOperator{\Perm}{Perm}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Pin}{Pin}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\Surj}{Surj}
+\DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\tame}{tame}
+\DeclareMathOperator{\Tr}{Tr}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\QED}{\hspace{\stretch{1}} $\blacksquare$}
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcC}{\mathcal{C}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcN}{\mathcal{N}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcQ}{\mathcal{Q}}
+\newcommand{\mfa}{\mathfrak{a}}
+\newcommand{\mfb}{\mathfrak{b}}
+\newcommand{\mfI}{\mathfrak{I}}
+\newcommand{\mfM}{\mathfrak{M}}
+\newcommand{\mfm}{\mathfrak{m}}
+\newcommand{\mfo}{\mathfrak{o}}
+\newcommand{\mfO}{\mathfrak{O}}
+\newcommand{\mfP}{\mathfrak{P}}
+\newcommand{\mfp}{\mathfrak{p}}
+\newcommand{\mfq}{\mathfrak{q}}
+\newcommand{\mfz}{\mathfrak{z}}
+\newcommand{\AGL}{\mathbb{A}\GL}
+\newcommand{\Qbar}{\overline{\QQ}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+
+
+\lhead{Inequalities} 
+\chead{Math Club}
+\rhead{Winter 2021} 
+
+
+\begin{document}
+
+\section{Introduction}
+
+Inequalities are a central tool to the study of many areas of math, and crucial for applied math, and in general anywhere you might see sums and integrals. Often, you will find that your assumptions simply do not give you enough data to get an inequality. To work with incomplete data, we must turn to inequalities to get the job done. Indeed, the idea of positivity is central to many areas of math, and that is fundamentally a question about inequalities.    
+
+\section{Resources}
+    \begin{enumerate}
+    \item \textit{Putnam and Beyond}, by Andreescu and Gelca
+    \item \textit{The Art and Craft of Problem Solving}, by Zeitz
+    \item \textit{Problem Solving Strategies}, by Engel
+    \item Ed Barbeau's website \href{http://www.math.utoronto.ca/barbeau/university.html}{http://www.math.utoronto.ca/barbeau/university.html}
+    \item This AoPS handout \href{https://artofproblemsolving.com/articles/files/MildorfInequalities.pdf}{https://artofproblemsolving.com/articles/files/MildorfInequalities.pdf}
+    \item Another handout by Yufei Zhao \href{http://yufeizhao.com/olympiad/wc08/ineq.pdf}{http://yufeizhao.com/olympiad/wc08/ineq.pdf}
+\end{enumerate}
+Some textbooks for more advanced readers are
+\begin{enumerate}
+    \item \textit{Problems and Theorems in Analysis} by Polya and Szego
+    \item \textit{Inequalities} by Hardy, Littlewood, Polya
+    \item Most graduate level analysis and PDE textbooks contain quite a few inequalities. (e.g. \textit{Real and Complex Analysis}, by Rudin)
+\end{enumerate}
+
+\section{Some well-known inequalities}
+\begin{theorem}[$x^2 \ge 0$]
+If $x$ is a real number, then $x^2 \ge 0$ with equality if and only if $x = 0$. Similarly, if $z \in \mathbb{C}$, then $z\overline{z} \ge 0$. 
+\end{theorem}
+
+\begin{theorem}[Cauchy-Schwartz]
+Let $a_1,\cdots,a_n,b_1,\cdots, b_n$ be real numbers. Then
+\begin{equation}
+    (a_1^2 + \cdots + a_n^2)(b_1^2 + \cdots + b_n^2) \ge (a_1 b_1 + \cdots + a_nb_n)^2
+\end{equation}
+With equality if and only if there exists $\lambda \in \mathbb{R}$ such that $a_k = \lambda b_k$ for all $k = 1,\cdots, n$. 
+\end{theorem}
+
+\begin{theorem}[Triangle]
+Let $a = (a_1,\cdots,a_n) \in \mathbb{R}^n$, and define the length of $a$ by $\|a\| = \sqrt{a_1^2 + \cdots + a_n^2}$ (this is known as the Euclidean norm of $a$). Then it satisfies 
+\begin{equation}
+    \|a \| + \|b\| \ge \|a + b\|
+\end{equation}
+\end{theorem}
+
+\begin{remark}
+This also works for the $p$-norms: $\|a\|_p = \sqrt[p]{|a_1|^p + \cdots + |a_n|^p}$ for $1 \le p \le \infty$, and is known as Minkowski's inequality. Exercise: as $p\to\infty$, what does this norm become?
+\end{remark}
+
+\begin{theorem}[AM-GM]
+For a set of nonnegative real numbers $a_1, a_{2}, \ldots, a_n$, the following always holds: 
+\begin{equation}
+    \frac{a_1 + a_2 + \ldots + a_n}{n} \geq \sqrt[n]{a_{1}a_{2}\cdots a_{n}}
+\end{equation}
+\end{theorem}
+
+\begin{theorem}[H\"older's inequality]
+Suppose that $1 \le p,q \le \infty$ and that $\frac{1}{p} + \frac{1}{q} = 1$. Then, for sequences $a_1,\cdots,a_n$, $b_1,\cdots,b_n$,
+\begin{equation}
+    \sum_{k=1}^n \lvert a_k b_k \rvert \le \left(\sum_{k=1}^n \lvert a_k \rvert^p \right)^\frac{1}{p}  \left(\sum_{k=1}^n \lvert b_k \rvert^q \right)^\frac{1}{q} 
+\end{equation}
+\end{theorem}
+
+\begin{remark}
+The triangle, Minkowski, and H\"older inequalities also hold for integral norms (and in general, over $L^p$ spaces); i.e. for $f: [a,b] \rightarrow \mathbb{R}$ a bounded continuous function, define
+\begin{equation*}
+    \|f\|_p = \left(\int_a^b \lvert f(x) \rvert^p dx\right)^\frac{1}{p}
+\end{equation*}
+for $1 \le p < \infty$. Then, we similarly have that 
+\begin{equation*}
+    \| f + g\|_p \le \|f\|_p + \|g\|_p
+\end{equation*}
+and for $q$ such that $\frac{1}{p} + \frac{1}{q} = 1$,
+\begin{equation*}
+    \|fg\|_1 \le \|f\|_p\|g\|_q
+\end{equation*}
+\end{remark}
+
+Another important notion is that of \textbf{convexity}:
+\begin{definition}
+A function $f: \mathbb{R}^n \rightarrow \mathbb{R}$ is convex if for all $a,b$, and for all $\lambda \in (0,1)$, $f(\lambda a + (1-\lambda)b) \ge \lambda f(a) + (1-\lambda)f(b)$
+\end{definition}
+Many useful functions are convex: $\exp$, $1/x$, $x^2$ are all examples of convex functions. And the following theorem essentially generalizes the above theorems by looking for the right convex function:
+\begin{theorem}[Jensen]
+If $\phi: \mathbb{R}^n \rightarrow \mathbb{R}$ is a convex function and if $x_1,\cdots,x_n \in \mathbb{R}^n$, with weights $a_1,\cdots,a_n \in \mathbb{R}$, $a_i > 0$, then  
+\begin{equation}
+    \phi \left( \frac{a_1x_1 + \cdots + a_nx_n}{a_1 + \cdots + a_n} \right) \le \frac{a_1\phi(x_1) + \cdots + a_n\phi(x_n)}{a_1 + \cdots + a_n}
+\end{equation}
+\end{theorem}
+\begin{remark}
+For the case of concave functions, reverse the inequalities.
+\end{remark}
+The \textit{Muirhead Inequality} is an important inequality which generalizes several of the above inequalities, including the AM-GM inequality. Let $x_1,x_2,\dots, x_n$ be positive real numbers and let $q = (q_1,q_2,\dots, q_n) \in \mathbb{R}^n$. The $q$-mean of $x_1,x_2,\dots, x_n$ is defined as follows.
+\[
+    [q] = \frac{1}{n!}\sum_{\sigma \in S_n} x_{\sigma_1}^{q_1} x_{\sigma_2}^{q_2} \dots x_{\sigma_n}^{q_n}
+\]
+where $S_n$ is the set of all permutations of $\{1,2,\dots,n\}$. The inequality can now be stated: 
+\begin{theorem}
+Given two nonincreasing sequences of real numbers $(a_n)$ and $(b_n)$, if $\sum_{i=1}^k a_i \geq \sum_{i=1}^k b_i$ for $1 \leq k \leq n$ with equality when $k = n$, then $[a] \geq [b]$ for any set of positive real numbers $x_1,x_2,\dots,x_n$.
+\end{theorem}
+
+\begin{theorem}[Chebyshev's inequality]
+Let $a_{1} \leq a_{2} \leq \cdots \leq a_{n}$ and $b_{1} \leq b_{2} \leq \cdots \leq b_{n}$ be two nondecreasing sequences of real numbers. Then 
+\begin{equation}
+    \frac{a_{1}b_{1} + \cdots a_{n}b_{n}}{n} \geq \frac{a_{1} + \cdots a_{n}}{n} \cdot \frac{b_{1} + \cdots b_{n}}{n} \geq \frac{a_{1}b_{n} + \cdots a_{n}b_{1}}{n}
+\end{equation}
+\end{theorem}
+
+\begin{theorem}[Bernoulli's inequality]
+For ever integer $r \geq 0$ and every real number $x \geq -1$, we have 
+\begin{equation}
+    (1 + x)^{r} \geq 1 + rx 
+\end{equation}
+\end{theorem}
+
+
+\section{Relatively Easy}
+\begin{exercise}
+Show that for positive $a, b, c,$
+\[(a^{2}b + b^{2}c + c^{2}a)(ab^{2} + bc^{2} + ca^{2}) \geq 9a^{2}b^{2}c^{2}. 
+\]
+\end{exercise}
+
+\begin{exercise}
+Let $a, b, c$ be nonnegative real numbers. Prove that 
+\[(a + b)(b + c)(c + a) \geq 8abc. 
+\]
+\end{exercise}
+
+\begin{exercise}
+Find 
+\[\underset{a, b \in \mathbb{R}}{\min} \max(a^{2} + b, b^{2} + a). 
+\]
+\end{exercise}
+
+\begin{exercise}
+Given the vectors $x, y, z$ in the plane, show that 
+\[||x|| + ||y|| + ||z|| +||x + y + z|| \geq ||x + y|| + ||y + z|| +||z + x||. 
+\]
+\end{exercise}
+
+\begin{exercise}
+Show that if $A$, $B$, $C$ are the angles of a triangle, then 
+\[
+\sin{A} +\sin{B} + \sin{C} \geq \frac{3\sqrt{3}}{2}. 
+\]
+\end{exercise}
+
+\section{Medium}
+\begin{exercise}
+Prove that 
+\[\frac{a}{b + 2c + 3d} + \frac{b}{c + 2d + 3a} + \frac{c}{b + 2a + 3b} + \frac{d}{a + 2b + 3c} \geq \frac{2}{3},
+\]
+for all $a, b, c, d > 0$. 
+\end{exercise}
+
+\begin{exercise}
+Let $a, b, c > 0$. Prove that 
+\[\frac{a^{8} + b^{8} + c^{8}}{a^{3}b^{3}c^{3}} \geq \frac{1}{a} + \frac{1}{b} + \frac{1}{c}. 
+\]
+\end{exercise}
+
+\begin{exercise}
+Let $ABCD$ be a convex cyclic quadrilateral. Prove that 
+\[
+|AB - CD|+ |AD - BC| \geq 2|AC - BD|.  
+\]
+\end{exercise}
+
+\begin{exercise}[IMO 2001] 
+Let $a, b, c$ be positive real numbers. Prove that 
+\[\frac{a}{\sqrt{a^{2} + 8bc}} + \frac{b}{\sqrt{b^{2} + 8ca}} + \frac{c}{\sqrt{c^{2} + 8ab}} \geq 1.
+\]
+\end{exercise}
+
+\begin{exercise}
+Let $a_{i}$, $i = 1, 2,  \cdots, n$, be nonnegative numbers with $\sum_{i = 1}^{n} a_{i} = 1$,  and let $0 < x_{i} \leq 1$, $i = 1, 2, \cdots, n$. Prove that
+\[
+\sum_{i = 1}^{n}\frac{a_{i}}{1 + x_{i}} \leq \frac{1}{1 + x_{1}^{a_{1}}x_{2}^{a_{2}}\cdots x_{n}^{a_{n}}}. 
+\]
+\end{exercise}
+
+\begin{exercise}
+Prove that any continuously differentiable function $f: [a, b] \rightarrow \mathbb{R}$ for which $f(a) = 0$ satisfies the inequality 
+\[
+\int_{a}^{b} f(x)^{2} dx \leq (b - a)^{2}\int_{a}^{b} f'(x)^{2} dx.  
+\]
+\end{exercise}
+
+\section{Hard}
+\begin{exercise}[2003 A2]
+Let $a_1, a_2, \dots, a_n$  and  $b_1, b_2, \dots, b_n$
+be nonnegative real numbers.
+Show that
+\begin{align*}
+& (a_1 a_2 \cdots a_n)^{1/n} + (b_1 b_2 \cdots b_n)^{1/n} \\
+&\leq [(a_1+b_1) (a_2+b_2) \cdots (a_n + b_n) ]^{1/n}.
+\end{align*}
+\end{exercise}
+
+
+\begin{exercise}[2014 B2]
+Suppose that $f$ is a function on the interval $[1,3]$ such that $-1 \leq f(x) \leq 1$ for all $x$ and $\int_1^3 f(x)\,dx = 0$. How large can $\int_1^3 \frac{f(x)}{x}\,dx$ be?
+\end{exercise}
+
+\begin{exercise}[2003 A4]
+Suppose that $a,b,c,A,B,C$  are real numbers, $a\ne 0$ and $A \ne 0$, such that
+\[| a x^2 + b x + c | \leq | A x^2 + B x + C |
+\]
+for all real numbers  $x$. Show that
+\[| b^2 - 4 a c | \leq | B^2 - 4 A C |.
+\]
+\end{exercise}
+
+
+\begin{exercise}[2018 A5]
+Let $f: \mathbb{R} \to \mathbb{R}$ be an infinitely differentiable function satisfying $f(0) = 0$, $f(1)= 1$,
+and $f(x) \geq 0$ for all $x \in \mathbb{R}$. Show that there exist a positive integer $n$ and a real number $x$
+such that $f^{(n)}(x) < 0$.
+\end{exercise}
+
+
+\begin{exercise}[2011 B5]
+Let $a_1, a_2, \dots$ be real numbers. Suppose that there is
+a constant $A$ such that for all $n$,
+\[
+\int_{-\infty}^\infty \left( \sum_{i=1}^n \frac{1}{1 + (x-a_i)^2} \right)^2\,dx \leq An.
+\]
+Prove there is a constant $B>0$ such that for all $n$,
+\[
+\sum_{i,j=1}^n (1 + (a_i - a_j)^2) \geq Bn^3.
+\]
+\end{exercise}
+
+\newpage
+\section{Hint}
+\begin{itemize}
+    \item 2. AM-GM
+    \item 3. Guess first and then prove it
+    \item 4. Triangle inequality
+    \item 5. Jensen's inequality 
+    \item 6. Cauchy-Schwartz's inequality
+    \item 7. Chebyshev's inequality
+    \item 8. Triangle inequality 
+    \item 9. H\"older's inequality 
+    \item 10. Consider the function $f(y) = (1 + e^{y})^{-1}$
+    \item 11. Fundamental Theorem of Calculus
+    \item 12. AM-GM
+    \item 13. Use the characteristic function
+    \item 14. Case discussions about $\Delta$
+    \item 15. Prove by induction on $n$
+    \item 16. Define the function $f(y) = \int_{-\infty}^{\infty} \frac{dx}{(1 + x^{2})(1 + (x + y)^{2})}$
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,210 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{pdfrender,xcolor}
+\usepackage{graphicx}
+
+
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools,graphicx,tikz-cd}
+\usepackage{blindtext}
+\usepackage[margin = 1.25 in]{geometry}
+\usepackage{enumitem}
+
+\usepackage{fancyhdr,accents,lastpage}
+\pagestyle{fancy}
+\setlength{\headheight}{25pt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem{exercise}{Exercise}
+\newtheorem{example}{Example}[definition]
+
+\linespread{1.2}
+
+\DeclareMathOperator{\ab}{ab}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\BGL}{BGL}
+\DeclareMathOperator{\Br}{Br}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\CHur}{CHur}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\et}{\text{\'et}}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Hur}{Hur}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Out}{Out}
+\DeclareMathOperator{\Perm}{Perm}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Pin}{Pin}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\Surj}{Surj}
+\DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\tame}{tame}
+\DeclareMathOperator{\Tr}{Tr}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\QED}{\hspace{\stretch{1}} $\blacksquare$}
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcC}{\mathcal{C}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcN}{\mathcal{N}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcQ}{\mathcal{Q}}
+\newcommand{\mfa}{\mathfrak{a}}
+\newcommand{\mfb}{\mathfrak{b}}
+\newcommand{\mfI}{\mathfrak{I}}
+\newcommand{\mfM}{\mathfrak{M}}
+\newcommand{\mfm}{\mathfrak{m}}
+\newcommand{\mfo}{\mathfrak{o}}
+\newcommand{\mfO}{\mathfrak{O}}
+\newcommand{\mfP}{\mathfrak{P}}
+\newcommand{\mfp}{\mathfrak{p}}
+\newcommand{\mfq}{\mathfrak{q}}
+\newcommand{\mfz}{\mathfrak{z}}
+\newcommand{\AGL}{\mathbb{A}\GL}
+\newcommand{\Qbar}{\overline{\QQ}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+
+
+\lhead{Pigeonhole Principle} 
+\chead{Math Club}
+\rhead{Fall 2020} 
+
+
+\begin{document}
+
+\section{Introduction}
+
+Welcome to Math Club! Today we're exploring the \emph{Pigeonhole Principle} due to Dirichlet (sometimes called the Box Principle).
+
+The Pigeonhole Principle is the simplest version of the heuristic argument: ``If you have a lot of stuff, you're bound to have some patterns.'' Its precise formulation is, 
+\begin{theorem}[Pigeonhole Principle]
+If $nk+1$ $(k\geq 1)$ objects are distributed among $n$ boxes, one of the boxes will contain at least $k+1$ objects.
+\end{theorem}
+\begin{proof}
+Assume that the conclusion is false; that is, assume that there is no box with more than $k$ objects, which means that every box contains at most $k$ objects. Then, since there are $n$ boxes, the total number of objects within all of the boxes is at most $nk$. However, this contradicts the hypothesis that I originally distributed $nk+1$ objects into these boxes. By virtue of this contradiction, the original conclusion must have been true: there exists a box containing more than $k$ objects (at least $k+1$ objects).
+\end{proof}
+The Pigeonhole Principle is a tricky problem solving tactic which can vastly simplify difficult problems (and sometimes solve them outright). It takes experience to understand when and how to use it, which is what we plan to help you out with today.
+ 
+\section{Resources}
+
+I'm just going to list out the books: \emph{Problem Solving Through Problems} by Loren Larson, \emph{Putnam and Beyond} by Titu Andreescu, \emph{The Art and Craft of Problem Solving} by Paul Zeitz, and some Putnam preparation handouts and past competitions.
+
+\section{Easy}
+
+\begin{exercise}
+Among $13$ persons, show that two of them were born in the same month.
+\end{exercise}
+
+\begin{exercise}
+ Show that if there are $n$ people at the party, then two of them know the same number of people (among those present).
+\end{exercise}
+
+\begin{exercise}
+Show that among any $n+1$ numbers, there must exist two whose difference is a multiple of $n$.
+\end{exercise}
+
+\begin{exercise}
+Every point of the plane is colored either red or blue. Prove that no matter how the coloring is done, there must exist two points, exactly $1$ unit apart, that are of the same color.
+\end{exercise}
+
+\begin{exercise}
+Let $A$ be any set of $20$ distinct integers chosen from the arithmetic progression $1,4,7,\dots,\\ 100$. Prove that there must be two distinct integers in $A$ whose sum is $104$.
+\end{exercise}
+
+\section{Medium}
+
+\begin{exercise}
+Show that the decimal expansion of a rational number must eventually become periodic.
+\end{exercise}
+
+\begin{exercise}
+ Five points placed within a square of side length $1$. Prove that two of them are at most $\frac{\sqrt{2}}{2}$  units apart.
+\end{exercise}
+
+\begin{exercise}
+ Let $X$ be any real number. Prove that among the numbers \[X,2X,\dots,(n-1)X\] there is one that differs from an integer by at most $1/n$. 
+\end{exercise}
+The previous exercise has an important consequence: if $\alpha$ is an irrational number, then the set of fractional parts of all of its multiples \(\{n\alpha-\lfloor n\alpha \rfloor : n\in \NN\}\) is \emph{dense} in $[0,1]$, where $\lfloor x\rfloor $ is the greatest integer $\leq x$.
+
+\begin{exercise}
+A chess player prepares for a tournament by playing some practice games over a period of eight weeks. She plays at least one game per day, but no more than $11$ games per week. Show that there must be a period of consecutive days during which she plays exactly $23$ games.
+\end{exercise}
+
+\section{Hard}
+
+The first problem is one of foundational questions for a field in graph theory known as \emph{Ramsey Theory}, which generally claims that there is always \emph{some} order within chaos. As you can imagine there are a lot of existence theorems.
+\begin{exercise}
+Prove that in any group of six people there are either three mutual friends or three mutual strangers.
+\end{exercise}
+More generally, the \emph{Ramsey number} $R(k,k:2)$ is the least positive integer $n$ such that within any group of $n$ people, there necessarily exist $k$ mutual friends or $k$ mutual strangers. We just showed that $R(3,3:2)\leq 6$. The Ramsey numbers are notoriously difficult to compute; many of these are open problems which have been unsolved for the larger part of a century.
+
+The remaining problems are about the difficulty of the problems on the Putnam exam.
+
+\begin{exercise}[2006 B2]
+Prove that, for every set $X=\{x_1,x_2,\dots,x_n\}$ of $n$ real numbers, there exists a nonempty subset $S$ of $X$ and an integer $m$ such that 
+\[\left|m+\sum_{x\in S} x\right| \leq \frac{1}{n+1}\]
+\end{exercise}
+
+\begin{exercise}[1994 A3]
+Show that if the points of an isosceles right triangle of side length $1$ are each colored with one of four colors, then there must be two points of the same color which are at least a distance $2-\sqrt{2}$ apart. 
+\end{exercise}
+
+\begin{exercise}[1993 A4]
+Let $x_1,x_2,\dots,x_{19}$ be positive integers each of which is less than or equal to $93$. Let $y_1,y_2,\dots,y_{93}$ be positive integers each of which is less than $19$. Prove that there exists a (nonempty) sum of some $x_{i}$'s equal to a sum of some $y_j$'s.
+\end{exercise}
+
+To finish things off, we conclude with a problem whose solution rests on a very beautiful observation.
+\begin{exercise}
+Let $x_1,x_2,\dots,x_k$ be real numbers such that the set $A=\{\cos(n\pi x_1)+\cos(n\pi x_2)+\cdots+\cos(n\pi x_k)\  |\  n\geq 1\}$ is finite. Prove that all the $x_i$ are rational numbers.
+\end{exercise}
+
+\end{document}

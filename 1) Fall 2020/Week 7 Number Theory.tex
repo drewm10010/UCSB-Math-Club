@@ -1,0 +1,319 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{pdfrender,xcolor}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage[charter]{mathdesign}
+
+
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools,graphicx,tikz-cd}
+\usepackage{blindtext}
+\usepackage[margin = 1.25 in]{geometry}
+\usepackage{enumitem}
+
+\usepackage{fancyhdr,accents,lastpage}
+\pagestyle{fancy}
+\setlength{\headheight}{25pt}
+
+\linespread{1.3}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem{exercise}{Exercise}
+\newtheorem{example}{Example}[definition]
+\newtheorem*{solution}{Solution}
+
+
+\DeclareMathOperator{\ab}{ab}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\BGL}{BGL}
+\DeclareMathOperator{\Br}{Br}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\CHur}{CHur}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\et}{\text{\'et}}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Hur}{Hur}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Out}{Out}
+\DeclareMathOperator{\Perm}{Perm}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Pin}{Pin}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\Surj}{Surj}
+\DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\tame}{tame}
+\DeclareMathOperator{\Tr}{Tr}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\QED}{\hspace{\stretch{1}} $\blacksquare$}
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcC}{\mathcal{C}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcN}{\mathcal{N}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcQ}{\mathcal{Q}}
+\newcommand{\mfa}{\mathfrak{a}}
+\newcommand{\mfb}{\mathfrak{b}}
+\newcommand{\mfI}{\mathfrak{I}}
+\newcommand{\mfM}{\mathfrak{M}}
+\newcommand{\mfm}{\mathfrak{m}}
+\newcommand{\mfo}{\mathfrak{o}}
+\newcommand{\mfO}{\mathfrak{O}}
+\newcommand{\mfP}{\mathfrak{P}}
+\newcommand{\mfp}{\mathfrak{p}}
+\newcommand{\mfq}{\mathfrak{q}}
+\newcommand{\mfz}{\mathfrak{z}}
+\newcommand{\AGL}{\mathbb{A}\GL}
+\newcommand{\Qbar}{\overline{\QQ}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\newcommand{\isp}[1]{\quad\text{#1}\quad}
+
+
+\lhead{Number Theory} 
+\chead{Math Club}
+\rhead{Fall 2020} 
+
+
+\begin{document}
+
+
+\section{Introduction}
+
+    Welcome back to Math Club in week 7! (not 5040). 
+    Today we will be playing with some concepts in elementary number theory. 
+    We will cover modular arithmetic as well as some stuff about primes and divisibility, all of which will be helpful in not just math competitions but \textit{every single one of your math classes moving forward}. 
+
+    First we will introduce the concept of modular arithmetic.
+
+    \begin{definition}
+        Let \(x\), \(y\), and \(n\) be integers. 
+        We say that \(x\) is congruent (or equivalent) to \(y\) modulo (or mod) \(n\) if \(x\) and \(y\) differ by a multiple of \(n\). 
+        We write \(x\equiv y\pmod{n}\).
+    \end{definition}
+
+    \begin{example}
+        Find the last digit of \(2^{1234}\).
+    \end{example}
+
+    Next we will discuss the idea of divisibility of integers.
+
+    \begin{definition}
+        Let \(a,b\in\ZZ\). 
+        We say that $b$ divides $a$, in symbols $b \mid a$, if there exists an integer $k$ such that $a=kb$. We write $b\nmid a$ to mean ``$b$ does not divide $a$.''
+    \end{definition}
+
+    \begin{definition}
+        Let \(a,b\in\NN\). 
+        Then their greatest common divisor, written \((a,b)\) or \(\gcd(a,b)\), is the largest integer that divides both \(a\) and \(b\). 
+        Their least common multiple, written \(\lcm(a,b)\), is the smallest positive integer that is a multiple of both \(a\) and \(b\).
+
+        If \(\gcd(a,b)=1\), we say that \(a\) and \(b\) are coprime or relatively prime.
+    \end{definition}
+    
+    Here are some basic facts that can be proven about divisibility (you can try the first two, but for the last two, consult any introductory number theory text).
+    
+    \begin{theorem}
+        The following hold:
+        \begin{enumerate}
+            \item If \(g\mid a\) and \(g\mid b\), then \(g\mid ax+by\) for any integers \(x,y\)
+            \item \(\gcd(a+b,b)=\gcd(a,b)\)
+            \item \(\gcd(a,b)\cdot\lcm(a,b)=a\cdot b\)
+            \item If \(p\) is prime and \(p\mid ab\), then \(p\mid a\) or \(p\mid b\)
+        \end{enumerate}
+    \end{theorem}
+    
+    \begin{theorem}[Division Algorithm]
+    Let $a, b\in \ZZ$ with $b\neq 0$. There exist unique integers $q,r$ such that $a=bq+r$ and $0 \leq r < |b|$.
+    \end{theorem}
+
+    Here are some useful results that will help you in your problem-solving endeavors.
+
+    \begin{theorem}[Fermat's Little Theorem]
+        Let \(a\in\ZZ\) and let \(p\) be a prime number. 
+        Then
+        \[a^p\equiv a\pmod{p}.\]
+        If \(p\nmid a\), then 
+        \[a^{p-1}\equiv 1\pmod{p}\]
+    \end{theorem}
+
+    \begin{theorem}[Bezout's Identity/Lemma]
+        Let \(a,b\in\NN\). 
+        Then there exist \(x,y\in\ZZ\) such that
+        \[ax+by=\gcd(a,b).\]
+        and moreover, $\gcd(a,b)$ is the least positive integer expressible in this form.
+    \end{theorem}
+    
+    \begin{theorem}[Fundamental Theorem of Arithmetic]
+    Every positive integer $n>2$ can be represented in exactly one way as the product of prime powers
+    \[n=p_1^{k_1}p_2^{k_2}\cdots p_r^{k_r}=\prod_{i=1}^r p_i^{k_i}\] where $p_1<p_2<\cdots<p_r$ are primes and the $k_i$ are positive integers.
+    \end{theorem}
+
+    As usual, resources for these problems (and many more) can be found on the Slack page. 
+    Happy problem solving!
+    Today's problems are not split into categories, but instead arranged roughly in order of difficulty.
+
+\section{Problems}
+
+    Try to prove some of the results given in the introduction section.
+
+    \begin{exercise}
+        Prove that there are infinitely many prime numbers.
+    \end{exercise}
+
+    \begin{exercise}
+        Let \(n\) be an odd positive integer not divisible by 3. Show that \(n^2-1\) is divisible by 24.
+    \end{exercise}
+
+    \begin{exercise}
+        A \textit{palindrome} is a positive integer that reads the same forward and backward, like 2552 or 1991. 
+        Find a positive integer greater than 1 that divides all four-digit palindromes.
+    \end{exercise}
+
+    \begin{exercise}
+        Find and integer \(c\) such that \(x^2+18x+c\) is a perfect square for all integers \(x\). 
+        Prove that this choice of \(c\) is unique. 
+    \end{exercise}
+
+    \begin{exercise}[Due to Sun-tzu, 3rd century]
+        There are certain things whose number is unknown. 
+        If we count them by threes, we have two left over; by fives, we have three left over; and by sevens, two are left over. 
+        How many things are there?
+    \end{exercise}
+
+    \begin{exercise}
+        Show that any two consecutive Fibonacci numbers are relatively prime. 
+        Recall that the Fibonacci numbers are defined recursively by \(F_1=F_2=1\) and \(F_n=F_{n-1}+F_{n-2}\) for \(n\geq 3\).
+    \end{exercise}
+
+    \begin{exercise}
+        Determine whether there exist three positive integers \(a,b,c\) such that \(a+b\), \(b+c\), and \(a+c\) are all pairwise distinct prime numbers.
+    \end{exercise}
+
+    \begin{exercise}
+        Let \(k=2020^2+2^{2020}\).
+        What is the last digit of
+        \[2^k+k^2\mathord{?}\]
+    \end{exercise}
+
+    \begin{exercise}
+        Prove that there are infinitely many primes of the form \(4k+3\), where \(k\in\NN\).
+    \end{exercise}
+
+    \begin{exercise}
+        Show that if \(a^2+b^2=c^2\), then \(3\mid ab\).
+    \end{exercise}
+
+    \begin{exercise}
+        Show that the fraction \(\dfrac{21n+4}{14n+3}\) is irreducible for all positive integers \(n\).
+    \end{exercise}
+
+    \begin{exercise}
+        Prove that the number \(n=1,280,000,401\) is composite.
+    \end{exercise}
+
+    \begin{exercise}
+        Let \(N\) be a number with nine distinct non-zero digits, such that, for each \(k\) from 1 to 9 inclusive, the first \(k\) digits of \(N\) form a number that is divisible by \(k\). 
+        Find \(N\).
+    \end{exercise}
+
+    \begin{exercise}[2000 Putnam B2]
+        Prove that the expression
+        \[\frac{\gcd(m,n)}{n}\binom{n}{m}\]
+        is an integer for all pairs of integers \(n\geq m\geq 1\).
+    \end{exercise}
+    
+    \begin{exercise}
+        If $a\in \NN$ and $p$ is a prime number for which $p$ divides $(a^7-1)/(a-1)$, prove that either $p \equiv 1 \pmod{7}$ or $p=7$.
+    \end{exercise}
+    
+    \begin{exercise}
+        Find all integer solutions of the equation
+        \[\frac{a^7-1}{a-1} = b^5-1\]
+    \end{exercise}
+    
+    \begin{exercise}
+        If $a\equiv b \pmod{n}$ prove that $a^n \equiv b^n \pmod{n^2}$.
+    \end{exercise}
+    
+    \begin{exercise}
+        Let $p$ be a prime. Show that there are infinitely many positive integers $n$ such that $p$ divides $2^n-n$.
+    \end{exercise}
+    
+    \begin{exercise}
+        Let $n>1$ be a positive integer. Prove that 
+        \[1+\frac{1}{2}+\frac{1}{3}+\cdots + \frac{1}{n}\] is not an integer.
+    \end{exercise}
+
+\newpage
+\section{Hints}
+
+    \begin{enumerate}
+        \item Suppose there are finitely many (say, \(n\)) and consider \(N=p_1p_2\cdots p_n+1\).
+        \item \(24=2^3\cdot 3\).
+        \item Place value.
+        \item Complete the square.
+        \item Formulate in the language of modular arithmetic.
+        \item Induction is generally good on recursive sequences.
+        \item Two cases: First, one of the primes is equal to 2. 
+        Second, all the primes are greater than 2.
+        \item Reduce \(k\) modulo 4 and then you can get the last digit of \(2^k\). 
+        Expand \(k^2\).
+        \item Do exercise 1 first.
+        Similarly, consider the number \(N=4p_1p_2\cdots p_n-1\).
+        \item Look at the values of perfect squares modulo 3.
+        \item If \(\dfrac{a}{b}\) is reducible, then so is \(\dfrac{2a}{3b}\).
+        \item Set \(n=x^7+x^3+x^0\) and find \(x\).
+        \item Know (or derive) your divisibility rules!
+        \item Use Bezout's lemma.
+    \end{enumerate}
+
+\end{document}
