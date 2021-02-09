@@ -1,0 +1,261 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{pdfrender,xcolor}
+\usepackage{graphicx}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools,graphicx,tikz-cd}
+\usepackage{blindtext}
+\usepackage[margin = 1.25 in]{geometry}
+\usepackage{enumitem}
+\usepackage{physics}
+
+\usepackage{fancyhdr,accents,lastpage}
+\pagestyle{fancy}
+\setlength{\headheight}{25pt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem{exercise}{Exercise}
+\newtheorem{example}{Example}[definition]
+
+
+\DeclareMathOperator{\ab}{ab}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\BGL}{BGL}
+\DeclareMathOperator{\Br}{Br}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\CHur}{CHur}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\et}{\text{\'et}}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Hur}{Hur}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Out}{Out}
+\DeclareMathOperator{\Perm}{Perm}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Pin}{Pin}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\Surj}{Surj}
+\DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\tame}{tame}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\QED}{\hspace{\stretch{1}} $\blacksquare$}
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcC}{\mathcal{C}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcN}{\mathcal{N}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcQ}{\mathcal{Q}}
+\newcommand{\mfa}{\mathfrak{a}}
+\newcommand{\mfb}{\mathfrak{b}}
+\newcommand{\mfI}{\mathfrak{I}}
+\newcommand{\mfM}{\mathfrak{M}}
+\newcommand{\mfm}{\mathfrak{m}}
+\newcommand{\mfo}{\mathfrak{o}}
+\newcommand{\mfO}{\mathfrak{O}}
+\newcommand{\mfP}{\mathfrak{P}}
+\newcommand{\mfp}{\mathfrak{p}}
+\newcommand{\mfq}{\mathfrak{q}}
+\newcommand{\mfz}{\mathfrak{z}}
+\newcommand{\AGL}{\mathbb{A}\GL}
+\newcommand{\Qbar}{\overline{\QQ}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\renewcommand{\d}[1]{\ensuremath{\operatorname{d}\!{#1}}}
+
+\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}
+
+\lhead{\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}A Massive Load of Putnam Problems} 
+\chead{\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}Math Club}
+\rhead{\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}Winter 2021} 
+
+
+\begin{document}
+
+\section{Introduction}
+
+    Welcome to this week of Math Club!
+    The Putnam exam is approaching (Feb 20), so we will be spending some time preparing and practicing.
+    Last week, our focus was on solving the ``easy'' problems on the Putnam, namely problems A1, B1, A2, and B2. This week, there are no restrictions: we're jumping all over the place. You will see a lot more problems today which will reflect the average difficulty of a Putnam problem, and you will certainly learn a lot from each problem on this worksheet, whether you solve it on your own, use a hint, or read the solution somewhere. It just goes to show how helpful Putnam preparation and problem-solving can be to your study of higher mathematics.
+    
+    You may have seen some of these problems before.
+    If that is the case, we encourage you to work on those that are unfamiliar to you.
+    The main point of today is to show you how to get full points on a question and then to practice doing so.
+    As a reminder, don't feel bad at all if you're unable to completely solve these.
+    After all, the median score on the Putnam is somewhere in the range of 0, 1, or 2 (each question is worth 10 points).
+    
+    We will work through the following problem as an example.
+
+\section{Resources}
+    There are several, but one very helpful Putnam competition websites is \url{https://kskedlaya.org/putnam-archive/}, compiled by Kiran Kedlaya of UCSD.
+    This site has lots of problems and solutions (as well as results) from many previous exams.
+    
+    John Scholes compiled a collection of solutions to all the Putnam exams up to 2003. A copy of his site can be found here: \url{https://prase.cz/kalva/putnam.html}. 
+    
+    Highly recommended book: \emph{The William Lowell Putnam Mathematical Competition 1985-2000: Problems, Solutions, and Commentary} by Kedlaya, Poonen, and Vakil. Several Putnam problems are presented along with hints, detailed solutions, discussions of concepts and related problems. This book was made specifically for Putnam preparation.
+
+\section{Matrices and Linear Algebra}
+
+\begin{exercise}[1991 A2]
+Let $A$ and $B$ be different $n\times n$ matrices with real entries. If $A^3 = B^3$ and $A^2B = B^2A$, can $A^2 +B^2$
+be invertible? \emph{Hint: 13}
+\end{exercise}
+
+\begin{exercise}[1988 A6]
+If a linear transformation $A$ on an $n$-dimensional vector space has $n+1$ eigenvectors such that any $n$ of them are linearly independent, does it follow that $A$ is a scalar multiple of the identity? Prove your answer. \emph{Hint: 8} 
+\end{exercise}
+
+\begin{exercise}[1999 B5]
+For an integer $n\geqslant 3$, let $\theta = 2\pi / n$. Evaluate the determinant of the $n\times n$ matrix $I+A$, where $I$ is the $n\times n$ identity matrix and $A=(a_{jk})$ has entries $a_{jk} = \cos(j\theta+k\theta)$ for all $j,k$. \emph{Hint: 3}
+\end{exercise}
+
+\begin{exercise}[1985 B6]
+Let $G$ be a finite set of real $n \times n$ matrices $\{M_i\}$, $1 \leqslant i \leqslant r$, which form a group under matrix multiplication. Suppose that $\sum_{i=1}^r \tr (M_i) = 0$, where $\tr (A)$ denotes the trace of the matrix $A$. Prove that $\sum_{i=1}^r M_i$ is the $n \times n$ zero matrix. \emph{Hint: 1}
+\end{exercise}
+
+\section{Calculus/Analysis}
+
+\begin{exercise}[1989 A2]
+Evaluate $\int_0^a \int_0^b e^{\max\{b^2x^2,a^2y^2\}}\ dy\ dx$, where $a,b>0$. \emph{Hint: 4} 
+\end{exercise}
+
+\begin{exercise}[1993 B4]
+The function $K(x,y)$ is positive and continuous for $0\leqslant x \leqslant 1$, $0\leqslant y \leqslant 1$, and the functions $f(x)$ and $g(x)$ are positive and continuous for $0\leqslant x \leqslant 1$. Suppose that for all $x$, $0\leqslant x \leqslant 1$,
+\[\int_0^1f(y)K(x,y)\ dy = g(x)\ \ \text{ and }\ \ \int_0^1 g(y)K(x,y)\ dy = f(x)\] Show that $f(x)=g(x)$ for $0\leqslant x \leqslant 1$. \emph{Hint: 12}
+\end{exercise}
+
+\begin{exercise}[1999 A5]
+Prove that there is a constant $C$ such that, if $p(x)$ is a polynomial of degree $1999$, then
+\[|p(0)|\leqslant C\int_{-1}^1 |p(x)|\ dx\]
+\emph{Hint: 14}
+\end{exercise}
+
+\section{Integer Polynomials}
+
+\begin{exercise}[2016 A1]
+Find the smallest positive integer $j$ such that for every polynomial $p(x)$ with integer coefficients and for every integer $k$, the integer
+\[p^{(j)}(k) = \frac{d^j}{dx^j}p(x)\bigg|_{x=k}\] (the $j$-th derivative of $p(x)$ at $k$) is divisible by 2016. \emph{Hint: 10}
+\end{exercise}
+
+\begin{exercise}[2007 B1]
+Let $f$ be a nonconstant polynomial with positive integer coefficients. Prove that if $n$ is a positive integer, then $f(n)$ divides $f(f(n)+1)$ if and only if $n=1$. \emph{Hint: 5}
+\end{exercise}
+
+\section{Binary Operations and Group Theory}
+
+\begin{exercise}[2012 A2]
+Let $*$ be a commutative and associative binary operation on a set $S$. Assume that for every $x$ and $y$ in $S$, there exists $z$ in $S$ such that $x*z=y$. (This $z$ may depend on $x$ and $y$.) Show that if $a,b,c$ are in $S$ and $a*c=b*c$, then $a = b$.
+\end{exercise}
+
+\begin{exercise}[2007 A5]
+Suppose that a finite group $G$ has exactly $n$ elements of order $p$, where $p$ is a prime. Prove that either $n=0$ or $p$ divides $n+1$. \emph{Hint: 11}
+\end{exercise}
+
+\begin{exercise}[1997 A4]
+Let $G$ be a group with identity $e$ and $\phi: G \rightarrow G$ a function such that 
+\[\phi(g_{1})\phi(g_{2})\phi(g_{3}) = \phi(h_{1})\phi(h_{2})\phi(h_{3})
+\]
+whenever $g_{1}g_{2}g_{3} = e = h_{1}h_{2}h_{3}$. Prove that there exists an element $a \in G$ such that $\psi(x) = a\phi(x)$ is a homomorphism. 
+\end{exercise}
+
+\section{Number Theory}
+
+\begin{exercise}[2017 A4]
+A class with $2N$ students took a quiz, on which the possible scores were $0, 1,\dots , 10$. Each of these scores occurred at least once, and the average score was exactly $7.4$. Show that the class can be divided into two groups of $N$ students in such a way that the average score for each group was exactly $7.4$. 
+\end{exercise}
+
+\begin{exercise}[1998 B5]
+Let $N$ be the positive integer with $1998$ decimal digits, all of them $1$; that is, \[N=1111\cdots 1\] Find the thousandth digit after the decimal point of $\sqrt{N}$. \emph{Hint: 6}
+\end{exercise}
+
+\section{Geometry}
+
+\begin{exercise}[2012 B2]
+Let $P$ be a given (non-degenerate) polyhedron. Prove that there is a constant $c(P ) > 0$ with the following property: If a collection of $n$ balls whose volumes sum to $V$ contains the entire surface of $P$, then $n > c(P)/V^2$.
+\end{exercise}
+
+\begin{exercise}[2000 A5]
+Three distinct points with integer coordinates lie on a circle of radius $r>0$. Show that two of these points are separated by a distance of at least $r^{1/3}$. \emph{Hint: 2} 
+\end{exercise}
+
+\section{Other Fun Problems}
+
+\begin{exercise}[2002 A3]
+Let $n\geqslant 2$ be an integer and $T_n$ be the number of non-empty subsets $S$ of $\{1, 2, 3, \dots, n\}$ with the property that the average of the elements of $S$ is an integer. Prove that $T_n - n$ is always even. \emph{Hint: 9}
+\end{exercise}
+
+\begin{exercise}[1993 B5]
+Show that there do not exist four points in the Euclidean plane such that the pairwise distances between the points are all integers. \emph{Hint: 7} 
+\end{exercise}
+
+\begin{exercise}[2000 B4]
+Let $f(x)$ be a continuous function such that $f(2x^{2} - 1) = 2xf(x)$ for all $x$. Show that $f(x) = 0$ for $-1 \leq x \leq 1$. 
+\end{exercise}
+
+\pagebreak
+\section{Hints}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+    \item What is $\left(\sum_{i=1}^r M_i\right)^2$
+    \item Relate the sides, area, and circumradius of the triangle formed by the points.
+    \item Product of the eigenvalues.
+    \item Divide the rectangle into two parts by the diagonal line $ay=bx$ and integrate over each part separately.
+    \item Write out the polynomial in terms of its coefficients and calculate $f(f(n)+1)$ modulo $f(n)$.
+    \item Use Taylor series!
+    \item Find a polynomial identity with integer coefficients satisfied by the six distances. Obtain a contradiction modulo a power of $2$. 
+    \item The trace is independent of choice of basis.
+    \item Pair up the subsets of $T_n$, except for the sets $\{1\},\{2\},\dots,\{n\}$.
+    \item Write out the polynomial in terms of its coefficients and note that every coefficient in $p^{(j)}(x)$ is divisible by $k!$.
+    \item Let $S$ be the set of all $p$-tuples of elements $(a_0,a_1,\dots,a_{p-1})\in G^p$ satisfying $a_0a_1\cdots a_{p-1}=e$. Consider the orbits of $S$ under cyclic permutation.
+    \item Define $T$ to be a linear operator on the space of continuous functions $[0,1]\to [0,1]$ by $(Th)(x)=\int_0^1 h(y)K(x,y)\ dy$ and let $r$ be the minimum value of $f/g$ (note that it exists and is attained). Find a contradiction by considering $T^2(f-rg)=T(T(f-rg))$.
+    \item Show that $A^2+B^2$ times something nonzero is zero. There is only one nonzero matrix in the problem statement.
+    \item A continuous function on a compact set attains a minimum value.
+\end{enumerate}
+\end{document}
