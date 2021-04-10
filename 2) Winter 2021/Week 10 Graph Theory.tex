@@ -1,0 +1,266 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{pdfrender,xcolor}
+\usepackage{graphicx}
+
+
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools,graphicx,tikz-cd}
+\usepackage{blindtext}
+\usepackage[margin = 1.25 in]{geometry}
+\usepackage{enumitem}
+
+\usepackage{fancyhdr,accents,lastpage}
+\pagestyle{fancy}
+\setlength{\headheight}{25pt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem{exercise}{Exercise}
+\newtheorem{example}{Example}[definition]
+
+
+\DeclareMathOperator{\ab}{ab}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\BGL}{BGL}
+\DeclareMathOperator{\Br}{Br}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\CHur}{CHur}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\et}{\text{\'et}}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Hur}{Hur}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Out}{Out}
+\DeclareMathOperator{\Perm}{Perm}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Pin}{Pin}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\Surj}{Surj}
+\DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\tame}{tame}
+\DeclareMathOperator{\Tr}{Tr}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\QED}{\hspace{\stretch{1}} $\blacksquare$}
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcC}{\mathcal{C}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcN}{\mathcal{N}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcQ}{\mathcal{Q}}
+\newcommand{\mfa}{\mathfrak{a}}
+\newcommand{\mfb}{\mathfrak{b}}
+\newcommand{\mfI}{\mathfrak{I}}
+\newcommand{\mfM}{\mathfrak{M}}
+\newcommand{\mfm}{\mathfrak{m}}
+\newcommand{\mfo}{\mathfrak{o}}
+\newcommand{\mfO}{\mathfrak{O}}
+\newcommand{\mfP}{\mathfrak{P}}
+\newcommand{\mfp}{\mathfrak{p}}
+\newcommand{\mfq}{\mathfrak{q}}
+\newcommand{\mfz}{\mathfrak{z}}
+\newcommand{\AGL}{\mathbb{A}\GL}
+\newcommand{\Qbar}{\overline{\QQ}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}
+
+\lhead{\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}Graph Theory} 
+\chead{\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}Math Club}
+\rhead{\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}Winter 2021} 
+
+
+\begin{document}
+\section{Introduction}
+Welcome to Math Club! This week, we will be learning about graph theory and directed graphs. A graph is a collection of points connected by lines. For example, a bunch of cities connected by roads, or neurons connected by anyons, or accounts on Facebook connected to their ‘friends’. In any case, this is broadly applicable to many problems in many industries: for example, if a company needs to distribute goods while keeping costs near optimal. Here, we approach this problem from the perspective of Olympiad math.
+
+
+\section{Resources}
+\begin{itemize}
+    \item Many of the graph theory problems come from a 2008 IMO training set, written by Adrian Tang
+    
+    \item Intermediate Counting and Probability, by David Patrick
+    
+    \item Introduction to Graph Theory, by Douglas West.
+    
+    \item Introduction to the Theory of Graphs by Mehdi Behzad and Gary Chartrand
+\end{itemize}
+
+
+\section{Basic Definitions} 
+\begin{definition}
+A finite simple graph is a pair $G = (V, E)$ of sets $V = \{v_{1}, v_{2}, \ldots, v_{n}\}$ and $E = \{e_{1}, e_{2}, \ldots, e_{m}\}$ where elements in $V$ are called vertices and elements of $E$ are called edges where each is a $2$-element subset of $V$. 
+\end{definition}
+
+\begin{definition}
+A walk in $G = (V, E)$ is a sequence $(v_{1}, e_{1}, v_{2}, \ldots, e_{k}, v_{k + 1})$ where each $e_{i} = v_{i}v_{i + 1}$. The length of a walk is the number of edges traversed. A path is a walk with no vertices repeated. A cycle is a walk with no vertices repeated except the endpoints.
+\end{definition}
+
+\begin{definition}
+A graph $G = (V, E)$ is connected if for every pair $u, v \in V$, there's a $(u, v)$-walk. 
+\end{definition}
+
+\begin{definition}
+A circuit is a closed walk where any edge is used at most once. Eulerian circuit is a circuit that uses every edge exactly once. 
+\end{definition}
+
+\begin{definition}
+The degree of a vertex $v$ in $G$, denoted by $\deg(v)$, is the number of edges incident to $v$. 
+\end{definition}
+
+\begin{definition}
+The chromatic number $\chi(G)$ is the smallest number of colors needed so that each no adjacent vertices are the same color.
+\end{definition}
+
+\begin{definition}
+The complement $\overline{G}$ of $G$ is the graph where we draw every edges between every pair of vertices in $G$ that are not adjacent.
+\end{definition}
+
+\begin{definition}
+The graph $G = (V, E)$ is planar if it can be embedded in $\mathbb{R}^{2}$ such that no edges cross. 
+\end{definition}
+
+\section{Important Results}
+\begin{lemma}(Handshaking)
+If $G = (V, E)$ is a graph (not necessarily simple), then $\sum_{v \in V} \deg(v) = 2|E|$ (loops count twice towards degree).  
+\end{lemma}
+
+\begin{theorem}
+A graph $G$ has an Eulerian circuit if and only if all edges of $G$ are in the same component ($G$ may have isolating points) and every vertex has even degree.  
+\end{theorem}
+
+\begin{theorem}(Euler's formula)
+If $G$ is a planar-connected graph with $v$ vertices, $e$ edges, and $f$ faces, then $v - e + f = 2$. 
+\end{theorem}
+
+\begin{theorem}(Four color)
+If $G$ is planar, then $\chi(G)\leq 4$. 
+\end{theorem}
+
+\section{Directed Graph}
+A directed graph is like a graph except that the vertices have arrows on them. As with the case of simple graphs, we have the convention that every pair of vertices has at most $1$ arrow between them (i.e., it can go one way but not the other). We also require that there is no arrow going from a vertex to itself.
+
+\begin{definition}
+A directed graph is a (multi)graph with a function $d: E \rightarrow V$ where $d(e) \in e$ for each $e$.  
+\end{definition}
+
+\begin{definition}
+A tournament is a complete directed graph (think of it as all the vertices are knights, and an arrow from $A$ to $B$ means $A$ beats $B$; there are no ties).
+\end{definition}
+
+\section{Easy}
+\begin{exercise}
+If a graph has $5$ vertices, can each vertex has degree $3$? 
+\end{exercise}
+
+\begin{exercise}
+At a dinner party people shake hands as they are introduced. Not everyone shakes hands with everyone else (some of them already know each other!). Show that there have to be two people who shake hands the same number of times. Show that the number of people who have shaken hands an odd number of times is even.
+\end{exercise}
+
+\begin{exercise}
+Let $G$ be a disconnected graph. Show that $\overline{G}$ is a connected graph.
+\end{exercise}
+
+\begin{exercise}
+Characterize (with proof!) all graphs whose vertices have degree less than or equal to $2$.
+\end{exercise}
+
+\begin{exercise}
+A tree $T$ is a connected acyclic graph. A vertex of degree $1$ in $T$ is called a leaf. Show that if $T$ has at least two vertices, then it has at least two leafs.  
+\end{exercise}
+
+\begin{exercise}
+Suppose that $G$ only has cycles of even length. Show that $\chi(G) = 2$.
+\end{exercise}
+
+\begin{exercise}
+Suppose a simple planar graph $G$ has $n \geq 3$ vertices. Prove that $G$ has at most $3n - 6$ edges. 
+\end{exercise}
+
+\section{Medium}
+\begin{exercise}
+Show that if the points of the plane are colored black or white, then there exists an equilateral triangle whose vertices are colored by the same color.
+\end{exercise}
+
+\begin{exercise}
+Let $G$ be a graph with $n$ vertices and $m$ edges. Prove that the graph contains at least $\frac{4m}{3n}(m - \frac{n^{2}}{4})$ $3$-cycles.
+\end{exercise}
+
+\begin{exercise}
+Let $n$ be a positive integer. A test has $n$ problems, and was written by several students. Exactly three students solved each problem, each pair of problems has exactly one student that solved both and no student solved every problem. Find the maximum possible value of $n$.
+\end{exercise}
+
+\begin{exercise}
+$A$ is a champion if for every other person $B$, either $A$ beats $B$, or $A$ beats some person $C$ who beats $B$. Describe all integers $n$ for which there exists an tournament of size $n$ in which every player is a champion.
+\end{exercise}
+
+\begin{exercise}
+$20$ football teams take part in a tournament. On the first day all the teams play one match. On the second day all the teams play a further match. Prove that after the second day it is possible to select $10$ teams, so that no two of them have yet played each other.
+\end{exercise}
+
+
+\section{Hard}
+\begin{exercise}(Turan's Theorem)
+Given a graph $G$, a clique in $G$ is a subset of vertices of $G$ where every pair of vertices in the subset is joined by an edge. Now, let $G$ be a graph on $n$ vertices and $m$ is a positive integer with $2 \leq m \leq n$. Suppose $G$ does not contain a clique of size $m$. Prove that the number of edges in $G$ is at most 
+\[\frac{n^{2}}{2}(1 - \frac{1}{m - 1}). 
+\]
+\end{exercise}
+
+\begin{exercise}
+Let $n$ be a positive integer. For a set $S$ of $2n$ real numbers, find the maximum possible number of pairwise (positive) differences between two elements in $S$, that are in the range $(1, 2)$.
+\end{exercise}
+
+\begin{exercise}(IMO 1991)
+Let $G$ be a connected graph with $m$ edges. Prove that the edges can be labelled with the positive integers $1, 2, \ldots, m$ such that for each vertex with degree at least two, the greatest common divisors amongst the labels on the edges incident to this vertex, is $1$.
+\end{exercise}
+\end{document}
+ 
