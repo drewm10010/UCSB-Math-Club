@@ -1,0 +1,210 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{pdfrender,xcolor}
+\usepackage{graphicx}
+
+
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathtools,graphicx,tikz-cd}
+\usepackage{blindtext}
+\usepackage[margin = 1 in]{geometry}
+\usepackage{enumitem}
+
+\usepackage{fancyhdr,accents,lastpage}
+\pagestyle{fancy}
+\setlength{\headheight}{25pt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem{exercise}{Exercise}
+\newtheorem{example}{Example}
+
+
+\DeclareMathOperator{\ab}{ab}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\BGL}{BGL}
+\DeclareMathOperator{\Br}{Br}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\CHur}{CHur}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\et}{\text{\'et}}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Hur}{Hur}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Out}{Out}
+\DeclareMathOperator{\Perm}{Perm}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Pin}{Pin}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\Surj}{Surj}
+\DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\tame}{tame}
+\DeclareMathOperator{\Tr}{Tr}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\QED}{\hspace{\stretch{1}} $\blacksquare$}
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcC}{\mathcal{C}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcN}{\mathcal{N}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcQ}{\mathcal{Q}}
+\newcommand{\mfa}{\mathfrak{a}}
+\newcommand{\mfb}{\mathfrak{b}}
+\newcommand{\mfI}{\mathfrak{I}}
+\newcommand{\mfM}{\mathfrak{M}}
+\newcommand{\mfm}{\mathfrak{m}}
+\newcommand{\mfo}{\mathfrak{o}}
+\newcommand{\mfO}{\mathfrak{O}}
+\newcommand{\mfP}{\mathfrak{P}}
+\newcommand{\mfp}{\mathfrak{p}}
+\newcommand{\mfq}{\mathfrak{q}}
+\newcommand{\mfz}{\mathfrak{z}}
+\newcommand{\AGL}{\mathbb{A}\GL}
+\newcommand{\Qbar}{\overline{\QQ}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\newcommand{\geqs}{\geqslant}
+\newcommand{\leqs}{\leqslant}
+
+
+\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.4pt}
+
+\lhead{\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}Unconventional Methods in Combinatorics} 
+\chead{\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}Math Club}
+\rhead{\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}Spring 2021} 
+
+
+\begin{document}
+\section{Introduction}
+In a typical combinatorics course at this school (such as MATH 116), you will learn the basics of how to count. Usually, they'll cover the multiplication rule, stars and bars, the pigeonhole principle, the principle of inclusion-exclusion, and other things. Today, we delve into techniques that aren't touched on: using linear algebra and the probabilistic method. The common theme here is that we will be applying methods from other areas of mathematics to aid us in solving problems. Crucial for the practitioner, these strategies provide fuel for active research across several fields of science.
+
+\section{Resources}
+I will take many problems from the book \emph{Problems from the Book} by Andreescu and Dopinescu and Yufei Zhao's handout on algebraic techniques in combinatorics. For probability, the main reference is \emph{The Probabilistic Method} by Alon and Spencer, but I will sprinkle in some problems inspired from other sources.
+
+\section{Linear Algebra in Combinatorics}
+
+This section is intended to showcase how powerful linear algebra can be as a tool in solving combinatorics problems. The idea we shall repeatedly employ is to translate a problem into the language of vectors, matrices, vector spaces and determinants. This will be done in many ways in the exercises below. 
+
+The first few problems practice using \textbf{incidence vectors}. Given $m$ subsets $A_1,A_2,\dots,A_m$ of $\{1,\dots,n\}$, we can associate a vector $v_i\in \RR^m$ to each number $i\in \{1,\dots,n\}$, where we define the $j$-th coordinate of $v_i$ to be $1$ if $i\in A_j$, and $0$ otherwise. Note that we can interpret many important quantities in terms of vector operations: for example, if $i$ and $j$ are both in exactly $r$ subsets, then $v_i\cdot v_j=r$, where $\cdot$ symbolizes the dot product.
+
+Alternatively, we can associate a vector $v_i\in \RR^n$ to each \emph{set} $A_i$, where we define the $j$-th coordinate equal to $1$ if $j\in A_i$. Sometimes the first definition will be helpful; other times this one will.
+
+\begin{example}
+Students go for ice cream in groups of at least two. After $k>1$ students have gone, every two students have gone together exactly once. Prove that the total number of students in the school is $\leqs k$.
+\end{example}
+
+\begin{exercise}[Fisher's Inequality]
+Let $A_1,\dots,A_m$ be distinct subsets of $\{1,2,\dots,n\}$. Suppose that there is an integer $1\leqs k< n$ such that $|A_i\cap A_j|=k$ for all $i\neq j$. Prove that $m\leqs n$.
+\end{exercise}
+
+\begin{exercise}
+A handbook classifies plants by $100$ attributes (each plant either has a given attribute or does not have it). Two plants are dissimilar if they differ in at least $51$ attributes. Show that the handbook cannot give $51$ plants all dissimilar from each other.
+\end{exercise}
+
+\begin{exercise}
+Is there in the plane a configuration of $22$ circles and $22$ points on their union such that any circle contains at least $7$ points and any point belongs to at least $7$ circles?
+\end{exercise}
+
+\begin{exercise}
+Let $G$ be a finite simple graph, and there is a light bulb at each vertex of $G$. Initially, all lights are off. Each step we are allowed to choose a vertex and toggle the light at that vertex as well as those of its neighbors. Show that we can get all lights to be on at the same time.
+\end{exercise}
+
+\begin{exercise}
+ Let $G$ be a graph with $v$ vertices. Let $f(n)$ denote the number of closed walks in $G$ of length $n$. Show that there exist complex numbers $\lambda_1,\lambda_2,\dots,\lambda_v$ such that
+\[f(n)=\lambda_1^n+\lambda_2^n+\cdots +\lambda_v^n\] for all positive integers $n$. 
+\end{exercise}
+
+\begin{exercise}
+Let $a_1,a_2,\dots,a_n$ be integers. Show that
+\[\prod_{1\leqs i<j\leqs n}\frac{a_i-a_j}{i-j}\] is an integer.
+\end{exercise}
+
+\begin{exercise}
+Let $a_1,a_2,\dots,a_{2n+1}$ be real numbers such that for any $1\leqs i \leqs 2n+1$, we can remove $a_i$ and separate the remaining $2n$ numbers into two groups of $n$ numbers with equal sums. Prove that $a_1=a_2=\cdots=a_{2n+1}$.
+\end{exercise}
+
+\section{Probabilistic Combinatorics}
+
+The probabilistic method, sometimes called the Erdos method, is a technique that can be used to show the existence of some mathematical object. This is done by trying to construct the object randomly and showing that we succeed with positive probability.
+
+Another technique used in these problems is that of \emph{calculating the average or expectation}. The idea is that if the average value of $X$ over all possible outcomes is $a$, then there must be \emph{some} outcome in which $X\geqs a$, and similarly there must be some outcome where $X\leqs a$. The term ``average'' can mean expected value $\EE[X]$ of a random variable, but it can have many more interpretations.
+
+\begin{exercise}
+Let $G$ be the complete graph on $n$ vertices, where $n$ and $k$ are positive integers that satisfy
+\[\binom{n}{k}2^{1-k}<1
+\] Prove that there exists a $2$-coloring of the edges of $G$ with no monochromatic clique of size $k$. Recall that a clique of size \(k\) is a complete subgraph with \(k\) vertices.
+\end{exercise}
+
+\begin{exercise}
+Suppose that $n$ basketball teams compete in a tournament and any two teams play each other exactly once. The organizers wish to award $k$ prizes at the end of the tournament. It would be embarrassing if there ended up being a team that had not won a prize despite beating all the teams that won a prize. Prove that if
+\[\binom{n}{k}\left(1-\frac{1}{2^k}\right)^{n-k}<1\] then it is possible that for every choice of $k$ teams, there will be a team which beats them all (in which case embarrassment is guaranteed).
+\end{exercise}
+
+\begin{exercise}
+Let $v_1,\dots,v_n\in \RR^n$, all $|v_i|=1$. Prove that there exist $\eps_1,\eps_2,\dots,\eps_n\in \{-1,1\}$ such that 
+\[|\eps_1v_1+\cdots+\eps_nv_n|\leqs \sqrt{n}\]
+and there exist $\eps_1,\eps_2,\dots,\eps_n\in \{-1,1\}$ such that
+\[|\eps_1v_1+\cdots+\eps_nv_n|\geqs \sqrt{n}\]
+\end{exercise}
+
+\begin{exercise}
+Let $F$ be a finite collection of binary strings of finite lengths and assume no member of $F$ is a prefix of another. Let $N_i$ denote the number of strings of length $i$ in $F$. Prove that \[\sum_i \frac{N_i}{2^i}\leqs 1\]
+\end{exercise}
+
+\begin{exercise}
+Let $n>2$. Prove that there exists an $n\times n$ matrix with entries in $\{\pm 1\}$ whose determinant is larger than $\sqrt{n!}$.
+\end{exercise}
+
+\begin{exercise}
+Prove that there is an absolute constant $c>0$ with the following property. Let $A$ be an $n$ by $n$ matrix with pairwise distinct entries. Then there is a permutation of rows in $A$ such that no column in the permuted matrix contains an increasing subsequence of length at least $c\sqrt{n}$.
+\end{exercise}
+
+\end{document}
+ 
