@@ -1,0 +1,327 @@
+\documentclass[10pt]{beamer}
+
+\usetheme[progressbar=frametitle]{metropolis}
+\usepackage{appendixnumberbeamer}
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage{xspace}
+\usepackage{physics}
+\usepackage{amsmath}
+
+\title{A Hands-on Exploration of \(\mathbb{Q}_p\)}
+\subtitle{Math Club, Spring 2021}
+\date{Week 3}
+\author{}
+\institute{University of California, Santa Barbara}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}
+    \frametitle{What are numbers anyway?}
+
+    Some examples of numbers:
+    \begin{itemize}
+        \item \(3.1415926...=\pi\)
+        \item \(0.3333333...=1/3\)
+        \item \(1.4142135=\sqrt{2}\)
+    \end{itemize}
+    This notation is shorthand for a sum:
+    \[\sqrt{2}=1\cdot\left(\frac{1}{10}\right)^0 + 4\cdot\left(\frac{1}{10}\right)^1 + 1\cdot\left(\frac{1}{10}\right)^2 + 4\cdot\left(\frac{1}{10}\right)^3 + \cdots\]
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{What are numbers anyway?}
+
+    \begin{center}
+        \Huge Is this acceptable? Why?
+    \end{center}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Zeno's Paradox}
+
+    Suppose Ancient Greek track legend Atalanta has to run a mile.
+    First she runs half a mile.
+    Then she must run an additional quarter mile.
+    Then an eighth.
+    Then a sixteenth.
+    And so on.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{The Math Involved}
+
+    We know that Atalanta reaches her goal of a mile run.
+    We can represent this as the series
+    \[\frac{1}{2}\sum_{i=0}^\infty\left(\frac{1}{2}\right)^i,\]
+    which we evaluate with the standard formula
+    \[\sum_{i=1}^\infty r^i=\frac{1}{1-r},\quad \abs{r}<p\]
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Zeno's \(p\)-aradox}
+
+    Let \(p\) be a prime number and consider the series
+    \[1+p+p^2+p^3+\cdots.\]
+    Suppose \(p\)-Ancient Greek track legend \(p\)-Atalanta has to run a race, starting at 0, running first to the point 4, then 20 miles to the point \(4+4\cdot 5^1\), then 100 miles to the point \(4+4\cdot 5^1+4\cdot 5^2\), etc, culminating in the series
+    \[4\cdot 5^0 + 4\cdot 5^1 + 4\cdot 5^2 + 4\cdot 5^3 + 4\cdot 5^4 + 4\cdot 5^5 + \cdots.\]
+    This is divergent.
+
+    Right?
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Basic Recap of Number Theory}
+
+    \begin{definition}
+        For two integers \(a,b\), we say that \(a\) {\bf divides} \(b\) if there exists \(n\in\mathbb{Z}\) such that \(b=na\).
+        In this case, we write \(a\mid b\).
+        Examples: \(2\mid -6\), \(25\mid 625\), \(k\mid 0\) for all \(k\in\mathbb{Z}\), \(k\neq 0\).
+    \end{definition}
+
+    \begin{definition}
+        For two integers \(a,b\) and \(n\in\mathbb{N}\), we say that \(a\) is {\bf congruent} to \(b\) modulo \(n\), and write \(a\equiv b\pmod{n}\) if \(n\mid(b-a)\).
+        Examples: \(4\equiv -1\pmod{5}\), \(3\equiv 10\pmod{7}\), \(10\equiv 108\pmod 7^2\).
+    \end{definition}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{A New Perspective}
+
+    Fix a prime \(p\).
+    We know that two rational numbers \(a,b\) are equal iff \(p^k\) divides the numerator of the reduced form of \(a-b\) for all positive integers \(k\) (why?).
+
+    Let's relax this and say that \(a\) and \(b\) are ``\(p\)-adically close'' if \(p^k\) divides the numerator of the reduced form of \(a-b\) for ``many'' \(k\).
+
+    In particular, a number is small \(p\)-adically if it is highly divisible by \(p\).
+    For example, if \(p=5\), \(625\) is much smaller than \(10\) when considered \(5\)-adically.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Back to \(p\)-Atalanta}
+
+    With this new perspective, \(p\)-Atalanta's steps are getting smaller! (\(p\)-adically)
+    \[4\cdot 5^0 + 4\cdot 5^1 + 4\cdot 5^2 + 4\cdot 5^3 + 4\cdot 5^4 + 4\cdot 5^5 + \cdots\]
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{\(p\)-adic Numbers}
+
+    \begin{definition}
+        We define the set of \(p\)-adic numbers to be the set
+        \[\mathbb{Q}_p = \left\{\sum_{i=n_0}^\infty b_ip^i:n_0\in\mathbb{Z}\text{ and } b_i\in\{0,1,2,\ldots,p-1\}\right\}.\]
+        Similarly, define the \(p\)-adic integers to be the set
+        \[\mathbb{Z}_p = \left\{\sum_{i=0}^\infty b_ip^i:b_i\in\{0,1,2,\ldots,p-1\}\right\}.\]
+    \end{definition}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Exercise 1}
+
+    Show that \(\mathbb{Q}_p\) is uncountable.
+
+    Hint: one may follow Cantor's diagonalization argument.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Arithmetic}
+
+    We now have a new system of numbers, so a natural thing to do is arithmetic with these new numbers.
+
+    First we need to recall the notion of writing a number in base \(p\).
+    That is, we write a natural number \(n\) in the form \(\sum b_ip^i\).
+    Some examples when \(p=7\), 
+    \[77 = 0\cdot 7^0 + 4\cdot 7^1 + 1\cdot 7^2 + 0\cdot 7^3 + \cdots,\]
+    \[37 = 2\cdot 7^0 + 5\cdot 7^1 + 0\cdot 7^2 + 0\cdot 7^3 + \cdots,\]
+    \[113 = 1\cdot 7^0 + 2\cdot 7^1 + 3\cdot 7^2 + 0\cdot 7^3 + \cdots.\]
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Addition}
+
+    Q: How do we add?
+    
+    A: Like we learned in elementary school!
+    We add each \(p\)igit (\(p\)-digit) and carry over terms as necessary.
+    For example:
+    \begin{align*}
+        &0\cdot 7^0 + 4\cdot 7^1 + 1\cdot 7^2 + 0\cdot 7^3 + \cdots = 77\\
+        +\ &2\cdot 7^0 + 5\cdot 7^1 + 0\cdot 7^2 + 0\cdot 7^3 + \cdots = 37\\
+        =\ &2\cdot 7^0 + 2\cdot 7^1 + 3\cdot 7^2 + 0\cdot 7^3 + \cdots = 114
+    \end{align*}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{\(p\)-Atalanta's run}
+
+    Let's add 1 to \(p\)-Atalanta's journey:
+    \begin{align*}
+        &4\cdot 5^0 + 4\cdot 5^1 + 4\cdot 5^2 + 4\cdot 5^3 + 4\cdot 5^4 + \cdots\\
+        +\ &1\cdot 5^0 + 0\cdot 5^1 + 0\cdot 5^2 + 0\cdot 5^3 + 0\cdot 5^4 + \cdots\\
+        =\ &0\cdot 5^0 + 0\cdot 5^1 + 0\cdot 5^2 + 0\cdot 5^3 + 0\cdot 5^4 + \cdots\\
+        =\ &0
+    \end{align*}
+
+    If we let 
+    \[a=4\cdot 5^0 + 4\cdot 5^1 + 4\cdot 5^2 + 4\cdot 5^3 + 4\cdot 5^4 + \cdots,\]
+    then \(a+1 = 0\), so it must be that \(a=-1\), the additive inverse of 1 in \(\mathbb{Q}_p\).
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Multiplication}
+
+    Multiplication in \(\mathbb{Q}_p\) works analogously to multiplication with regular decimals.
+    We write our numbers as sums and multiply them out term-by-term.
+    Take it as a fact that multiplication works as intended.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Exercise 2}
+
+    Show that every \(p\)-adic number \(a\in\mathbb{Q}_p\) has an additive inverse.
+    What are the \(p\)igits of this inverse \(-a\)?
+
+    Hint: We know that multiplication works.
+    How might we use this to construct an additive inverse?
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Subtraction}
+
+    Addition but negative.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Division}
+
+    Division takes some more work.
+    Let's find the \(5\)-adic expansion of \(1/3\) (if it even exists).
+    This number is of the form \(b_0\cdot 5^0+b_1\cdot 5^1+b_2\cdot 5^2+\cdots\) that, when multiplied by 3, gives 1:
+    \[3(b_0\cdot 5^0+b_1\cdot 5^1+b_2\cdot 5^2+\cdots) = 1\cdot 5^0 + 0\cdot 5^1 + 0\cdot 5^2 + \cdots\]
+    So how do we do this?
+
+    Long division!
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Division}
+
+    \[3(b_0\cdot 5^0+b_1\cdot 5^1+b_2\cdot 5^2+\cdots) = 1\cdot 5^0 + 0\cdot 5^1 + 0\cdot 5^2 + \cdots\]
+    Solve \(3b_0\equiv 1\pmod{5}\) for \(b_0\in\{0,\ldots,4\}\). 
+    Get \(b_0=2\).
+    Then subtract \(3b_0\cdot 5^0=1\cdot 5^0 + 1\cdot 5^1\) from both sides of the equation:
+    \[3(b_0\cdot 5^0+b_1\cdot 5^1+b_2\cdot 5^2+\cdots)-3b_0\cdot 5^0 = 0\cdot 5^0 - 1\cdot 5^1 + 0\cdot 5^2 + \cdots\]
+    \[3(b_1\cdot 5^1+b_2\cdot 5^2+b_3\cdot 5^3+\cdots)=0\cdot 5^0+4\cdot 5^1+4\cdot 5^2+4\cdot 5^3+\cdots,\]
+    where we used our knowledge of the value of \(-1\).
+
+    We can continue this indefinitely to find the inverse of any nonzero \(p\)-adic number.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Algebra}
+
+    \begin{center}
+        \huge \(\mathbb{Q}_p\) is a field.        
+    \end{center}
+
+    \normalsize This roughly means that we can add, subtract, multiply, and divide (by nonzero numbers), all of which work as expected.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Exercise 3}
+
+    \begin{itemize}
+        \item Calculate \(\sqrt{2}\) in \(\mathbb{Q}_5\).
+        \item Calculate \(\sqrt{-1}\) in \(\mathbb{Q}_5\).
+        \item For which primes \(p\) does \(\mathbb{Q}_p\) have a square root of \(-1\)?
+    \end{itemize}
+
+    Hint: These will take some computation.
+    Be slow and methodical when writing things out.
+    The third question assumes some knowledge of number theory (quadratic residues, etc).
+
+\end{frame}
+
+\section{Why do we care?}
+
+\begin{frame}
+    \frametitle{Answer}
+
+    \Huge Because they're fun!
+    
+    \normalsize Okay for real...
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Local-Global Principle}
+
+    One can study integer solutions to an equation by studying its behavior in \(\mathbb{R}\) and \(\mathbb{Q}_p\) for each prime \(p\).
+
+    More formally, 
+
+    \begin{theorem}[Hasse-Minkowski]
+        If \(F(X_1,\ldots,X_n)\in\mathbb{Q}[X_1,\ldots,X_n]\) is a quadratic form, then 
+        \[F(X_1,\ldots,X_n)=0\]
+        has nontrivial solutions in \(\mathbb{Q}\) if and only if it has nontrivial solutions in \(\mathbb{Q}_p\) for all \(p\leq\infty\).
+    \end{theorem}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Research}
+
+    There is lots of exciting and current research out there that concerns \(p\)-adic numbers.
+    In particular, Peter Scholze's work with \(p\)-adics won him the most recent Fields Medal back in 2018!
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Credit Where Credit is Due}
+
+    Most of this presentation was inspired by the lovely people at the Arizona Winter School.
+    In particular, Renee Bell's and Charlotte Chan's lectures were the motivation behind this content.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Exercises}
+
+    \begin{enumerate}
+        \item Show that \(\mathbb{Q}_p\) is uncountable.
+        \item Show that every \(p\)-adic number \(a\in\mathbb{Q}_p\) has an additive inverse.
+        What are the \(p\)igits of this inverse \(-a\)?
+        \item \begin{itemize}
+            \item Calculate \(\sqrt{2}\) in \(\mathbb{Q}_5\).
+            \item Calculate \(\sqrt{-1}\) in \(\mathbb{Q}_5\).
+            \item For which primes \(p\) does \(\mathbb{Q}_p\) have a square root of \(-1\)?
+        \end{itemize}
+        \item Fix a prime \(p\) and let \(x,y\in\mathbb{Z}_p\).
+        Prove that if \(x,y\neq 0\), then \(xy\neq 0\).
+        \item Pick your favorite rational number \(a/b\) and calculate \(a/b\) in \(\mathbb{Q}_p\).
+    \end{enumerate}
+
+\end{frame}
+
+\end{document}
