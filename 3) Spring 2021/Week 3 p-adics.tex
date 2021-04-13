@@ -25,7 +25,7 @@
     \begin{itemize}
         \item \(3.1415926...=\pi\)
         \item \(0.3333333...=1/3\)
-        \item \(1.4142135=\sqrt{2}\)
+        \item \(1.4142135...=\sqrt{2}\)
     \end{itemize}
     This notation is shorthand for a sum:
     \[\sqrt{2}=1\cdot\left(\frac{1}{10}\right)^0 + 4\cdot\left(\frac{1}{10}\right)^1 + 1\cdot\left(\frac{1}{10}\right)^2 + 4\cdot\left(\frac{1}{10}\right)^3 + \cdots\]
@@ -60,7 +60,7 @@
     We can represent this as the series
     \[\frac{1}{2}\sum_{i=0}^\infty\left(\frac{1}{2}\right)^i,\]
     which we evaluate with the standard formula
-    \[\sum_{i=1}^\infty r^i=\frac{1}{1-r},\quad \abs{r}<p\]
+    \[\sum_{i=1}^\infty r^i=\frac{1}{1-r},\quad \abs{r}<1\]
 
 \end{frame}
 
@@ -88,7 +88,7 @@
 
     \begin{definition}
         For two integers \(a,b\) and \(n\in\mathbb{N}\), we say that \(a\) is {\bf congruent} to \(b\) modulo \(n\), and write \(a\equiv b\pmod{n}\) if \(n\mid(b-a)\).
-        Examples: \(4\equiv -1\pmod{5}\), \(3\equiv 10\pmod{7}\), \(10\equiv 108\pmod 7^2\).
+        Examples: \(4\equiv -1\pmod{5}\), \(3\equiv 10\pmod{7}\), \(10\equiv 108\pmod{7^2}\).
     \end{definition}
 
 \end{frame}
@@ -102,7 +102,7 @@
     Let's relax this and say that \(a\) and \(b\) are ``\(p\)-adically close'' if \(p^k\) divides the numerator of the reduced form of \(a-b\) for ``many'' \(k\).
 
     In particular, a number is small \(p\)-adically if it is highly divisible by \(p\).
-    For example, if \(p=5\), \(625\) is much smaller than \(10\) when considered \(5\)-adically.
+    For example, if \(p=5\), \(625=5^4\) is much smaller than \(10=2\cdot 5\) when considered \(5\)-adically.
 
 \end{frame}
 
@@ -287,6 +287,55 @@
         has nontrivial solutions in \(\mathbb{Q}\) if and only if it has nontrivial solutions in \(\mathbb{Q}_p\) for all \(p\leq\infty\).
     \end{theorem}
 
+\end{frame}
+
+\begin{frame}
+    \frametitle{Linear Recurrences}
+    
+    A sequence $a_0,a_1,a_2,\dots$ of integers is called an \emph{integer linear recurrence sequence} if there is a positive integer $k$ and integers $c_0,\dots,c_{k-1}$ such that, for all $n\geq 0$,
+    \[a_{n+k}=c_0a_n+c_1a_{n+1}+c_2a_{n+2}+\cdots + c_{k-1}a_{n+k-1}\]
+    A simple example of an integer linear recurrence sequence is the \emph{Fibonacci sequence}: defined by $F_0=0$, $F_1=1$, and $F_{n+2}=F_{n+1}+F_{n}$.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Linear Recurrences}
+    Given an integer linear recurrence sequence $a_0,a_1,a_2,\dots$, a natural question to ask is: what is the zero set $\{n\geq 0\ :\ a_n=0\}$?
+    
+    For the Fibonacci sequence considered earlier, the zero set is just the singleton $\{0\}$. 
+    
+    As another example, consider the sequence defined by $a_{n+3}=2a_n$, $a_0=1$, $a_1=0$, $a_2=0$. Then the zero set of this sequence is $\{3k+1\ :\ k\geq 0\}\cup \{3k+2\ :\ k\geq 0\}$.
+    
+    We can also define a linear recurrence sequence with zeroes added in at isolated points: define $a_{n+4}=a_{n+2}+a_n$, with $a_0=0$, $a_1=0$, $a_2=1$, $a_3=0$. The zeroes are in position $0$ as well as all odd numbers.
+    
+    So far, the zero sets of integer linear recurrence sequences seem to share some common form: they are disjoint unions of finitely many arithmetic progressions with finitely many single points. Is this all that can happen? 
+\end{frame}
+
+\begin{frame}
+    \frametitle{The Skolem-Mahler-Lech Theorem}
+    
+    The following \emph{stunning} result, due to Skolem, Mahler, and Lech, answers with a resounding YES.
+    \begin{theorem}[Skolem-Mahler-Lech]
+        Let $a_0,a_1,a_2,\dots$ be any integer linear recurrence sequence. Then its zero set $\{n\geq 0\ :\ a_n=0\}$ is the disjoint union of finitely many arithmetic progressions and a finite set.
+    \end{theorem}
+    Even more amazingly, the only known proofs of this theorem use $p$-adic analysis, while the statement of the theorem seems to say nothing about $p$-adic numbers!
+\end{frame}
+
+\begin{frame}
+    \frametitle{A geometry problem}
+    
+    Another problem: given a square and a positive integer $n$, is it possible to dissect it into $n$ triangles with equal area?
+    
+    If $n$ is even, it is not too hard to see how this can be done. But for $n=3$, it is very hard. Try for yourself if you don't believe me!
+\end{frame}
+
+\begin{frame}
+    \frametitle{Monsky's Theorem}
+    
+    The following theorem explains why the case $n=3$ is so difficult: because it is impossible.
+    \begin{theorem}[Monsky]
+        It is impossible to dissect a square into an odd number of triangles of equal area.
+    \end{theorem}
+    Here's the kicker: the proof relies on $2$-adic numbers!
 \end{frame}
 
 \begin{frame}
