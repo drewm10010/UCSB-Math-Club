@@ -1,0 +1,260 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{pdfrender,xcolor}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage{eqnarray}
+
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathtools,graphicx,tikz-cd}
+\usepackage{blindtext}
+\usepackage[margin = 1 in]{geometry}
+\usepackage{enumitem}
+
+\usepackage{fancyhdr,accents,lastpage}
+\pagestyle{fancy}
+\setlength{\headheight}{25pt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem{exercise}{Exercise}
+\newtheorem{example}{Example}
+
+
+\DeclareMathOperator{\ab}{ab}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\BGL}{BGL}
+\DeclareMathOperator{\Br}{Br}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\CHur}{CHur}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\et}{\text{\'et}}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Hur}{Hur}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Out}{Out}
+\DeclareMathOperator{\Perm}{Perm}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Pin}{Pin}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\Surj}{Surj}
+\DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\tame}{tame}
+\DeclareMathOperator{\Tr}{Tr}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\QED}{\hspace{\stretch{1}} $\blacksquare$}
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcC}{\mathcal{C}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcN}{\mathcal{N}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcQ}{\mathcal{Q}}
+\newcommand{\mcT}{\mathcal{T}}
+\newcommand{\mfa}{\mathfrak{a}}
+\newcommand{\mfb}{\mathfrak{b}}
+\newcommand{\mfI}{\mathfrak{I}}
+\newcommand{\mfM}{\mathfrak{M}}
+\newcommand{\mfm}{\mathfrak{m}}
+\newcommand{\mfo}{\mathfrak{o}}
+\newcommand{\mfO}{\mathfrak{O}}
+\newcommand{\mfP}{\mathfrak{P}}
+\newcommand{\mfp}{\mathfrak{p}}
+\newcommand{\mfq}{\mathfrak{q}}
+\newcommand{\mfz}{\mathfrak{z}}
+\newcommand{\AGL}{\mathbb{A}\GL}
+\newcommand{\Qbar}{\overline{\QQ}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\newcommand{\geqs}{\geqslant}
+\newcommand{\leqs}{\leqslant}
+
+
+\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.4pt}
+
+\lhead{\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt} Chebyshev Polynomials}   
+\chead{\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}Math Club}
+\rhead{\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}Spring 2021} 
+
+
+\begin{document}
+\section{Chebyshev Polynomials}
+Polynomials can help you solve pretty much anything. Today, we will witness but a glimpse of that potential as we examine a very important class of polynomials: the Chebyshev polynomials (more specifically, Chebyshev polynomials of the first kind). They are defined as follows:
+\begin{definition}
+For $n\geqs 0$, the \emph{$n$th Chebyshev polynomial} $T_n(x)$ is defined to be the unique polynomial such that $T_n(\cos\alpha)=\cos(n\alpha)$ for all $\alpha\in \RR$.
+\end{definition}
+This definition seems to raise more questions than answers. Does a polynomial exist? Why is it unique? Well, the uniqueness is a quick consequence of the identity theorem for polynomials. As for existence, we know that $T_0(x)=1$ and $T_1(x)=x$ work. For $n > 1$, we have the identity
+\begin{equation}\cos n\alpha = 2\cos\alpha\cos{(n-1)\alpha} -\cos(n-2)\alpha\end{equation} so if we define $T_n(x)$ \emph{recursively} by setting 
+\[T_n(x)=2x T_{n-1}(x)-T_{n-2}(x)\] the formula (1) would imply that indeed $T_n(\cos\alpha)=\cos n\alpha$ for all $\alpha \in \RR$. Hence Definition 1.1 indeed makes sense.
+
+Here are the first few Chebyshev polynomials:
+\begin{align*}
+    T_1(x)&=x\\
+    T_2(x)&=2x^2-1 \\
+    T_3(x)&= 4x^3-3x \\
+    T_4(x)&= 8x^4-8x^2+1 \\
+    T_5(x) &= 16x^5-20x^3+5x 
+\end{align*}
+corresponding to the trigonometric identities
+\begin{align*}
+    \cos\alpha &= \cos\alpha \\
+    \cos 2\alpha &= 2\cos^2\alpha - 1 \\
+    \cos 3\alpha &= 4\cos^3\alpha - 3\cos\alpha \\
+    \cos 4\alpha &= 8\cos^4\alpha - 8\cos^2\alpha + 1 \\
+    \cos 5\alpha &= 16\cos^5\alpha-20\cos^3\alpha+5\cos\alpha
+\end{align*}
+and we can go on and on in this way by iterating our recurrence above.
+
+The Chebyshev polynomial $T_n(x)$ has a very striking property. Firstly, note that it has the form $T_n(x)=2^{n-1}x^n+\cdots$, and that $|T_n(x)|\leqs 1$ whenever $|x|\leqs 1$ (the first claim follows from our recursive formula, the second from Definition 1.1). Therefore, the \emph{monic} polynomial $\frac{1}{2^{n-1}}T_n(x)$ satisfies $|\frac{1}{2^{n-1}}T_n(x)|\leqs \frac{1}{2^{n-1}}$ for all $x\in [-1,1]$. It turns out that $\frac{1}{2^{n-1}}T_n(x)$ \emph{is the only monic polynomial with this property}. This is the following theorem:
+
+\begin{theorem}[Chebyshev]
+Suppose $P(x)$ is an $n$th degree monic polynomial with real coefficients. If $P(x)$ has the property that $|P(x)|\leqs \frac{1}{2^{n-1}}$ for all $x\in [-1,1]$, then $P(x)=\frac{1}{2^{n-1}}T_n(x)$. In other words, for any $n$th degree monic polynomial $P(x)$ with coefficients in $\RR$, there exists some $c\in [-1,1]$ such that $|P(c)|\geqs \frac{1}{2^{n-1}}$.
+\end{theorem}
+
+So up to multiplication by a constant, the Chebyshev polynomials are the most tightly bound polynomials in the interval $[-1,1]$. This goes to show how constrained polynomials are in general. Indeed, I encourage you to graph the function $\frac{1}{2^{n-1}}T_n(x)$ for $n=5$. By placing such a strong condition (being majorized by an exponential function) on $[-1,1]$, the polynomial is forced to compensate by growing extremely rapidly outside of the interval $[-1,1]$ (in fact, more rapidly than any other polynomial function). This is what makes polynomial interpolation such a difficult, and fascinating, problem.
+
+Let us now apply what we have learned.
+\begin{exercise}
+Let $A_1,A_2,\dots,A_n$ be points in the plane. Prove that on any segment of length $\ell$, there is a point $M$ such that $MA_1\cdot MA_2\cdots MA_n\geqs 2\left(\frac{\ell}{4}\right)^n$.
+\end{exercise}
+
+\section{Less Difficult}
+We begin by verifying some fundamental properties of Chebyshev polynomials. These exercises will mostly rely on your knowledge of polynomials and experience with various proof methods.
+
+\begin{exercise}
+Prove that for $n\geqs 0$, the polynomial $T_n(x)$ has integer coefficients. Also, prove that the leading coefficient of $T_n(x)$ is $2^{n-1}$. \emph{Hint: 7}
+\end{exercise}
+
+\begin{exercise}
+Prove that the roots of $T_n(x)$ are the numbers $\cos\left(\frac{(2k+1)\pi}{2n}\right)$, $k=0,1,\dots, n-1$. 
+\end{exercise}
+
+\begin{exercise}
+Prove that the sum of the coefficients of $T_n(x)$ is $1$. \emph{Hint: 1}
+\end{exercise}
+
+\begin{exercise}
+Prove that the sum of the absolute values of the coefficients in $T_n(x)$ is $\frac{1}{2}(1+\sqrt{2})^n + \frac{1}{2}(1-\sqrt{2})^n$. \emph{Hint: 3}
+\end{exercise}
+
+\section{More Difficult}
+The preceding exercises, as well as the discussion above, should hopefully provide you with a better understanding of Chebyshev polynomials. Now I want you to apply that understanding to the next few problems.
+
+\begin{exercise}
+Show that if $r$ is a rational number and $\cos(r\pi)$ is rational, then $\cos(r\pi)\in \{0,\pm\frac{1}{2},\pm 1\}$. \emph{Hint: 9}
+\end{exercise}
+
+\begin{exercise}
+Let $\alpha = \frac{2\pi}{n}$. Prove that the matrix
+\[\begin{pmatrix} 1 & 1 & \cdots & 1 \\ \cos\alpha & \cos 2\alpha & \cdots & \cos{n\alpha} \\
+\vdots & \vdots & \ddots & \vdots \\
+\cos(n-1)\alpha & \cos 2(n-1)\alpha & \cdots & \cos (n-1)n\alpha \end{pmatrix}\] is invertible.  \emph{Hint: 6}
+\end{exercise}
+
+\begin{exercise}
+Fix $n\geqs 0$, and define the monic polynomial $\mcT_n(x)=2T_n(\frac{x}{2})$, $T_n(x)$ being the $n$th Chebyshev polynomial as usual.
+\begin{enumerate}[label=(\alph*)]
+    \item Prove that $\mcT_n(x)$ is a polynomial with integer coefficients. Prove the recurrence $\mcT_n(x)=x\mcT_{n-1}(x)- \mcT_{n-2}(x)$.
+    \item Prove that for all complex numbers $z\neq 0$, $\mcT_n\left(z+\frac{1}{z}\right) = z^n+\frac{1}{z^n}$. \emph{Hint: 4}
+    \item Let $a$ be a nonzero real number such that $a+\frac{1}{a}\in \ZZ$. Prove that $a^n+\frac{1}{a^n}\in \ZZ$ for all $n\geqs 0$.
+    \item Find all quintuples $(x,y,z,v,w)$ with $x,y,z,v,w\in [-2,2]$ satisfying the system of equations
+    \begin{align*}
+        x+y+z+v+w&=0 \\
+        x^3+y^3+z^3+v^3+w^3 &= 0 \\
+        x^5 + y^5+z^5+v^5+w^5 &= -10
+    \end{align*}
+\end{enumerate}
+\end{exercise}
+\begin{exercise}
+Let $x_1,x_2,\dots,x_n$, $n\geqs 2$, be distinct real numbers in the interval $[-1,1]$. Prove that 
+\[\frac{1}{t_1}+\frac{1}{t_2}+\cdots+\frac{1}{t_n}\geqs 2^{n-2}\] where $t_k = \prod_{j\neq k} |x_j-x_k|$, $k=1,2,\dots,n$. \emph{Hint: 10}
+\end{exercise} 
+
+\begin{exercise}
+Let $k\geqs 1$ and $x_1,x_2,\dots,x_k$ be real numbers such that the set
+\[\{\cos(n\pi x_1)+\cos(n\pi x_2)+\cdots + \cos (n\pi x_k)\ :\ n\in \ZZ\}\] is finite. Prove that $x_1,x_2,\dots,x_k$ are rational. \emph{Hint: 5}
+\end{exercise}
+
+\begin{exercise}
+Chebyshev polynomials of the first kind allow us to relate $\cos{n\alpha}$ in terms of powers of $\cos\alpha$. We can do something similar (but not exactly the same) with $\sin{n\alpha}$ and $\sin\alpha$. Define the \emph{Chebyshev polynomials of the second kind} $U_n(x)$ by initial conditions $U_0(x)=1$, $U_1(x)=2x$ and the recurrence $U_n(x)=2xU_{n-1}(x)-U_{n-2}(x)$. Note that this is the same recurrence formula as for Chebyshev polynomials of the first kind, but the initial conditions are different.
+
+The first few Chebyshev polynomials of the second kind are:
+\begin{align*}
+    U_1(x)&= 2x \\
+    U_2(x)&= 4x^2-1 \\
+    U_3(x) &= 8x^3-4x \\
+    U_4(x) &= 16x^4-12x^2+1 \\
+    U_5(x) &= 32x^5-32x^3+6x
+\end{align*}
+\begin{enumerate}[label=(\alph*)]
+    \item Prove that $U_n(x)$ is the unique polynomial with the property that $U_n(\cos\alpha)=\frac{\sin(n+1)\alpha}{\sin\alpha}$ for all $\alpha\in \RR$.
+    \item Prove that if $(x_1,y_1)$ is a positive integer solution to the \emph{Pell's equation}, \[x^2-dy^2 = 1,\ \ \ \ \text{$d\in\ZZ_+$ squarefree}\] then $(T_n(x_1),y_1U_{n-1}(x_1))$ is also a solution. \emph{Hint: 8}
+    \item Let $n\geqs 3$ be an odd integer. Evaluate
+    \[\sum_{k=1}^{\frac{n-1}{2}}\sec\frac{2k\pi}{n}\] \emph{Hint: 2}
+\end{enumerate}
+\end{exercise}
+
+\section{Hints}
+
+Here are some hints to help you get through this problem handout. If you have to use them, make sure you understand the meaning behind each solution, and how you could found it independently.
+\begin{enumerate}[label=\textbf{\arabic*.}]
+    \item Often plugging values into a polynomial can get you crucial information about it. What value can you plug into a polynomial so that the output is the sum of the coefficients?
+    \item What are the roots of $U_n(x)$?
+    \item If you are familiar with combinatorics, specifically the theory of linear recurrences, you should be able to guess where the formula $\frac{1}{2}(1+\sqrt{2})^n+\frac{1}{2}(1-\sqrt{2})^n$ comes from.
+    \item First try $z=e^{i\theta}$. Why is this sufficient?
+    \item This problem relies on a magnificent stroke of ingenuity, so don't feel bad if you didn't find it (I didn't either): if $a_n=\cos(n\pi x_1)+\cdots +\cos(n\pi x_k)$ takes on only finitely many values for $n\geqs 1$, so does the $k$-tuple $u_n=(a_n,a_{2n},a_{3n},\dots,a_{kn})$. Hence there must exist positive integers $m,n$ with $m<n$ such that $u_m=u_n$. Proceed.
+    \item Compute the determinant by row reduction. Are you aware of the Vandermonde determinant?
+    \item The fact that we have a recurrence with integer coefficients suggests that induction would be the best choice here. With practice, this observation should become second nature.
+    \item First prove that $1=T_n^2(x)-(1-x^2)U_{n-1}^2(x)$ (differentiating $T_n$ is one way to do this).
+    \item Express $2\cos(r\pi)$ as the root of a monic polynomial with integer coefficients.
+    \item The product should suggest use of the Lagrange interpolation formula.
+\end{enumerate}
+
+\end{document}
