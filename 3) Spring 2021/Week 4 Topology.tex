@@ -1,0 +1,217 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{pdfrender,xcolor}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage{eqnarray}
+\usepackage{xfrac}
+\usepackage{dsfont}
+
+
+
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathtools,graphicx,tikz-cd}
+\usepackage{blindtext}
+\usepackage[margin = 1 in]{geometry}
+\usepackage{enumitem}
+
+\usepackage{fancyhdr,accents,lastpage}
+\pagestyle{fancy}
+\setlength{\headheight}{25pt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem{exercise}{Exercise}
+\newtheorem{example}{Example}
+
+
+\DeclareMathOperator{\ab}{ab}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\BGL}{BGL}
+\DeclareMathOperator{\Br}{Br}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\CHur}{CHur}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\et}{\text{\'et}}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Hur}{Hur}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Out}{Out}
+\DeclareMathOperator{\Perm}{Perm}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Pin}{Pin}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\Surj}{Surj}
+\DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\tame}{tame}
+\DeclareMathOperator{\Tr}{Tr}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\QED}{\hspace{\stretch{1}} $\blacksquare$}
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcC}{\mathcal{C}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcN}{\mathcal{N}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcQ}{\mathcal{Q}}
+\newcommand{\mfa}{\mathfrak{a}}
+\newcommand{\mfb}{\mathfrak{b}}
+\newcommand{\mfI}{\mathfrak{I}}
+\newcommand{\mfM}{\mathfrak{M}}
+\newcommand{\mfm}{\mathfrak{m}}
+\newcommand{\mfo}{\mathfrak{o}}
+\newcommand{\mfO}{\mathfrak{O}}
+\newcommand{\mfP}{\mathfrak{P}}
+\newcommand{\mfp}{\mathfrak{p}}
+\newcommand{\mfq}{\mathfrak{q}}
+\newcommand{\mfz}{\mathfrak{z}}
+\newcommand{\AGL}{\mathbb{A}\GL}
+\newcommand{\Qbar}{\overline{\QQ}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\newcommand{\geqs}{\geqslant}
+\newcommand{\leqs}{\leqslant}
+
+
+\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.4pt}
+
+\lhead{\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}Constructing Spaces}   
+\chead{\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}Math Club}
+\rhead{\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}Spring 2021} 
+
+
+\begin{document}
+\section{Introduction}
+How to construct new spaces from the old ones has been a fundamental issue in topology and metric geometry. A few simple and classical examples are: 
+\begin{enumerate}
+\item The direct product of $\mathbb{R}^{n}$ and $\mathbb{R}^{m}$ is $\mathbb{R}^{n + m}$
+\item The quotient of $[0, 1]$ by the relation $0 \sim 1$ gives $S^{1}$
+\item The quotient of $S^{2}$ by the relation $x \sim -x$ gives $\mathbb{R}P^{2}$
+\item The cone over a line segment is a plane sector
+\item The suspension of $S^{n}$ becomes $S^{n + 1}$ 
+\end{enumerate}
+Today, we delve into operations on topological spaces with a focus on the change of their CW structures.  
+
+\section{Resources}
+Some books that have further reading on these topics are
+\begin{itemize}
+    \item \emph{Introduction to Topology} by Theodore W. Gamelin and Robert Everist Greene 
+    \item \emph{Algebraic Topology} by Allen Hatcher 
+    \item \emph{Differential Topology} by Victor Guillemin and Alan Pollack 
+    \item \emph{A Course in Metric Geometry} by Dmitri Burago, Yuri Burago, and Sergei Ivanov 
+    \item \emph{Metric Spaces of Non-positive Curvature} by Martin R. Bridson and Andr\'{e} Haefliger 
+\end{itemize}
+
+\section{Basic Definitions} 
+\begin{definition}
+A metric on a set $X$ is a real-valued function $d$ on $X \times X$ that has the following properties: 
+\begin{eqnarray}
+d(x, y) \geq 0, x, y \in X,\\
+d(x, y) = 0 \text{ if and only if $x = y$,}\\
+d(x, y) = d(y, x), x, y \in X, \\
+d(x, z) \leq d(x, y) + d(y, z), x, y, z \in X. 
+\end{eqnarray}
+\end{definition}
+
+\begin{definition}
+A metric space $(X, d)$ is a set $X$ equipped with a metric $d$ on $X$. 
+\end{definition}
+
+\begin{definition}
+Let $X$ be a set. A family $\mathscr{T}$ of subsets of $X$ is a topology for $X$ if $\mathscr{T}$ has the following three properties: 
+\begin{enumerate}
+    \item Both $X$ and the empty set belong to $\mathscr{T}$.
+    \item Any union of sets in $\mathscr{T}$ belongs to $\mathscr{T}$.
+    \item Any finite intersection of sets in $\mathscr{T}$ belongs to $\mathscr{T}$. 
+\end{enumerate}
+\end{definition}
+
+\begin{definition}
+A topological space is a pair $(X, \mathscr{T})$, where $X$ is a set and $\mathscr{T}$ is a topology for $X$. The sets in $\mathscr{T}$ are called open sets.  
+\end{definition}
+
+\begin{definition}
+Let $\pi: X \rightarrow Y = \sfrac{X}{\sim}$ be the projection map sending $x$ to the equivalence class $[x]$. The quotient topology of $Y$ is given by $\mathscr{T} = \{U \subseteq Y \:|\: \pi^{-1}(U) \text{ is an open subset of $X$}\}$.
+\end{definition}
+
+\begin{definition}
+A space $X$ constructed in the following way is called a cell complex or CW complex:
+\begin{enumerate}
+    \item Start with a discrete set $X_{0}$, whose points are regarded as $0$-cells.
+    \item Inductively, form the $n$-skeleton $X^{n}$ from $X^{n - 1}$ by attaching $n$-cells $e_{\alpha}^{n}$ via maps $\varphi_{\alpha}: S^{n - 1} \rightarrow X^{n - 1}$. This means that $X^{n}$ is the quotient space of the disjoint union $X^{n - 1} \sqcup_{\alpha} D_{\alpha}^{n}$ of $X^{n - 1}$ with a collection of $n$-disks $D_{\alpha^{n}}$ under the identifications $x \sim \varphi_{\alpha}(x)$ for $x \in \partial D_{\alpha}^{n}$. Thus as a set, $X^{n} = X^{n - 1} \sqcup_{\alpha} e_{\alpha}^{n}$ where each $e_{\alpha}^{n}$ is an open $n$-disk.  
+    \item One can either stop this inductive process at a finite step, setting $X = X^{n}$ for some $n < \infty$, or one can continue indefinitely, setting $X = \cup_{n} X^{n}$. In the latter case $X$ is given the weak topology: A set $A \subset X$ is open iff $A \cap X^{n}$ is open in $X^{n}$ for each $n$. 
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+The similar idea leads to the construction of simplicial complex and cubicial complex.  
+\end{remark}
+
+\section{Problems}
+\begin{exercise}
+The Euler characteristic, which for a cell complex with finitely many cells, is defined to be the number of even-dimensional cells minus the number of odd-dimensional cells. Compute the Euler characteristics for $S^{1}$, $S^{2}, T^{2}$, and the surface of genus two. 
+\end{exercise}
+
+\begin{exercise}(The line with two origins)
+Let $X$ be the set of all points $(x, y) \in \mathbb{R}^{2}$ such that $y = \pm{1}$, and let $M$ be the quotient of $X$ by the equivalence relation generated by $(x, -1) \sim (x, 1)$ for all $x \neq 0$. Show that $M$ is locally Euclidean and second-countable, but not Hausdorff. 
+\end{exercise}
+
+\begin{exercise}
+What are cell structures for $\mathbb{R}P^{n}$ and $\mathbb{C}P^{n}$? 
+\end{exercise}
+
+\begin{exercise}
+Given positive integers $v$, $e$, and $f$ satisfying $v - e + f = 2$, construct a cell structure on $S^{2}$ having $v$ $0$-cells, $e$ $1$-cells, and $f$ $2$-cells. 
+\end{exercise}
+
+\begin{exercise}
+Show that $S^{1} * S^{1} = S^{3}$, and more generally, $S^{m} * S^{n} = S^{m + n + 1}$. 
+\end{exercise}
+\end{document}
