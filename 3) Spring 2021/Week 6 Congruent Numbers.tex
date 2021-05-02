@@ -1,0 +1,229 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{pdfrender,xcolor}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage{eqnarray}
+
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathtools,graphicx,tikz-cd}
+\usepackage{blindtext}
+\usepackage[margin = 1 in]{geometry}
+\usepackage{enumitem}
+
+\usepackage{fancyhdr,accents,lastpage}
+\pagestyle{fancy}
+\setlength{\headheight}{25pt}
+
+\newtheorem{theorem}{Theorem}%[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}%[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem{exercise}{Exercise}
+\newtheorem{example}{Example}
+
+
+\DeclareMathOperator{\ab}{ab}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\BGL}{BGL}
+\DeclareMathOperator{\Br}{Br}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\CHur}{CHur}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\et}{\text{\'et}}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Hur}{Hur}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Out}{Out}
+\DeclareMathOperator{\Perm}{Perm}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Pin}{Pin}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\Surj}{Surj}
+\DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\tame}{tame}
+\DeclareMathOperator{\Tr}{Tr}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\QED}{\hspace{\stretch{1}} $\blacksquare$}
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcC}{\mathcal{C}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcN}{\mathcal{N}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcQ}{\mathcal{Q}}
+\newcommand{\mcT}{\mathcal{T}}
+\newcommand{\mfa}{\mathfrak{a}}
+\newcommand{\mfb}{\mathfrak{b}}
+\newcommand{\mfI}{\mathfrak{I}}
+\newcommand{\mfM}{\mathfrak{M}}
+\newcommand{\mfm}{\mathfrak{m}}
+\newcommand{\mfo}{\mathfrak{o}}
+\newcommand{\mfO}{\mathfrak{O}}
+\newcommand{\mfP}{\mathfrak{P}}
+\newcommand{\mfp}{\mathfrak{p}}
+\newcommand{\mfq}{\mathfrak{q}}
+\newcommand{\mfz}{\mathfrak{z}}
+\newcommand{\AGL}{\mathbb{A}\GL}
+\newcommand{\Qbar}{\overline{\QQ}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\newcommand{\geqs}{\geqslant}
+\newcommand{\leqs}{\leqslant}
+
+
+%\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.4pt}
+
+%\lhead{\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}Congruent Number Problem}   
+%\chead{\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}Math Club}
+%\rhead{\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}Spring 2021} 
+\lhead{Congruent Number Problem}
+\chead{Math Club}
+\rhead{Spring 2021}
+
+\begin{document}
+
+Welcome to week 6 of Math Club!
+Today we will discuss an ``open'' problem in the area of number theory known as Diophantine geometry, the congruent number problem.
+For each exercise, you may use anything stated prior to that exercise.
+Exercises marked with an asterisk are more difficult.
+Let's start with some definitions.
+\begin{definition}
+    A right triangle is called \textbf{rational} if all its side lengths are rational.
+    For example, the triangle with sides \((3,4,5)\) is rational and the triangle with sides \((3/2,20/3,41/6)\) is rational.
+    You can verify that the Pythagorean theorem holds.
+\end{definition}
+
+\begin{definition}
+    A positive rational number \(n\) is called a \textbf{congruent number} if there exists a rational right triangle with area \(n\).
+    Equivalently, if there are rational \(a,b,c\) such that 
+   \[a^2+b^2=c^2\quad\text{and}\quad \frac{1}{2}ab=n.\]
+\end{definition}
+
+The congruent number problem asks: ``which rational numbers \(n\) are congruent numbers?''
+You can check that the examples of rational triangles we gave above are triangles of area 6 and 5, respectively, so these are both congruent numbers.
+
+\begin{exercise}
+    If \(n\) is a congruent number, prove that \(k^2n\) is also a congruent number for any \(k\in\QQ\).
+\end{exercise}
+
+Thus it suffices to only consider squarefree integer, integers that are not divisible by the square of any integers, in our discussion of congruent numbers. Why?
+
+\begin{exercise}*
+    Show that 1 is not a congruent number.
+    {\it Hint: Argue by contradiction and apply infinite descent.}
+\end{exercise}
+
+\begin{exercise}
+    Show that \(\sqrt{2}\) is irrational.
+	There are many ways to do this, but in the spirit of today's topic we suggest that you use the previous exercise.
+\end{exercise}
+
+\begin{exercise}
+    Let \(q\in\QQ\).
+    Show that \(q^2\) is not a congruent number.
+\end{exercise}
+
+There is an important theorem that relates arithmetic progressions of squares to congruent numbers:
+
+\begin{theorem}
+	Let \(n\in\ZZ_{>0}\).
+	There is a one-to-one correspondence between right triangles with area \(n\) and 3-term arithmetic progressions of squares with common difference \(n\): the sets
+	\[\{(a,b,c):a^2+b^2=c^2,\ ab/2=n\}\quad\text{and}\quad\{(r,s,t):s^2-r^2=n,\ t^2-s^2=n\}\]
+	are in one-to-one correspondence by
+	\[(a,b,c)\longmapsto((b-a)/2,c/2,(b+a)/2)\quad\text{and}\quad(r,s,t)\longmapsto(t-r,t+r,2s).\]
+\end{theorem}
+
+\begin{exercise}
+	Prove Theorem 1.
+\end{exercise}
+
+Congruent numbers are also closely related to the solvability of the equation \(y^2=x^3-n^2x\) in the integers (given an integer \(n\)).
+
+\begin{theorem}
+	Let \(n\in\ZZ_{>0}\).
+	There is a one-to-one correspondence between the following two sets:
+	\[\{(a,b,c):a^2+b^2=c^2,\ ab/2=n\}\quad\text{and}\quad\{(x,y):y^2=x^3-n^2x,\ y\neq 0\}.\]
+	The correspondence is given by 
+	\[(a,b,c)\longmapsto\left(\frac{nb}{c-a},\frac{2n^2}{c-a}\right)\quad\text{and}\quad(x,y)\mapsto\left(\frac{x^2-n^2}{y},\frac{2nx}{y},\frac{x^2+n^2}{y}\right).\]
+\end{theorem}
+
+\begin{exercise}
+	Prove Theorem 2.
+\end{exercise}
+
+\begin{exercise}
+	Find a non-trivial solution to the equation \(y^2=x(x^2-36)\).
+	That is, a solution where \(y\neq 0\).
+\end{exercise}
+
+\begin{exercise}
+	Prove that \(7\) is a congruent number.
+\end{exercise}
+
+\begin{theorem}[Tunnell's Theorem]
+	Let \(n\) be a squarefree integer.
+	Set
+	\begin{align*}
+		f(n) &= \#\{(x,y,z)\in\ZZ^3:x^2+2y^2+8z^2=n\}\\
+		g(n) &= \#\{(x,y,z)\in\ZZ^3:x^2+2y^2+32z^2=n\}\\
+		h(n) &= \#\{(x,y,z)\in\ZZ^3:x^2+2y^2+8z^2=n/2\}\\
+		k(n) &= \#\{(x,y,z)\in\ZZ^3:x^2+2y^2+32z^2=n/2\}
+	\end{align*}
+	For odd \(n\), if \(n\) is congruent, then \(f(n)=2g(n)\).
+	For even \(n\), if \(n\) is congruent, then \(h(n)=2k(n)\).
+	Moreover, if the weak Birch and Swinnerton-Dyer conjecture is true for the curve \(y^2=x^3-n^2x\), then the reverse implication is also true.
+\end{theorem}
+
+The Birch and Swinnerton-Dyer (BSD) conjecture is one of the Millenium Prize problems, one of the most important conjectures in math.
+
+\begin{exercise}
+	Using Tunnell's Theorem, show that the following numbers are not congruent: 1, 2, 10.
+\end{exercise}
+
+\end{document}
