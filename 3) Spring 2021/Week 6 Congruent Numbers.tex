@@ -129,10 +129,40 @@
 \begin{document}
 
 Welcome to week 6 of Math Club!
-Today we will discuss an ``open'' problem in the area of number theory known as Diophantine geometry, the congruent number problem.
+Today we will discuss the Pythagorean theorem and an ``open'' problem in the area of number theory known as Diophantine geometry, the congruent number problem.
 For each exercise, you may use anything stated prior to that exercise.
 Exercises marked with an asterisk are more difficult.
-Let's start with some definitions.
+
+\section{Pythagorean Triples}
+
+We are all familiar with the famous theorem of Pythagoras: if we have a right triangle with side lengths \(a,b,c\), with \(c\) the hypotenuse, then \(a,b,c\) must satisfy \(a^2+b^2=c^2\).
+
+\begin{definition}
+	A \textbf{Pythagorean triple} consists of three positive integers \(a,b,c\) that satisfy \(a^2+b^2=c^2\).
+	Some examples include \((3,4,5)\) and \((5,12,13)\).
+\end{definition}
+
+\begin{exercise}
+	Show that there are infinitely many Pythagorean triples.
+\end{exercise}
+
+\begin{definition}
+	A \textbf{primitive Pythagorean triple} is one in which \(a,b,c\) are coprime.
+	That is, \(a,b,c\) share no common factors.
+\end{definition}
+
+If \((a,b,c)\) is a primitive Pythagorean triple, then the point \((a/c,b/c)\) is a rational point on the unit circle.
+
+\begin{theorem}
+	If \((a,b,c)\) is a primitive Pythagorean triple, then one of \(a\) or \(b\) is even and the other is odd.
+	Taking \(b\) to be even, 
+	\[a=k^2-\ell^2,\quad b=2k\ell,\quad c=k^2+\ell^2\]
+	for coprime integers \(k>\ell>0\) with different parity.
+	Conversely, for such integers \(k,\ell\), the above formulas yield a primitive Pythagorean triple.
+\end{theorem}
+
+\section{The Congruent Number Problem}
+
 \begin{definition}
     A right triangle is called \textbf{rational} if all its side lengths are rational.
     For example, the triangle with sides \((3,4,5)\) is rational and the triangle with sides \((3/2,20/3,41/6)\) is rational.
@@ -180,7 +210,7 @@ There is an important theorem that relates arithmetic progressions of squares to
 \end{theorem}
 
 \begin{exercise}
-	Prove Theorem 1.
+	Prove Theorem 2.
 \end{exercise}
 
 Congruent numbers are also closely related to the solvability of the equation \(y^2=x^3-n^2x\) in the integers (given an integer \(n\)).
@@ -194,7 +224,7 @@ Congruent numbers are also closely related to the solvability of the equation \(
 \end{theorem}
 
 \begin{exercise}
-	Prove Theorem 2.
+	Prove Theorem 3.
 \end{exercise}
 
 \begin{exercise}
@@ -220,7 +250,7 @@ Congruent numbers are also closely related to the solvability of the equation \(
 	Moreover, if the weak Birch and Swinnerton-Dyer conjecture is true for the curve \(y^2=x^3-n^2x\), then the reverse implication is also true.
 \end{theorem}
 
-The Birch and Swinnerton-Dyer (BSD) conjecture is one of the Millenium Prize problems, one of the most important conjectures in math.
+The Birch and Swinnerton-Dyer (BSD) conjecture is one of the Millennium Prize problems, one of the most important conjectures in math.
 
 \begin{exercise}
 	Using Tunnell's Theorem, show that the following numbers are not congruent: 1, 2, 10.
