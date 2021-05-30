@@ -1,0 +1,400 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{pdfrender,xcolor}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage{eqnarray}
+
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathtools,graphicx,tikz-cd}
+\usepackage{blindtext}
+\usepackage[margin = 1 in]{geometry}
+\usepackage{enumitem}
+
+\usepackage{fancyhdr,accents,lastpage}
+\pagestyle{fancy}
+\setlength{\headheight}{25pt}
+
+\newtheorem{theorem}{Theorem}%[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}%[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem{exercise}{Exercise}
+\newtheorem{example}{Example}
+
+
+\DeclareMathOperator{\ab}{ab}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\BGL}{BGL}
+\DeclareMathOperator{\Br}{Br}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\CHur}{CHur}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\et}{\text{\'et}}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Hur}{Hur}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Out}{Out}
+\DeclareMathOperator{\Perm}{Perm}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Pin}{Pin}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\Surj}{Surj}
+\DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\tame}{tame}
+\DeclareMathOperator{\Tr}{Tr}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\QED}{\hspace{\stretch{1}} $\blacksquare$}
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcC}{\mathcal{C}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcN}{\mathcal{N}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcQ}{\mathcal{Q}}
+\newcommand{\mcT}{\mathcal{T}}
+\newcommand{\mfa}{\mathfrak{a}}
+\newcommand{\mfb}{\mathfrak{b}}
+\newcommand{\mfI}{\mathfrak{I}}
+\newcommand{\mfM}{\mathfrak{M}}
+\newcommand{\mfm}{\mathfrak{m}}
+\newcommand{\mfo}{\mathfrak{o}}
+\newcommand{\mfO}{\mathfrak{O}}
+\newcommand{\mfP}{\mathfrak{P}}
+\newcommand{\mfp}{\mathfrak{p}}
+\newcommand{\mfq}{\mathfrak{q}}
+\newcommand{\mfz}{\mathfrak{z}}
+\newcommand{\AGL}{\mathbb{A}\GL}
+\newcommand{\Qbar}{\overline{\QQ}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\newcommand{\geqs}{\geqslant}
+\newcommand{\leqs}{\leqslant}
+
+
+%\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.4pt}
+
+%\lhead{\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}Congruent Number Problem}   
+%\chead{\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}Math Club}
+%\rhead{\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}Spring 2021} 
+\lhead{Cryptography}
+\chead{Math Club}
+\rhead{Spring 2021}
+
+\begin{document}
+
+\section{Introduction}
+
+    Welcome to our final meeting of Math Club this year and our final meeting online!
+    Thanks for sticking around thus far.
+    As a reminder, we are still taking applications for the role of math club officer until Friday.
+    Please fill out the form on Slack if you are interested.
+
+    Today we will be discussing cryptography, or the study and practice of securing digital information from adversarial attacks.
+    In other words, cryptography looks at the mathematical ways in which we can safely and securely send messages from point \(A\) to point \(B\).
+    With cryptography, the sender will scramble up the message in some way so that it looks like gibberish until it gets unscrambled by the receiver.
+
+    Some definitions:
+    \begin{definition}
+        We call any set of mathematical tools used for cryptography a \textbf{cryptosystem}.
+        A cryptosystem \(\Sigma\) is composed of the following:
+        \begin{enumerate}
+            \item A \textbf{message space} \(\mathcal{M}\) from which you choose your message,
+            \item A \textbf{ciphertext space} \(\mathcal{C}\) where your scrambled message lived,
+            \item A \textbf{key space} \(\mathcal{K}\) from which your key is chosen,
+            \item An \textbf{encryption} function \(E:\mathcal{M}\to \mathcal{C}\) that does the scrambling using the key,
+            \item A \textbf{decryption} function \(D:\mathcal{C}\to \mathcal{M}\) that takes a scrambled message and unscrambles it using the key.
+        \end{enumerate}
+        The encryption and decryption functions have the property that \(D(E(m))=m\), so that the decryption undoes the encryption, revealing the message.
+    \end{definition}
+
+    Most of cryptography follows a certain storyline.
+    Alice wants to send some kind of message to Bob.
+    She wants to do so in a way that nobody other than Bob can read this message.
+    Eve, an adversary to Alice and Bob, wants to try and read the message Alice sends.
+    The assumption in the story is that Eve has access to anything not kept completely secret.
+
+\section{Resources}
+
+    A great text for learning cryptography from a mathematical point of view (or maybe learning cryptography at all) is \textit{An Introduction to Mathematical Cryptography} by Hoffstein, Pipher, and Silverman.
+    Its only prerequisite is some linear algebra knowledge (Math 4A is fine).
+    
+    For a more applied approach, for those of you looking to implement cryptography, check out \textit{An Introduction to Modern Cryptography} by Katz and Lindell.
+    As a warning: don't roll your own crypto.
+    Don't write your own encryption scheme and use it in a non-trivial way.
+    If someone is willing enough, your scheme \textit{will} be broken.
+
+\section{The RSA Cryptosystem}
+
+    The RSA cryptosystem (named for the creators Rivest, Shamir, and Adleman) allows Alice and Bob to share a message using a public key (i.e., one that Eve has access to).
+
+    In RSA, we have that \(\mathcal{K}=\NN\).
+    For the key, Bob picks two primes \(p,q\) and a positive integer \(e\) such that \(\gcd(e,(p-1)(q-1))=1\).
+    The message space and ciphertext space are both the set of integers modulo \(N=pq\).
+    That is, \(\mathcal{M}=\mathcal{C}=\ZZ/N\ZZ\).
+
+    Alice chooses a message \(m\), an integer between 0 and \(pq-1\) inclusive.
+    To encrypt the message, she computes \(c\equiv m^e\pmod{N}\) and sends this over to Bob.
+    Bob then computes, using the Euclidean algorithm, an integer \(d\) satisfying \(ed\equiv 1\pmod{(p-1)(q-1)}\) (he can do this because he has full knowledge of what \(p\) and \(q\) are).
+    Then Bob computes \(m'\equiv c^d\pmod{N}\).
+    Here, we have
+    \[m' \equiv c^d \equiv \left(m^e\right)^d \equiv m^{ed} \equiv m\pmod{N}.\]
+    This last equivalence follows from Euler's theorem. The following table gives an outline of how RSA is done.
+
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{|p{5cm}|p{5cm}|}
+            \hline
+            \textbf{Alice} & \textbf{Bob}\\
+            \hline\hline
+            \multicolumn{2}{|c|}{\bf Key creation}\\
+            \hline
+            Choose secret primes \(p\) and \(q\).
+            Choose encryption exponent \(e\) with \(\gcd(e,(p-1)(q-1))=1\).
+            Publish \(N=pq\) &\\
+            \hline
+            \multicolumn{2}{|c|}{\bf Encryption}\\
+            \hline
+            & Choose plaintext \(m\).
+            Use Bob's public key \((N,e)\) to compute \(c\equiv m^e\pmod{N}\).
+            Send ciphertext \(c\) to Bob.\\
+            \hline
+            \multicolumn{2}{|c|}{\bf Decryption}\\
+            \hline
+            Compute \(d\) satisfying \(ed\equiv 1\pmod{(p-1)(q-1)}\).
+            Compute \(m' \equiv c^d\pmod{N}\).
+            Then \(m'\) equals the plaintext \(m\).&\\
+            \hline
+        \end{tabular}
+    \end{table}
+
+\section{Exercises}
+
+    \begin{exercise}
+        The Euler \(\phi\)-function has some marvelous properties.
+        \begin{enumerate}
+            \item[(a)] If \(p\) is a prime, what is the value of \(\phi(p)\)?
+            \item[(b)] If \(p\) and \(q\) are distinct primes, how is \(\phi(pq)\) related to \(\phi(p)\) and \(\phi(q)\)?
+            \item[(c)] If \(p\) is prime, what is the value of \(\phi(p^2)\)?
+            What about \(\phi(p^k)\) in general?
+            \item[(d)] Let \(M\) and \(N\) be integers such that \(\gcd(M,N)=1\).
+            Prove that
+            \[\phi(MN) = \phi(M)\phi(N).\]
+            \item[(e)] Let \(p_1,\ldots,p_r\) be the distinct primes that divide an integer \(N\). 
+            Use your previous results to show that 
+            \[\phi(N) = N\prod_{i=1}^r\left(1-\frac{1}{p_i}\right).\]
+        \end{enumerate}
+    \end{exercise}
+
+    \begin{exercise}
+        Let \(N\), \(c\), and \(e\) be positive integers satisfying \(\gcd(N,c)=1\) and \(\gcd(e,\phi(N))=1\).
+        Explain how to solve the congruence
+        \[x^e \equiv c\pmod{N}\]
+        assuming that you know the value of \(\phi(N)\).
+    \end{exercise}
+
+    \begin{exercise}
+        This exercise shows that one should be careful in choosing the public key.
+        Sometimes, there's a way to compute the message without having to factor.
+        Suppose that the message \(m\) has been encrypted using the RSA cryptosystem using three public keys \((391,3)\), \((55,3)\), and \((87,3)\).
+        The resulting ciphertexts are \(208\), \(38\), and \(87\), respectively.
+        Determine \(m\) without using the easy-to-find prime factors of \(391\), \(55\), and \(87\).
+    \end{exercise}
+    \iffalse
+    Solution:
+    We are trying to find a solution to the system
+    \begin{align*}
+        38 &\equiv m^3 \pmod{55}\\
+        32 &\equiv m^3 \pmod{87}\\
+        208 &\equiv m^3 \pmod{391}.
+    \end{align*}
+    Apply Chinese Remainder Theorem to get a value for \(x = m^3\) modulo \(55\cdot 87\cdot 391 = 1870935\).
+    Lots of computation shows that \(x \equiv 103823\pmod{1870935}\).
+    Taking the cube root gets \(m = \sqrt[3]{103823} = 47\).
+
+    Note that this problem requires some fluency with the Chinese Remainder Theorem.
+    \fi
+
+    \begin{exercise}
+        This exercise illustrates the dangers of reusing a key.
+        Suppose Alice wants to use the RSA cryptosystem to receive message \(m\) from both Bob 1 and Bob 2.
+        She picks a modulus \(N\).
+        Suppose she gives Bob 1 the encryption exponent \(e_1\) and Bob 2 the encryption exponent \(e_2\).
+        Moreover, suppose \(\gcd(e_1,e_2)=1\).
+        If Bob 1 sends Alice \(c_1\) and Bob 2 sends Alice \(c_2\), show how Eve can use the values of \(c_1\), \(c_2\), \(e_1\), \(e_2\), and \(N\) to figure out \(m\).
+    \end{exercise}
+    \iffalse
+    Solution: 
+    Use Bezout's lemma to get \(e_1 x + e_2 y = 1\) and consider \(c_1^x c_2^y\).
+    \fi
+
+    \begin{exercise}
+        Here is an example of a public key cryptosystem that was proposed at a cryptography conference.
+        It was designed to be more efficient than RSA.
+
+        Alice chooses two large primes \(p\) and \(q\) and she publishes \(N=pq\).
+        It is assumed as usual that \(N\) is hard to factor.
+        Alice also chooses three random numbers \(g\), \(r_1\), and \(r_2\) modulo \(N\) and computes 
+        \[g_1 \equiv g^{r_1(p-1)}\pmod{N}\quad\textrm{and}\quad g_2 \equiv g^{r_2(q-1)}\pmod{N}.\]
+        Alice's public key is the triple \((N,g_1,g_2)\) and her private key is the pair of primes \((p,q)\).
+
+        Now Bob wants to send the message \(m\) to Alice, where \(m\) is taken modulo \(N\).
+        He chooses two random integers \(s_1\) and \(s_2\) modulo \(N\) and computes
+        \[c_1 \equiv mg_1^{s_1}\quad\textrm{and}\quad c_2 \equiv mg_2^{s_2}\pmod{N}.\]
+        Bob sends the ciphertext \((c_1,c_2)\) to Alice.
+
+        Decryption is fast and easy thanks to the Chinese Remainder Theorem.
+        Alice has to solve
+        \[x\equiv c_1\pmod{p}\quad\textrm{and}\quad x\equiv c_2\pmod{q}.\]
+
+        \begin{enumerate}
+            \item[(a)] Show that Alice's solution \(x\) is the same as Bob's plaintext \(m\).
+            \item[(b)] Explain why the cryptosystem is not secure. 
+        \end{enumerate}
+    \end{exercise}
+
+\section{Number Theory Reference Guide}
+
+    \subsection{The Euler \(\phi\) Function}
+
+        \begin{definition}
+            The Euler \(\phi\) function, sometimes called Euler's totient function, is defined to by
+            \[\phi(N) := \#\{0\leq k<N : \gcd(k,N) = 1\}.\]
+            In other words, it counts how many numbers smaller than \(N\) are coprime to \(N\).
+        \end{definition}
+
+        This has a number of useful properties, some of which are outlines in the exercises above.
+
+        \begin{theorem}[Euler's theorem]
+            Let \(N\) be a positive integer.
+            Then for all \(a\) with \(\gcd(a,N)=1\), we have
+            \[a^{\phi(N)}\equiv 1\pmod{N}.\]
+        \end{theorem}
+
+    \subsection{Euclidean Algorithm}
+
+        The \textbf{Euclidean algorithm} is an efficient way to compute the greatest common divisor of two integers.
+        We illustrate it's use with an example.
+        
+        Suppose we want to compute \(\gcd(81,57)\).
+        First, we take the larger number \(81\) and divide it by the smaller number, keeping track of the remainder:
+        \[81 = 1\cdot 57 + 24.\]
+        Note that \(\gcd(81,57)=\gcd(57,24)\).
+        This fact is very important (convince yourself that this is true).
+        Then we repeat the process, writing
+        \[57 = 2\cdot 24 + 3\]
+        \[24 = 8\cdot 3 + 0.\]
+        The gcd we were searching for is the last nonzero remainder.
+        In this case, \(\gcd(81,57) = 3\).
+
+        A fact from number theory known as \textbf{Bezout's lemma} is that given integers \(a\) and \(b\), there exist integers \(x\) and \(y\) such that
+        \[ax + by = \gcd(a,b).\]
+        One can compute such \(x\) and \(y\) by the ``reverse'' Euclidean algorithm.
+        Suppose we want to find integers \(x\) and \(y\) such that
+        \[81x + 57y = \gcd(81,57) = 3.\]
+        Then using the relationships we found in computing the gcd and lots of distributivity, we have
+        \begin{align*}
+            3 &= 9 - 1\cdot 6\\
+            &= 9 - 1\cdot(24 - 2\cdot 9)\\
+            &= 3\cdot 9 - 1\cdot 24\\
+            &= 3\cdot(57 - 2\cdot 24) - 1\cdot 24\\ 
+            &= 3\cdot 57 - 7\cdot 24\\
+            &= 3\cdot 57 - 7\cdot (81 - 1\cdot 57)\\
+            &= 10\cdot 57 - 7\cdot 81,
+        \end{align*}
+        so \(x = -7\) and \(y=10\).
+
+        For cryptographic purposes, the Euclidean algorithm and the reverse process are both considered ``fast'' computations for a computer.
+        Therefore, it is assumed that all parties (Alice, Bob, Eve, etc.) can efficiently compute these algorithms.
+
+    \subsection{Chinese Remainder Theorem}
+
+        \begin{theorem}[CRT]
+            Let \(n_1,\ldots,n_k\) be integers greater than \(1\) and denote \(N=n_1n_2\cdots n_k\).
+            Assume that \(\gcd(n_i,n_j)=1\) whenever \(i\neq j\) (i.e., any two of the \(n_i\)s are coprime).
+            Let \(a_1,\ldots,a_k\) be integers.
+            Then the system of congruences
+            \begin{align*}
+                x &\equiv a_1\pmod{n_1}\\
+                x &\equiv a_2\pmod{n_2}\\
+                &\vdots\\
+                x &\equiv a_k\pmod{n_k}
+            \end{align*}
+            has a unique solution \(\pmod{N}\).
+        \end{theorem}
+
+        As an example, consider an ancient puzzle appearing in a book by 3rd century Chinese mathematician Sun-tzu:
+        ``There are certain things whose number is unknown. 
+        If we count them by threes, we have two left over; by fives, we have three left over; and by sevens, two are left over. 
+        How many things are there?''
+        In other words, we are being asked to solve the system
+        \begin{align*}
+            x &\equiv 2\pmod{3}\\
+            x &\equiv 3\pmod{5}\\
+            x &\equiv 2\pmod{7}.
+        \end{align*}
+        The CRT guarantees a unique solution \(\pmod{105}\), so here's how we compute it.
+        We begin by noting that \(x\equiv 2\pmod 3\) means that \(x=2+3k\) for some \(k\).
+        Substituting into the second congruence, we get 
+        \[x=2+3k\equiv 3\pmod 5.\]
+        This simplifies to
+        \[3k\equiv 1\pmod 5.\]
+        Multiplying both sides of the equivalence by 2, we get
+        \[6k\equiv 2\pmod 5\implies k\equiv 2\pmod 5\implies k=2 + 5\ell\]
+        Substituting this back into \(x\), we get 
+        \[x = 2 + 3k = 2 + 3(2+5\ell) = 8 + 15\ell.\]
+        Substituting \(x\) into the final equation, we get
+        \[x = 8+15\ell\equiv 2\pmod 7\implies 1+\ell\equiv 2\pmod 7\implies \ell\equiv 1\pmod 7\implies \ell = 1+7m.\]
+        Substituting this back into \(x\), we get
+        \[x = 8 + 15\ell = 8 + 15(1+7m) = 23 + 105m.\]
+        Thus the unique solution \(\pmod{105}\) is \(23\). 
+        You can check that this does indeed satisfy the original congruences.
+
+        From a cryptographic perspective, the CRT is considered a ``fast'' computation, so you may assume that all parties can efficiently compute solutions to systems of congruences like these.
+
+\end{document}
