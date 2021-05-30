@@ -117,14 +117,14 @@
 \newcommand{\leqs}{\leqslant}
 
 
-%\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.4pt}
+\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.4pt}
 
-%\lhead{\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}Congruent Number Problem}   
-%\chead{\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}Math Club}
-%\rhead{\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}Spring 2021} 
-\lhead{Cryptography}
-\chead{Math Club}
-\rhead{Spring 2021}
+\lhead{\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}Cryptography}   
+\chead{\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}Math Club}
+\rhead{\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.5pt}Spring 2021} 
+%\lhead{Cryptography}
+%\chead{Math Club}
+%\rhead{Spring 2021}
 
 \begin{document}
 
@@ -180,7 +180,11 @@
 
     Alice chooses a message \(m\), an integer between 0 and \(pq-1\) inclusive.
     To encrypt the message, she computes \(c\equiv m^e\pmod{N}\) and sends this over to Bob.
-    Bob then computes, using the Euclidean algorithm, an integer \(d\) satisfying \(ed\equiv 1\pmod{(p-1)(q-1)}\) (he can do this because he has full knowledge of what \(p\) and \(q\) are).
+    Bob then computes, using the Euclidean algorithm, an integer \(d\) satisfying \(ed\equiv 1\pmod{(p-1)(q-1)}\).
+    By Bezout's lemma, there exist integers \(x,d\) such that 
+    \[1 = \gcd(e,(p-1)(q-1)) = x(p-1)(q-1) + de.\]
+    Bob computes \(x\) and \(d\) using the reverse Euclidean algorithm.
+    Note that indeed \(de\equiv 1\pmod{(p-1)(q-1)}\).
     Then Bob computes \(m'\equiv c^d\pmod{N}\).
     Here, we have
     \[m' \equiv c^d \equiv \left(m^e\right)^d \equiv m^{ed} \equiv m\pmod{N}.\]
@@ -190,7 +194,7 @@
         \centering
         \begin{tabular}{|p{5cm}|p{5cm}|}
             \hline
-            \textbf{Alice} & \textbf{Bob}\\
+            \textbf{Bob} & \textbf{Alice}\\
             \hline\hline
             \multicolumn{2}{|c|}{\bf Key creation}\\
             \hline
@@ -213,6 +217,22 @@
         \end{tabular}
     \end{table}
 
+    So what makes RSA secure?
+    In order for Eve to uncover useful information, Eve has to either factor \(N\) into a product of two very large primes or solve congruences of the form \(x^e\equiv c\pmod{N}\).
+    The first method runs into the problem of factoring.
+    As it stands now, factoring large numbers takes a very long time.
+    In particular, Eve has to factor \(N=pq\), where \(p\) and \(q\) are both very large.
+    As a result, this task is not feasible to do in a reasonable amount of time.
+    The other method runs into a difficult problem known as the discrete logarithm problem.
+    The process of finding \(x\) from the congruence \(x^e\equiv c\pmod{N}\) is known to take a ridiculous amount of time to do.
+    The hardness of these problems makes RSA secure.
+
+    RSA is not perfect though.
+    One must be careful about how one sends messages using RSA.
+    It is essential to choose large primes so that the modulus \(N\) is very tough to factor.
+    Some of the exercises explore other mistakes one can make with RSA, such as sending messages that are pairwise coprime with the same encryption exponent, or sending multiple messages using the same key.
+    You will play the role of Eve uncover the messages that Alice and Bob send to each other.
+
 \section{Exercises}
 
     \begin{exercise}
@@ -230,13 +250,69 @@
             \[\phi(N) = N\prod_{i=1}^r\left(1-\frac{1}{p_i}\right).\]
         \end{enumerate}
     \end{exercise}
+    \iffalse
+    Solution:
+    Most of these computations are straightforward.
+    \fi
 
     \begin{exercise}
         Let \(N\), \(c\), and \(e\) be positive integers satisfying \(\gcd(N,c)=1\) and \(\gcd(e,\phi(N))=1\).
         Explain how to solve the congruence
         \[x^e \equiv c\pmod{N}\]
-        assuming that you know the value of \(\phi(N)\).
+        for \(x\) assuming that you know the value of \(\phi(N)\).
     \end{exercise}
+    \iffalse
+    Solution:
+    By Bezout's lemma there exists \(a,b\) such that \(ae+b\phi(N)=1\).
+    Now,
+    \[x=x^{ae+b\phi(N)}\equiv \left(x^e\right)^a\left(x^{\phi(N)}\right)^b\equiv c^a\pmod{N}\]
+    by Euler's theorem.
+    \fi
+
+    \begin{exercise}
+        Explain why the RSA exponents \(e\) and \(d\) must always be odd numbers.
+    \end{exercise}
+    \iffalse
+    Solution:
+    By definition, \(\gcd(e,(p-1)(q-1))=1\).
+    Since \((p-1)(q-1)\) is even, \(e\) must be odd.
+    Also, the equation
+    \[1 = ed + k(p-1)(q-1)\]
+    holds for some \(k\in\ZZ\).
+    Since \((p-1)(q-1)\) is even and \(e\) is odd, \(d\) cannot be even (otherwise the sum on the right would be even).
+    \fi
+
+    \begin{exercise}
+        Why must \(p\) and \(q\) be \textit{distinct} primes?
+        Why is it a bad idea to choose \(p=q\)?
+    \end{exercise}
+    \iffalse
+    Solution:
+    There are a few reasons, but the most clear one is that \(p\) is easy to recover by computing \(\sqrt{N}\).
+    \(\sqrt{N}=\sqrt{pq}\) is an integer if and only if \(p=q\).
+    \fi
+
+    \begin{exercise}
+        Bob decides to use RSA to allow others to send him messages.
+        He makes his public key \(N=pq=3259499\).
+        Through a security breach, Eve discovers that \(\phi(N)=3255840\).
+        \begin{enumerate}
+            \item[(a)] Determine \(p\) and \(q\) without factoring \(N\).
+            \item[(b)] Suppose \(e=1101743\) and Alice sends Bob the ciphertext \(2653781\).
+            What was her message? 
+        \end{enumerate}
+        Using a calculator is strongly encouraged for computations, but don't use it to factor.
+    \end{exercise}
+    \iffalse
+    Solution:
+    \begin{enumerate}
+        \item[(a)] \((p-1)(q-1)=N-(p+q)+1\).
+        From this, obtain \(p+q\) and then solve the quadratic \((X-p)(X-q)=X^2-(p+q)X+pq\) using the quadratic formula.
+        You should get \(p=1531\) and \(q=2129\) (up to reordering of \(p\) and \(q\)).
+        \item[(b)] Use the reverse Euclidean algorithm to get \(d\) and then compute \(m\) using \(c^d\pmod{N}\).
+        I don't have the numerical answer, but these computations will work.
+    \end{enumerate}
+    \fi
 
     \begin{exercise}
         This exercise shows that one should be careful in choosing the public key.
@@ -285,7 +361,7 @@
 
         Now Bob wants to send the message \(m\) to Alice, where \(m\) is taken modulo \(N\).
         He chooses two random integers \(s_1\) and \(s_2\) modulo \(N\) and computes
-        \[c_1 \equiv mg_1^{s_1}\quad\textrm{and}\quad c_2 \equiv mg_2^{s_2}\pmod{N}.\]
+        \[c_1 \equiv mg_1^{s_1}\pmod{N}\quad\textrm{and}\quad c_2 \equiv mg_2^{s_2}\pmod{N}.\]
         Bob sends the ciphertext \((c_1,c_2)\) to Alice.
 
         Decryption is fast and easy thanks to the Chinese Remainder Theorem.
@@ -297,6 +373,16 @@
             \item[(b)] Explain why the cryptosystem is not secure. 
         \end{enumerate}
     \end{exercise}
+    \iffalse
+    Solution:
+    \begin{enumerate}
+        \item[(a)] Apply Fermat's little theorem to \(c_1\equiv mg_1^{s_1}\equiv mg^{r_1s_1(p-1)}\equiv m\pmod{p}\).
+        \item[(b)] By FLT, we have that \(g_1\equiv g^{r_1(p-1)}\equiv 1\pmod{p}\).
+        If \(g_1\not\equiv 1\pmod{q}\), Eve computes \(\gcd(g_1-1,N)=p\) easily.
+        If \(g_1\equiv 1\pmod{q}\), then \(c_1\equiv m\pmod{N}\), so she can read the message.
+        Either way, Eve can recover the message.
+    \end{enumerate}
+    \fi
 
 \section{Number Theory Reference Guide}
 
@@ -315,6 +401,14 @@
             Then for all \(a\) with \(\gcd(a,N)=1\), we have
             \[a^{\phi(N)}\equiv 1\pmod{N}.\]
         \end{theorem}
+
+        \begin{corollary}
+            Let \(p\) be a prime number.
+            Then for all \(a\), we have
+            \[a^p\equiv a\pmod{p}.\]
+            If \(\gcd(a,p)=1\), then 
+            \[a^{p-1}\equiv 1\pmod{p}.\]
+        \end{corollary}
 
     \subsection{Euclidean Algorithm}
 
