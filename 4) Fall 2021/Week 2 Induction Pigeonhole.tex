@@ -1,0 +1,125 @@
+\documentclass{article}
+
+\usepackage{../mathclub}
+
+\title{Week 2 Math Club}
+\author{}
+\date{October 4, 2021}
+
+\begin{document}
+
+\section{Introduction}
+    So what exactly is a mathematical proof? Proof is the means of which a mathematician (like yourself), expresses and convinces the audience of their grand visions and ideas in a creative, artistic, yet precise manner. Contrary to what High School may have led you to believe, the heart of mathematics is not in monotonous calculation, rather it is in the art of playing with logical shenanigans. In the same spirit of 
+    the puzzles we discussed last week, let's begin with playing with logic. 
+
+
+\section{Resources}
+
+We are creative people, so naturally we stole these problems from various sources.
+These sources include:
+\begin{itemize}
+    \item {\it Problem Solving Through Problems} by Loren Larson
+    \item Other Putnam handouts
+\end{itemize}
+All of our handouts from last year and this year may be found on Github: \url{https://github.com/drewm10010/UCSB-Math-Club}.
+They may also be found in the Slack page, though you may have to scroll a bit.
+
+\section{Preliminaries}
+
+\subsection{Induction}
+
+Induction is a powerful technique for proving assertions that are ``indexed'' by the integers. For instance, if we want to prove that the sum of the interior angles of an \(n\)-gon (a regular polygon with $n$ sides) is \(180(n-2)\) or that \(n!>2^n\) for \(n\geq 4\), we may want to use induction. The standard form of induction follows: 
+
+\begin{theorem}[The Principle of Mathematical Induction]
+Given \(P(n)\), a property depending on a positive integer \(n\),
+\begin{enumerate}
+    \item (Base case) if \(P(n_0)\) is true for some positive integer \(n_0\), and
+    \item (Inductive step) if for every \(k\geq n_0\), \(P(k)\) true implies \(P(k+1)\) true,
+\end{enumerate}
+then \(P(n)\) is true for all \(n\geq n_0\).
+\end{theorem}
+Intuitively, induction is kind of like a row of dominoes. If I tip over the first domino, it will fall and then knock over the second domino, which will then fall and knock over the third, which will then knock over the fourth, and so on. In the same way, if I prove $P(1)$ is true, then by \#2 above, $P(2)$ is true. The point is that if we just prove \#1 and \#2 above, we will have proven \emph{infinitely many} statements $\{P(1),P(2),P(3),\dots\}$ \emph{all at once}. 
+\subsection{Pigeonhole Principle} 
+The Pigeonhole Principle is the simplest version of the heuristic argument: ``If you have a lot of stuff, you're bound to have some patterns.'' Its precise formulation is, 
+\begin{theorem}[Pigeonhole Principle]
+If $nk+1$ $(k\geq 1)$ objects are distributed among $n$ boxes, one of the boxes will contain at least $k+1$ objects.
+\end{theorem}
+\begin{proof}
+Assume that the conclusion is false; that is, assume that there is no box with more than $k$ objects, which means that every box contains at most $k$ objects. Then, since there are $n$ boxes, the total number of objects within all of the boxes is at most $nk$. However, this contradicts the hypothesis that I originally distributed $nk+1$ objects into these boxes. By virtue of this contradiction, the original conclusion must have been true: there exists a box containing more than $k$ objects (at least $k+1$ objects).
+\end{proof}
+The Pigeonhole Principle is a tricky problem solving tactic which can vastly simplify difficult problems (and sometimes solve them outright). It takes experience to understand when and how to use it, which is what we plan to help you out with today.
+
+\section{Warmups}
+
+\begin{exercise}
+Among $13$ persons, show that two of them were born in the same month.
+\end{exercise}
+
+
+\begin{exercise}
+    Prove that
+    \[1^3 + 2^3 +\cdots+n^3 = \left(\frac{n(n+1)}{2}\right)^2\]
+\end{exercise}
+
+\begin{exercise} 
+    Given an unlimited supply of 3 and 5 cent stamps, prove that you can make any amount worth more than 7 cents.
+\end{exercise}
+
+\begin{exercise}
+    Show that among any $n+1$ numbers, there must exist two whose difference is a multiple of $n$.
+\end{exercise}
+
+\section{Problems}
+\begin{exercise}[2006 AMC 10A 20]
+    Six distinct positive integers are randomly chosen between 1 and 2006, inclusive. What is the probability that some pair of these integers has a difference that is a multiple of 5?
+\end{exercise}
+
+\begin{exercise}
+Let $A$ be any set of $20$ distinct integers chosen from the arithmetic progression $1,4,7,\dots,\\ 100$. Prove that there must be two distinct integers in $A$ whose sum is $104$.
+\end{exercise}
+
+\begin{exercise}
+    The plane is divided into regions by straight lines. Show that it is always possible to color the regions with two colors so that the adjacent regions are never the same color (like a checkerboard).
+\end{exercise}
+
+\begin{exercise}
+    Nineteen darts are thrown onto a dartboard which has the shape of a regular hexagon with side length one foot. Show that two darts are within $\sqrt{3}/3$ feet of each other.
+\end{exercise}
+
+
+
+\begin{exercise}[1993 A4]
+Let $x_1,x_2,\dots,x_{19}$ be positive integers each of which is less than or equal to $93$. Let $y_1,y_2,\dots,y_{93}$ be positive integers each of which is less than $19$. Prove that there exists a (nonempty) sum of some $x_{i}$'s equal to a sum of some $y_j$'s.
+\end{exercise}
+
+\begin{exercise}
+    Recall that the Fibonacci numbers are defined by $F_0=0$, $F_1=1$, and $F_{n+2}=F_{n+1}+F_n$. Prove that
+    \[\sum_{n=2}^\infty \arctan\frac{(-1)^n}{F_{2n}} = \frac{1}{2}\arctan{\frac{1}{2}}\]
+\end{exercise}
+
+\begin{exercise}
+    Prove that the $n$th Fibonacci number is divisible by $3$ if and only if $n$ is divisible by $4$.
+\end{exercise}
+
+\begin{exercise}
+    Prove that among any $2^{n+1}$ natural numbers there are $2^n$ whose sum is divisible by $2^n$.
+\end{exercise}
+
+\begin{exercise}
+    Let $S$ denote an $n$-by-$n$ lattice square, $n >3$. Show that it is possible to draw a polygonal path consisting of $2n - 2$ segments which will pass through all of the $n^2$ lattice points of $S$.
+\end{exercise}
+
+\begin{exercise}
+    A croupier and two players play the following game. The croupier chooses an integer in the interval $[1, 2004]$ with uniform probability. The players guess the integer in turn. After each guess, the croupier informs them whether the chosen integer is higher or lower or has just been guessed. The player who guesses the integer first wins. Prove that both players have strategies such that their chances to win are at least $\frac{1}{2}$.
+\end{exercise}
+
+\begin{exercise}[Some Putnam exam]
+    Prove that for any $n\geqs 2$, the expansion of $(1+x+x^2)^n$ contains at least one even coefficient.
+\end{exercise}
+
+
+
+
+
+
+\end{document}
