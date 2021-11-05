@@ -1,0 +1,225 @@
+\documentclass{article}
+
+\usepackage{../mathclub}
+
+\title{Linear Algebra - Week 3}
+\author{}
+\date{October 11, 2021}
+
+\begin{document}
+
+\section{Introduction}
+
+Welcome to week 3 of Math Club!
+This week, we're going to learn some critical tools for dealing with linear-alegbraic-type problems.
+Linear algebra concerns the study of vector spaces, linear maps, matrices, and other similar objects.
+Today, we will not concern ourselves much with the theory, but rather how we can use these tools from linear algebra to solve problems.
+
+First, given two matrices, we can multiply them together with the following formula:
+
+\[AB = \begin{bmatrix}
+a_{11}&a_{12}&\cdots&a_{1n}\\
+a_{21}&a_{22}&\cdots&a_{2n}\\
+\vdots&\vdots&\ddots&\vdots\\
+a_{m1}&a_{m2}&\cdots&a_{mn}
+\end{bmatrix}\begin{bmatrix}
+b_{11}&b_{12}&\cdots&b_{1p}\\
+b_{21}&b_{22}&\cdots&b_{2p}\\
+\vdots&\vdots&\ddots&\vdots\\
+b_{n1}&b_{n2}&\cdots&b_{np}
+\end{bmatrix} = \begin{bmatrix}
+c_{11}&c_{12}&\cdots&c_{1p}\\
+c_{21}&c_{22}&\cdots&c_{2p}\\
+\vdots&\vdots&\ddots&\vdots\\
+c_{m1}&c_{m2}&\cdots&c_{mp}
+\end{bmatrix} = C.
+\]
+such that $c_{ij} = \sum_{k = 1}^{n} a_{ik}b_{kj}$ for $i = 1, 2, \ldots, m$ and $j \in 1, 2, \ldots, p$.
+In particular, for \(2\times 2\) matrices, we have
+\[\begin{bmatrix}a&b\\c&d\end{bmatrix}\begin{bmatrix}e&f\\g&h\end{bmatrix} = \begin{bmatrix}ae+bg&af+bh\\ce+dg&cf+dh\end{bmatrix}.\]
+Note that matrix multiplication is not always commutative. (Try this yourself! Come up with a pair of matrices that don't commute!)
+
+The \textbf{determinant} of an $n \times n$ matrix $A = (a_{ij})$, denoted by $\det A$, has the formula 
+\[\det A = a_{11} \det A_{11} - a_{12} \det A_{12} + \cdots + (-1)^{n + 1} \det A_{1n}, 
+\]
+where $A_{ij}$ is the $(n - 1) \times (n - 1)$ matrix obtained by deleting the $i$-th row and $j$-th column. Some properties for the determinant: 
+\begin{itemize}
+    \item $\det(AB) = \det(A) \cdot \det(B)$ 
+    \item $\det(A^{T}) = \det(A)$
+    \item The determinant of a diagonal of triangular matrix is the product of the entries on the main diagonal.
+    \item There exists an \(n\times n\) matrix \(A^{-1}\) such that \(AA^{-1}=A^{-1}A=I\) if and only if \(\det A\neq 0\).
+    Here, \(I\) is the identity matrix which has 1s in the main diagonal and 0s elsewhere.
+    In this case, we say \(A\) is \textbf{invertible} and \(A^{-1}\) is the \textbf{inverse} of \(A\).
+\end{itemize}
+
+The \textbf{trace} of a square matrix \(\Tr(A)\) is the sum of the entries on the main diagonal.
+Some properties of trace include:
+\begin{itemize}
+    \item $\Tr(A + cB) = \Tr(A) + c\Tr(B)$
+    \item $\Tr(AB) = \Tr(BA)$
+    \item $\Tr(A) = \Tr(A^{T})$
+    \item $\Tr(ABC) = \Tr(CAB)$ but $\Tr(ABC) = \Tr(ACB)$ does not always hold true
+\end{itemize}
+Of course, we haven't listed every property of the determinant or trace, so feel free to derive your own results!
+
+\section{Problems}
+
+\begin{exercise}
+    Let \(A\) be a skew-symmetric.
+    That is, \(A^T=-A\).
+    Find \(\det A\).
+\end{exercise}
+
+\begin{exercise}
+            Show that if $A$, $B$ are similar square matrices ($A = QBQ^{-1}$ for some invertible matrix $Q$), then $A$ and $B$ have the same determinant.   
+        \end{exercise}
+
+        \begin{exercise}
+            Do there exist square matrices $A, B$ such that $AB - BA = I_{n}?$  
+        \end{exercise}
+        
+        \begin{exercise}
+            Show that if $A, B$ are square matrices such that $A + B = AB$, then $AB = BA$. 
+        \end{exercise}
+        
+        \begin{exercise}
+        The Fibonacci sequence $(F_{n})$ is defined by $F_{0} = 0$, $F_{1} = 1$, $F_{n} = F_{n - 1} + F_{n - 2}$. Prove that 
+        \[\begin{bmatrix}
+            1&1\\
+            1&0\\
+        \end{bmatrix}^{n} = \begin{bmatrix}
+            F_{n + 1}&F_{n}\\
+            F_{n}&F_{n - 1}\\
+            \end{bmatrix}.
+        \]
+        \end{exercise}
+        
+        \begin{exercise}
+        Show that 
+        \[F_{n + 1}F_{n - 1} - F_{n}^{2} = (-1)^{n} \quad \text{for}\quad n \geq 1. 
+        \]
+        Try proving this in two ways: once by induction, and a second time using linear algebra.
+        \end{exercise}
+        
+        \begin{exercise}
+            Let \(A\) and  \(B\) be matrices of size \(n\times n\) with complex entries that satisfy.
+            \[A^2 = B^2 = (AB)^2 = I.\]
+            Prove that \(A\) and \(B\) commute.
+        \end{exercise}
+        
+        % \begin{exercise}
+        % Prove that 
+        % \[
+        % \det \begin{bmatrix}
+        % (x^{2} + 1)^{2}&(xy + 1)^{2}&(xz + 1)^{2}\\
+        % (xy + 1)^{2}&(y^{2} + 1)^{2}&(yz + 1)^{2}\\
+        % (xz + 1)^{2}&(yz + 1)^{2}&(z^{2} + 1)^{2}
+        % \end{bmatrix} = 2(y - z)^{2}(z - x)^{2}(x - y)^{2}.\]
+        % \end{exercise}
+        
+        \begin{exercise}
+        For any $n \times n$ matrix $A$ with real entries,
+        \[
+        \det(I_{n} + A^{2}) \geq 0.
+        \]
+        \end{exercise}
+        
+        \begin{exercise}
+        (Shoelace formula) Show that if a triangle in the plane has coordinates $(x_{1}, y_{1})$, $(x_{2}, y_{2})$, and $(x_{3}, y_{3})$, then its area is the absolute value of:
+        \[\frac{1}{2} \det \begin{bmatrix}
+        x_{1}&y_{1}&1\\
+        x_{2}&y_{2}&1\\
+        x_{3}&y_{3}&1\\
+        \end{bmatrix}.
+        \]
+        \end{exercise}
+
+        \begin{exercise}
+            Let $A$ and $B$ be $n \times n$ matrices with real entries satisfying 
+            \[\Tr(A A^{T} + B B^{T}) = \Tr(AB + A^{T}B^{T}).  
+            \]
+            Prove that $A = B^{T}$. 
+            \end{exercise}
+            
+            \begin{exercise}
+                Let $A, B, C$ be $n \times n$ matrices, $n \geq 1$, satisfying 
+            \[ABC + AB + BC + AC + A + B + C = 0.
+            \]
+            Prove that $A$ and $B + C$ commute if and only if $A$ and $BC$ commute. 
+            \end{exercise}
+            
+            % \begin{exercise}
+            % Let $p < m$ be two positive integers. Prove that 
+            % \[\det \begin{bmatrix}
+            % \binom{m}{0}&\binom{m}{1}&\cdots&\binom{m}{p}\\
+            % \binom{m + 1}{0}&\binom{m + 1}{1}&\cdots&\binom{m + 1}{p}\\
+            % \vdots&\vdots&\ddots&\vdots\\
+            % \binom{m + p}{0}&\binom{m + p}{1}&\cdots&\binom{m + p}{p} 
+            % \end{bmatrix} = 1.
+            % \]
+            % \end{exercise}
+            
+            % \begin{exercise}
+            % (Vandermonde Matrices) Show that the matrix (where $x_{1}, \ldots, x_{n} \in \mathbb{R}$)
+            % \[\begin{bmatrix}
+            % 1&1&\cdots&1\\
+            % x_{1}&x_{2}&\cdots&x_{n}\\
+            % x_{1}^{2}&x_{2}^{2}&\cdots&x_{n}^{2}\\
+            % \vdots&\vdots&\ddots&\vdots\\
+            % x_{1}^{n - 1}&x_{2}^{n - 1}&\cdots&x_{n}^{n - 1}\\
+            % \end{bmatrix}
+            % \]
+            % is invertible if and only if $x_{i} \neq x_{j}$ whenever $i \neq j$. 
+            % \end{exercise}
+
+            % \begin{exercise}
+            %     Let $M_n$ be the $(2n+1)\times (2n+1)$ matrix for which \[(M_n)_{ij}=\begin{cases} 0 & i=j \\
+            %     1 & i-j=1,\dots,n \pmod{2n+1} \\ -1 & i-j=n+1,\dots,2n \pmod{2n+1}\end{cases}\] Find the rank of $M_n$.
+            % \end{exercise}
+
+\begin{exercise}
+            Let $n>2$. Prove that there exists an $n\times n$ matrix with entries in $\{\pm 1\}$ whose determinant is larger than $\sqrt{n!}$.
+        \end{exercise}
+        
+        \begin{exercise}
+            Let \(M_n\) be the \(n\times n\) matrix with entries as follows: for \(i=1,2,\ldots,n\) we have \(m_{i,i}=10\); for \(i=1,2,\ldots,n-1\) we have \(m_{i+1,i}=m_{i,i+1}=3\); all other entires are 0.
+            Let \(D_n=\det M_n\).
+            Then we can write
+            \[\sum_{n=1}^\infty \frac{1}{8D_n+1} = \frac{p}{q}\in\QQ\]
+            Find the integers \(p,q\) in lowest terms.
+        \end{exercise}
+        
+        % \begin{exercise}
+        %     Prove that there is an absolute constant $c>0$ with the following property. Let $A$ be an $n$ by $n$ matrix with pairwise distinct entries. Then there is a permutation of rows in $A$ such that no column in the permuted matrix contains an increasing subsequence of length at least $c\sqrt{n}$.
+        % \end{exercise}
+        
+        \begin{exercise}[1991 A2]
+        Let $A$ and $B$ be different $n \times n$ matrices with real entries. If $A^{3}$ = $B^{3}$ and $A^{2}B = B^{2}A$, can $A^{2} + B^{2}$ be invertible?
+    \end{exercise}
+    
+        \begin{exercise}[2014 A2]
+        Let $A$ be the $n \times n$ matrix whose entry in the $i$-th row and $j$-th column is
+        \[\frac{1}{\min(i, j)}
+        \]
+        for $1 \leq i, j \leq n$. Compute $\det(A)$.
+    \end{exercise}
+    
+    % \begin{exercise}[1990 A5]
+    %     If $A$ and $B$ are square matrices of the same size such that $ABAB = 0$, does it follow that $BABA = 0$?
+    % \end{exercise}
+    
+    % \begin{exercise}[1999 B5]
+    %     For an integer $n\geqslant 3$, let $\theta = 2\pi / n$. Evaluate the determinant of the $n\times n$ matrix $I+A$, where $I$ is the $n\times n$ identity matrix and $A=(a_{jk})$ has entries $a_{jk} = \cos(j\theta+k\theta)$ for all $j,k$. 
+    % \end{exercise}
+    
+    \begin{exercise}[2011 A4]
+        For which positive integers $n$ is there an $n \times n$ matrix with integer entries such that every dot product of a row with itself is even, while every dot product of two different rows is odd?
+    \end{exercise}
+    
+    \begin{exercise}[2016 B4]
+        Let \(A\) be a \(2n\times 2n\) matrix with entries chosen at random.
+        Each entry is chosen to be 0 or 1, each with probability \(1/2\).
+        Find the expected value of \(\det(A-A^T)\) as a function of \(n\), where \(A^T\) denoted the transpose of \(A\).
+    \end{exercise}
+
+\end{document}
