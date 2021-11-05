@@ -1,0 +1,127 @@
+\documentclass{article}
+
+\usepackage{../mathclub}
+\usepackage{stix}
+\def\rddots#1{\cdot^{\cdot^{\cdot^{#1}}}}
+
+\title{Convergence Day - Week 6}
+\author{}
+\date{November 1, 2021}
+
+\begin{document}
+
+\section{Introduction}
+
+Welcome to Week 6 of Math Club! Today we will be taking a stab at limits and convergence! For many of you, this will not be your first time dealing with convergence. Today we will formally reintroduce the topic, with a little $\epsilon$s, and $\delta$s here and there. 
+\\\\
+\emph{Definition of Convergence of Sequences} \\
+A sequence $x_n$ is said to converge to a number $L$, if for any $\epsilon > 0$, there exists an integer $N$ such that for any $n > N$, we have $|x_n - L| < \epsilon$. 
+\\\\
+\emph{Cauchy Criterion for Sequence Convergence} \\
+A sequence converges (in $\mathbb{R}^n$) if and only if for any $\epsilon > 0$, there exists an integer $N$ such that for any $n,m > N$, we have $|x_n - x_m| < \epsilon$.
+\\\\
+\emph{Definition of Convergence of Series} \\
+A series $\sum a_{n}$ converges if the sequence of partial sums $S_{N} = \sum_{n = 1}^{N} a_{n}$ converges.  
+\\\\
+\emph{Cauchy's Convergence Test} \\
+A series converges if and only if for any $\epsilon > 0$, there exists an integer $N$ such that for any $m \geq n > N$, $|\sum_{k = n}^{m} a_{k}| < \epsilon$.
+\\\\
+Examples of Taylor expansion of functions: 
+\begin{itemize}
+    \item $e^{x} = 1 + x + \cdots + \frac{x^{n}}{n!} + o(x^{n})$;
+    \item $\sin x = x - \frac{x^{3}}{3!} + \cdots + (-1)^{k} \frac{x^{2k + 1}}{(2k + 1)!} + o(x^{2k + 1})$; 
+    \item $\cos x = 1 - \frac{x^{2}}{2!} + \cdots + (-1)^{k} \frac{x^{2k}}{(2k)!} + o(x^{2k})$; 
+    \item $\frac{1}{1 - x} = 1 + x + \cdots + x^{n} + o(x^{n})$;
+\end{itemize}
+
+
+\section{Problems}
+
+\begin{exercise}
+Verify using the formal definition of convergence that \[\lim_{n\to\infty} \frac{1}{n} = 0\] 
+\end{exercise}
+
+\begin{exercise}
+Consider the following experiment with a fair coin: toss the coin twice, and consider it a \textit{success} if both tosses turn up heads.
+The success probability of this experiment is \(\frac 14\).
+Devise and experiment which only uses tosses of a fair coin, but which has success probability \(\frac 13\).
+\end{exercise}
+
+\begin{exercise}
+Evaluate \[\lim_{x\to\infty} \left(\left(1+\frac{1}{x}\right)^xx-ex\right)\]
+\end{exercise}
+
+\begin{exercise}
+Prove that the equation \(x^{x^{x^{\rddots{}}}}=2\) is satisfied by \(x=\sqrt 2\), but \(x^{x^{x^{\rddots{}}}}=4\) has no solution.
+What is the ``break point''?
+\end{exercise}
+
+\begin{exercise}[Forward Cauchy Criterion]
+    Let $x_n$ be a convergent sequence. Prove that for any $\epsilon > 0$, there exists an integer $N$ such that for any $n,m > N$, we have $|x_n - x_m| < \epsilon$. (It helps to recall that $|x+y| \leq |x| + |y|$)
+\end{exercise}
+
+\begin{exercise}
+Let $\{x_n\}$ be a sequence satisfying \[\lim_{n\to\infty} (x_n-x_{n-1}) = 0\] Prove that \[\lim_{n\to\infty} \frac{x_n}{n}= 0\]
+\end{exercise}
+
+\begin{exercise}
+Let $\{x_n\}$ be a sequence of real numbers such that \[ \lim_{n\to\infty} (2x_{n+1}-x_n)=L\] Prove that $\{x_n\}$ converges and its limit is $L$.
+\end{exercise}
+
+\begin{exercise}
+Compute
+\[\lim_{n\to\infty}\left(\sum_{k=1}^n \frac{n}{k^2+n^2}\right)\] 
+\end{exercise}
+
+\begin{exercise}
+Determine if 
+\[\sum_{n = 1}^{\infty} \left(e - (1 + \frac{1}{n})^{n}\right)
+\]
+converges. 
+\end{exercise}
+
+        \begin{exercise}
+            Evaluate
+            \[1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\cdots}}}\]
+            That is, compute the limit of the sequence $\{x_n\}$, where $x_1 = 1$ and $x_{n+1}=1+\frac{1}{x_n}$.
+        \end{exercise}
+
+\begin{exercise}
+            Set, recursively, \((x_0,y_0)\) with \(0<x_0<y_0\) and
+            \[x_{n+1}=\frac{x_n+y_n}{2}\quad\textrm{and}\quad y_{n+1}=\sqrt{x_{n+1}y_n}.\]
+            Moreover, we are given (although one may derive it) that
+            \[x_n<y_n\implies x_{n+1}<y_{n+1}\quad\textrm{and}\quad y_{n+1}-x_{n+1}<\frac{y_n-x_n}{4}\text{ for all }n.\]
+            Find the common limit \(\displaystyle\lim_{n\to\infty}x_n=\lim_{n\to\infty}y_n=x=y\).
+        \end{exercise}
+        
+        \begin{exercise}
+    Prove that a sequence of positive numbers, each of which is less than the average of the previous two,
+is convergent.
+\end{exercise}
+
+\begin{exercise}
+If $\sum a_{n}^{2}$ and $\sum b_{n}^{2}$ converge, prove that $\sum a_{n}b_{n}$ converges. 
+\end{exercise}
+
+\begin{exercise}
+$\sum a_{n}$ diverges, $a_{n} > 0$. Let $S_{n} = a_{1} + \cdots + a_{n}$. Show that $\sum \frac{a_{n}}{S_{n}}, \sum \frac{a_{n}}{1 + a_{n}}$ diverges. Show that $\sum \frac{a_{n}}{S_{n}^{2}}, \sum \frac{a_{n}}{1 + n^{2}a_{n}}$ converges. 
+\end{exercise} 
+
+\begin{exercise}[1970 B1]
+Evaluate \[\lim_{n\to\infty}\left(\frac{1}{n^4} \prod_{i=1}^{2n} (n^2+i^2)^{1/n}\right)\]
+\end{exercise}
+
+\begin{exercise}[2020 A3]
+Let $a_{0} = \frac{\pi}{2}$ and $a_{n} = \sin(a_{n - 1})$ for $n \geq 1$. Determine whether 
+\[\sum_{n = 1}^{\infty} a_{n}^{2}\]
+converges. 
+\end{exercise}
+
+\begin{exercise}
+Prove that the product 
+\[ \prod_{n=2}^\infty \left(1 + \frac{e^{in(\theta)}}{\log n}\right)\]
+is not convergent for any rational value of $\frac{\theta}{\pi}$, but is convergent if $\frac{\theta}{\pi}$ is an algebraic number which is not rational. 
+\end{exercise}
+
+
+\end{document}
