@@ -1,0 +1,125 @@
+\documentclass{article}
+
+\usepackage{../mathclub}
+
+\title{Number Theory - Week 4}
+\author{}
+\date{October 18, 2021}
+
+\begin{document}
+
+\section{Introduction}
+
+Hello all!
+It's finally time.
+The long-awaited number theory day is here.
+Together, we will learn some facts about the counting numbers and hopefully you will leave with a greater appreciation of prime numbers.
+We will explore some major results in the area of elementary (read: not using advanced algebra or analysis) number theory.
+
+First, modular arithmetic:
+
+\begin{definition}
+    Let \(a,b\in\ZZ\). 
+    We say that $b$ divides $a$, in symbols $b \mid a$, if there exists an integer $k$ such that $a=kb$. We write $b\nmid a$ to mean ``$b$ does not divide $a$.''
+\end{definition}
+\begin{definition}
+    Let \(x\), \(y\), and \(n\) be integers. 
+    We say that \(x\) is congruent (or equivalent) to \(y\) modulo (or mod) \(n\) if \(n\mid x-y\).
+    Equivalently, we could say that \(x\) and \(y\) differ by a multiple of \(n\). 
+    We write \(x\equiv y\pmod{n}\).
+\end{definition}
+One may also think about this as \(x\) has remainder \(y\) when divided by \(n\).
+We will do the following example together:
+
+\begin{example}
+    Find the last digit of \(2^{1234}\).
+\end{example}
+
+Here are some basic results about the integers:
+
+\begin{theorem}
+    The following hold:
+    \begin{enumerate}
+        \item If \(g\mid a\) and \(g\mid b\), then \(g\mid ax+by\) for any integers \(x,y\)
+        \item \(\gcd(a+b,b)=\gcd(a,b)\)
+        \item \(\gcd(a,b)\cdot\lcm(a,b)=a\cdot b\)
+        \item If \(p\) is prime and \(p\mid ab\), then \(p\mid a\) or \(p\mid b\)
+    \end{enumerate}
+\end{theorem}
+
+Here are some more powerful theorems:
+
+\begin{theorem}[Euler's Theorem]
+    Let \(a\in\ZZ\).
+    If \(\gcd(a,n)=1\), then 
+    \[a^{\phi(n)}\equiv 1\pmod n,\]
+    where \(\phi(n)\) is \textbf{Euler's totient function}, which counts the number of positive integers up to \(n\) that are relatively prime to \(n\).
+\end{theorem}
+
+\begin{corollary}[Fermat's Little Theorem]
+    Let \(a\in\ZZ\) and let \(p\) be a prime number. 
+    Then
+    \[a^p\equiv a\pmod{p}.\]
+    If \(p\nmid a\), then 
+    \[a^{p-1}\equiv 1\pmod{p}.\]
+    This is a special case of Euler's theorem since \(\phi(p)=p-1\).
+\end{corollary}
+
+\begin{theorem}[Bezout's Identity/Lemma]
+    Let \(a,b\in\NN\). 
+    Then there exist \(x,y\in\ZZ\) such that
+    \[ax+by=\gcd(a,b).\]
+    and moreover, $\gcd(a,b)$ is the least positive integer expressible in this form.
+\end{theorem}
+
+\section{Problems}
+
+\begin{exercise}
+    Prove theorem 1.
+    For a more challenging endeavor, prove the other theorems we so graciously provided to you.
+\end{exercise}
+
+\begin{exercise}
+    Show that any two consecutive Fibonacci numbers are relatively prime.
+    Recall that the Fibonacci numbers are defined recursively by \(f_1=f_2=1\) and \(f_n=f_{n-1}+f_{n-2}\) for \(n\geq 3\).
+\end{exercise}
+
+\begin{exercise}
+    The \textbf{Fermat numbers} \(F_n\) are defined by \(F_n = 2^{2^n}+1\), where \(n\geq 0\).
+    Show that any two Fermat numbers are relatively prime.
+    Conclude that there are infinitely many primes.
+\end{exercise}
+
+\begin{exercise}
+    What is the longest group of consecutive composite numbers?
+\end{exercise}
+
+\begin{exercise}
+    Prove that every 6-digit number of the form \(abcabc\) is divisible by 7, 11, and 13.
+\end{exercise}
+
+\begin{exercise}
+    Prove that there are infinitely many primes of the form \(4k+3\), where \(k\in\NN\).
+    Don't invoke Dirichlet unless you can prove it.
+\end{exercise}
+
+%%% PUTNAM PROBLEMS %%%
+
+\begin{exercise}[2020 A1]
+    How many positive integers \(N\) satisfy all of the following three conditions?
+    \begin{enumerate}
+        \item[(i)] \(N\) is divisible by 2020.
+        \item[(ii)] \(N\) has at most 2020 decimal digits.
+        \item[(iii)] The decimal digits of \(N\) are a string of consecutive ones followed by a string of consecutive zeros.
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[2000 Putnam B2]
+    Prove that the expression
+    \[\frac{\gcd(m,n)}{n}\binom{n}{m}\]
+    is an integer for all pairs of integers \(n\geq m\geq 1\).
+\end{exercise}
+
+
+
+\end{document}
