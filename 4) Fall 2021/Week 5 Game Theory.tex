@@ -1,0 +1,140 @@
+\documentclass{article}
+
+\usepackage{../mathclub}
+\usepackage{stix}
+
+\title{Game Theory - Week 5}
+\author{}
+\date{October 25, 2021}
+
+\begin{document}
+
+\section{Introduction}
+
+Welcome all to math club week 5!
+Hope midterms aren't too awful.
+Today we're gonna go over something a bit more fun: game theory.
+Game theory is the study of strategic interactions among rational people who need to make decisions. 
+The fate of every person in a ``game'' will usually depend on the decisions of all ``players''.
+This week, we will explore many different types of games, discuss possible strategies, and try some problems to help you start thinking about these interactions like a game theorist.
+Often, you'll be presented with a game and be asked to find an ``optimal strategy'' for both players.
+In some cases, this strategy can be easily found; in others, many layers of theory are needed to find such a solution.
+Some games haven't even been solved!
+Game theory is also applicable to fields that deal with people and the decisions they make.
+In particular, many of the best game theorists were both mathematicians and economists (like John Nash!) and used their game theory skills to analyze the economic behavior of people.
+Anyway, we hope you find these games interesting.
+
+\section{Resources}
+
+Here are some good reference from which you can learn more about game theory:
+\begin{enumerate}
+    \item {\it Winning Ways for Your Mathematical Plays}, by Berlekamp, Conway, and Guy
+    \item {\it A Course in Game Theory}, by Martin Osborne
+\end{enumerate}
+
+\section{Nim}
+
+The game of Nim starts with three heaps, each containing any number of pebbles (usually the piles contain 3, 4, and 5 pebbles, but these parameters can be changed).
+The two players alternate taking any number of pebbles from any single one of the heaps.
+You win if you are the last person to take a pebble.
+
+\begin{exercise}
+    If there are two equal rows left in the game, who will win: the first or the second player?
+    What course will the game take?
+\end{exercise}
+
+\begin{exercise}
+    Extend Nim to an arbitrary number of heaps with an arbitrary number of pebbles in each heap. 
+    Play a few games and record your observations.
+\end{exercise}
+
+\section{Chomp}
+
+In Chomp, you begin with a \(4\times 6\) (or in general \(n\times m\)) chocolate bar, and players alternate turns by chomping a square out of the chocolate bar, along with any squares that are to the right and above.
+However, the square in the lower left is poisoned!
+The player forced to chomp it loses.
+
+You can play against a bot here: \url{https://www.math.ucla.edu/~tom/Games/chomp.html}.
+You can play against another person on the same computer here: \url{https://www.geogebra.org/m/HSwgnXjn}.
+
+% \begin{figure}[hbt!]
+%     \small
+%     \centering
+%     \includegraphics[scale = 0.3]{1400px-Chomp_gameplay.png}
+% \end{figure}
+
+\begin{exercise}
+    Determine which player wins as well as the winning strategy.
+    Do the same in the \(n\times m\) case.
+\end{exercise}
+
+\section{Sim}
+
+In Sim, six dots are drawn in a hexagonal pattern..
+Each dot is connected to every other dot by a line.
+Gameplay proceeds as follows.
+Players take turns coloring any uncolored lines.
+One player uses red, while another uses blue.
+Each player is trying to avoid creating a triangle made solely from their color; the player who completes such a triangle loses instantly.
+Also, only triangles whose vertices are among the six original dots count; intersections of lines don't matter.
+
+You can play the game here: \url{https://wideaperture.net/sim/}.
+
+\begin{figure}[hbt!]
+    \small
+    \centering
+    \includegraphics[scale = 0.3]{pics/Complex_network_K6_complete_graph.png}
+\end{figure}
+
+\begin{exercise}
+    Play the game and explore its properties.
+    There are many connections between this game and Ramsey theory.
+\end{exercise}
+
+\section{Miscellaneous}
+
+\begin{exercise}
+    In a game of tic-tac-toe, suppose that the first player plays in the corner, and the second player does NOT play in the center.
+    Prove that the first player can force a win.
+\end{exercise}
+
+\begin{exercise}
+    Nine cards are on the table, numbered one through nine. The two players alternate picking up cards. The first player to have three cards summing to fifteen wins. If all cards are picked up without either player winning, the game is declared a ``draw''. Show that (i) if both players play perfectly, the game will be drawn, and (ii) if one player ``knows what's going on'', she can do very well, for example by starting with any of the even cards.
+    % Hint: take a 3x3 magic square and keep track of the picked-up cards there. Notice that you are really playing some other more famous game.
+\end{exercise}
+
+\begin{exercise}
+There are $n$ toothpicks in a row. The first player can take up to $n-1$ toothpicks. The second player can take at most the number of the toothpicks that the second has just taken. This continues until all the toothpicks are gone. The player who takes the last toothpick wins. For which $n$ does the first player have a winning strategy?
+\end{exercise}
+
+\begin{exercise}
+An integer $n$, unknown to you, has been randomly chosen in the interval $[1,2002]$ with uniform probability. Your objective is to select $n$ in an odd number of guesses. After each incorrect guess, you are informed whether $n$ is higher or lower, and you must guess an integer on your next turn among the numbers that are still feasibly correct. Show that you have a strategy so that the chance of winning exceeds $2/3$.
+\end{exercise}
+
+\begin{exercise}
+Two players take turns naming positive integers that are not sums (with repetition) of previously named positive integers, with the player who names 1 being the loser. Prove that the game must end. Then prove that the first player can win.
+\end{exercise}
+
+\begin{exercise}
+In Determinant Tic-Tac-Toe, Player $1$ enters a $1$ into an empty $3\times 3$ matrix. Player $0$ counters with a $0$ in a vacant position, and play continues until the $3\times 3$ matrix is completed with five $1$'s and four $0$'s. Player $0$ wins if the determinant is $0$ and player $1$ wins otherwise. Assuming both players pursue optimal strategies, who wins and how?
+\end{exercise}
+
+\begin{exercise}[1997 A2]
+Players $1,2,3,\dots,n$ are seated around a table, and each has a single penny. Player $1$ passes a penny to Player $2$, who then passes two pennies to Player $3$. Player $3$ then passes one penny to Player $4$, who passes two pennies to Player $5$, and so on, players alternately passing one penny or two to the next player who still has some pennies. A player who runs out of pennies drops out of the game and leaves the table. Find an infinite set of numbers $n$ for which some player ends up with all $n$ pennies.
+\end{exercise}
+
+\begin{exercise}[1993 B2]
+Consider the following game played with a deck of $2n$ cards, numbered from $1$ to $2n$. The deck is randomly shuffled and $n$ cards are dealt to each of the two players. Beginning with $A$, the player take turns discarding one of their remaining cards and announcing its number. The game ends as soon as the sum of the numbers on the discarded cards is divisible by $2n+1$. The last person to discard wins the game. Assuming optimal strategy by both $A$ and $B$, what is the probability that $A$ wins?
+\end{exercise}
+
+\begin{exercise}[2020 B2]
+    Let \(k,n\in\ZZ\) with \(1\leq k<n\).
+    Alice and Bob play a game with \(k\) pegs in a line of \(n\) holes.
+    At the beginning of the game, the pegs occupy the \(k\) leftmost holes.
+    A legal move consists of moving a single peg to any vacant hole that is further to the right.
+    The players alternate moves, with Alice playing first.
+    The game ends when the pegs are in the \(k\) rightmost holes, so whoever is next to play cannot move and therefore loses.
+    For what values of \(n\) and \(k\) does Alice have a winning strategy?
+\end{exercise}
+
+\end{document}
