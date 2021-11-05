@@ -1,0 +1,132 @@
+\documentclass{article}
+
+\usepackage{../mathclub}
+
+\title{Calculus - Week 4}
+\author{}
+\date{October 18, 2021}
+
+\begin{document}
+
+\section{Introduction}
+
+Welcome all to week 4 of Math Club!
+Today we'll discuss some topics from calculus and (real) analysis that might be helpful to you in your problem-solving endeavors.
+Analysis, specifically real analysis, is essentially an extension of the things one would learn in calculus with an extra dash of \(\eps\)'s and \(\delta\)'s.
+Hopefully today's resources will give you added confidence when you see analysis problems on the Putnam, should you take it.
+
+We provide some important theorems below.
+You have most likely encountered all of these in your calculus class, but they bear repeating:
+\begin{itemize}
+    \item Intermediate Value Theorem: if $f$ is continuous on $[a,b]$ then every value between $f(a)$ and $f(b)$ is of the form $f(c) $ for some $c\in [a,b]$.
+    \item Extreme Value Theorem: if $f$ is continuous on $[a,b]$, there exists $y\in [a,b]$ such that $f(y)\leq f(x)$ for all $x\in [a,b]$.
+    \item Mean Value Theorem: if $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, then there exists $u$ with $a < u < b$ such that $f'(u)=\frac{f(b)-f(a)}{b-a}$.
+    \item Fundamental Theorem of Calculus: if $f$ is continuous at $c$, the function $F(x) = \int_a^x f(t)\ dt$ is differentiable at $c$ and $F'(c)=f(c)$.
+\end{itemize}
+    
+
+\section{Problems}
+
+\begin{exercise}
+Recall the formula for integration by parts:
+\[\int f\ \mathrm{d}g = fg - \int g\ \mathrm{d}f.\]
+Applying this to \(f(x)=1/x\) and \(g(x)=x\), we get
+\[\int\frac{1}{x}\mathrm{d}x = 1 + \int\frac{1}{x}\mathrm{d}x\]
+from which we enthusiastically conclude that \(0=1\).
+Why are we wrong? Or is math as we know it wrong?
+\end{exercise}
+
+\begin{exercise}
+Suppose \(f:\RR\to\RR\) is differentiable and defined by
+\[f(x) = f'(2)x^2 + x.\]
+Find the value \(f(2)\).
+\end{exercise}
+
+\begin{exercise}
+What is the 100th derivative of \(f(x)=e^x\cos(x)\) evaluated at \(x=\pi\)?
+\end{exercise}
+
+\begin{exercise}
+Suppose \(a\) and \(b\) are real numbers such that 
+\[\lim_{x\to 0}\frac{\sin^2(x)}{e^{ax}-bx-1} = \frac{1}{2}.\]
+Determine all possible ordered pairs \((a,b)\).
+\end{exercise}
+
+\begin{exercise}
+Suppose \(f(x) = e^{ax} + e^{bx}\) where \(a\neq b\) and that \(f''(x)-2f'(x)-15=0\) for all \(x\).
+Give all possible ordered pairs \((a,b)\).
+\end{exercise}
+
+\begin{exercise}
+A very tired audience of 9001 attends a concert of Haydn's Surprise Symphony, which lasts 20 minutes.
+Members of the audience fall asleep at a continuous rate of \(6t\) people per minute, where \(t\) is the time in minutes since the symphony has begun.
+The Surprise Symphony is named so because when \(t=8\) minutes, the orchestra plays exactly one very loud note, waking everyone in the audience up.
+After that note, though, the audience continues to fall asleep at the same rate as before.
+Once a member of the audience falls asleep, they will stay asleep except for the rude awakening at \(t=8\) minutes.
+How many collective minutes does the audience sleep during the symphony?
+\end{exercise}
+
+\begin{exercise}
+Compute the integral
+\[\int_2^4\frac{\ln\sqrt{9-x}}{\ln\sqrt{9-x}+\ln\sqrt{x+3}}\mathrm{d}x.\]
+\end{exercise}
+
+\begin{exercise}[Extreme Value Theorem]
+Suppose $f$ is continuous on $[a,b]$, and assume $f(x)>0$ for all $a\leq x \leq b$. Prove that there is a positive constant $c$ for which $c\leq f(x)$ for all $x\in [a,b]$.
+\end{exercise}
+
+\begin{exercise}[Intermediate Value Theorem]
+Suppose $g:[0,1]\to [0,1]$ is a continuous function. Prove that $g$ has a fixed point in $[0,1]$, i.e., some $x\in [0,1]$ such that $g(x)=x$.
+\end{exercise}
+
+\begin{exercise}[Fundamental Theorem of Calculus]
+Find all real-valued continuously differentiable functions on the real line such that for all $x$
+\[(f(x))^2 = \int_0^x \left((f(t))^2 + (f'(t))^2\right)\ \mathrm{d}t + 1990\]
+\end{exercise}
+
+\begin{exercise}
+Let \(f(x)=(x^2-1)^n\), where \(n\) is a positive integer.
+Determine, in terms of \(n\) the number of distinct roots of \(f^{(n)}(x)\) (the \(n\)th derivative of \(f\)) in the intervals \((-\infty,-1)\), \((-1,1)\) and \((1,+\infty)\), respectively.
+\end{exercise}
+
+\begin{exercise}
+Show that $4ax^3 + 3bx^2 + 2cx = a + b + c$ has at least one root between 0 and 1.
+\end{exercise}
+
+\begin{exercise}
+The integral
+\[\int_0^{\pi/2}\frac{x}{\tan(x)}\mathrm{d}x\]
+can be written in the form \(a^b\pi\ln(c)\), where \(a,b,c\in\ZZ\) and \(c\) is as small as possible.
+Compute \(a+b+c\).
+Hint available upon request.
+\end{exercise}
+% The hint is to set the integral
+% \[I(a) = \int_0^{\pi/2}\frac{\arctan(a\tan(x))}{\tan(x)}\mathrm{d}x\]
+% and differentiate under the integral sign. Then with some clever algebraic manipulation, one can get
+% \[I'(a) = \frac{\pi}{2(a+1)}\implies I(a) = \frac{\pi}{2}\ln(a+1)+C.\]
+% Note that \(C = I(0)\). The integral in question is \(I(1)\).
+
+\section{Beware, these Putnam problems may bite!}
+
+\begin{exercise}[1968 A1]
+    Prove that
+    \[\frac{22}{7}-\pi = \int_0^1\frac{x^4(1-x)^4}{1+x^2}\ \mathrm{d}x.\]
+\end{exercise}
+
+\begin{exercise}[1994 B2]
+    For which real numbers $c$ is there a straight line that intersects $y=x^4+9x^3+cx^2+9x+4$ in four distinct points?
+\end{exercise}
+
+\begin{exercise}[2000 B4]
+    Let $f(x)$ be a continuous function such that $f(2x^{2} - 1) = 2xf(x)$ for all $x$. Show that $f(x) = 0$ for $-1 \leq x \leq 1$. 
+\end{exercise}
+
+\begin{exercise}[2019 A6]
+Let $g$ be a real-valued function that is continuous on $[0,1]$ and twice differentiable on the open interval $(0,1)$. Suppose that for some real number $r>1$, 
+\[\lim_{x\to 0^+} \frac{g(x)}{x^r}=0\] Prove that either 
+\[\lim_{x\to 0^+} g(x)=0\quad\textrm{or}\quad\limsup_{x\to 0^+}x^r|g''(x)| = +\infty\]
+\end{exercise}
+
+
+
+\end{document}
