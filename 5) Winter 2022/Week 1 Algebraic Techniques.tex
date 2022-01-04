@@ -1,0 +1,142 @@
+\documentclass{article}
+
+\usepackage{../mathclub}
+
+\title{Algebraic Techniques}
+\author{}
+\date{January 3, 2022}
+
+\begin{document}
+
+\section{Introduction}
+
+Welcome back to Week 1 of Math Club! Hope you guys had a great Winter Break. Today we will be taking a look at some common Algebra tricks. By Algebra, we mean the classic $y = mx + b$ kind from High School.
+On the third page, we included a list of hints associated to select problems.
+Try to solve the problems without the hints, but if you get stuck, take a look.
+Without further ado, let's start doing some algebra! \\\\
+There are three main tricks to consider when proving algebraic identities:
+\begin{enumerate}[label=\Roman*.]
+    \item Add \(0\) (adding and subtracting the same thing): \[a^4+4b^4 = a^4 + 4b^4 + 0 = a^4 + 4b^4 + 4b^2-4b^2 = (a^4+ 4b^2 + 4b^4) - 4b^2\]
+    This adding and subtracting of $4b^2$ might seem useless, but it is actually very powerful, because both terms on the right hand side are squares, so it combines very well with the next trick.
+    (Note that multiplying by 1 in a clever way is also often helpful.)
+    \item Factoring and Expanding: 
+    \[(a^4 + 4b^2 + 4b^4) - 4b^2 = (a^2+2b^2)^2 - (2b)^2 = (a^2 + 2b^2 + 2b)(a^2+2b^2-2b)\]
+    First we used the square-of-sum expansion, $(x+y)^2 = x^2 + 2xy + y^2$, with $x=a^2$, $y=2b^2$, and then we used the difference-of-squares factorization, $x^2-y^2 = (x+y)(x-y)$, with $x=a^2+2b^2$ and $y=2b$. This concludes the proof of the \emph{Sophie-Germain identity}: $a^4+4b^4 = (a^2+2b^2 + 2b)(a^2+2b^2-2b)$.
+    
+    An essential part of this kind of algebraic manipulation is \emph{knowing how to create and recognize squares and cubes}. Examples are given.
+    \begin{enumerate}[label=(\alph*)]
+    \item $x^n - y^n = (x-y)(x^{n-1}+x^{n-2}y + \cdots + xy^{n-2}+y^{n-1})$ 
+    \item If $n$ is odd, $x^n + y^n=(x+y)(x^{n-1}-x^{n-2}y+x^{n-3}y^2-\cdots + x^2y^{n-3}-xy^{n-2}+y^{n-1})$
+    \item $x^{4} + 4y^{4} = (x^2 + 2y^2 + 2y)(x^2 + 2y^2-2y)$ 
+    \item $x^3 + y^3 + z^3 - 3xyz = (x + y + z)(x^2 + y^2 + z^2 -xy - xz - yz)$\\$ = \frac{1}{2}(x+y+z)\left[ (x-y)^2 + (y-z)^2 + (x-z)^2\right]$ 
+    \item $(x+y)^2 =x^2+2xy+y^2$
+    \item $(x-y)^2 = x^2 -2xy+y^2$
+    \item $(x+y)^3 = x^3 + 3x^2y +3xy^2 + y^3 = x^3 + y^3 +3xy(x+y)$
+    \item $(x-y)^3 = x^3 - 3x^2y+3xy^2-y^3 = x^3 - y^3 -3xy(x-y)$
+    \item (The Binomial Theorem) $(x+y)^n = \sum_{k=0}^n \binom{n}{k} x^{n-k}y^k$
+\end{enumerate}
+    \item Substitution and Simplification
+    This final trick is often used to vastly simplify complicated-looking equations. The heuristic here is, \emph{always move in the direction of greater beauty or simplicity}. In other words, \emph{be lazy!} For example, supposed you're asked to find the product of the solutions to the equation \begin{equation}x^2+18x+30 = 2\sqrt{x^2 + 18x + 45}\end{equation} While you could certainly square both sides and solve the resulting quartic (ugh) equation, it would be much easier to let $y=\sqrt{x^2 + 18x + 45}$, and find all possible solutions for $y$. The equation would become
+    \[y^2-15 = 2y\]
+    Now it's easy: solve the quadratic equation for $y$ (by factoring or the quadratic formula), and once you have the value of $y$, you can plug back into $y=\sqrt{x^2 + 18x + 45}$ to find the solutions for $x$. \emph{We essentially just reduced the problem of solving a quartic equation into that of solving two quadratic equations}.
+\end{enumerate}
+% \section{Resources}
+
+% Here are some resources.
+% \begin{enumerate}
+%     some resources
+% \end{enumerate}
+
+\section{Problems} 
+\begin{exercise}[Hint: 2]
+If $xy=x+y = 3$, find $x^3+y^3$.
+\end{exercise}
+
+\begin{exercise}[Hint: 3]
+    Show that for no positive integer $n$ can both $n+3$ and $n^2 +3n+3$ be perfect cubes.
+\end{exercise}
+
+\begin{exercise}[Hint: 1]
+Verify that
+\[\sqrt[3]{20+14\sqrt{2}}+\sqrt[3]{20-14\sqrt{2}}=4\]
+\end{exercise}
+
+\begin{exercise}[Hint: 6]
+Given $x^2 + y^2 + z^2 = 1$, find the minimum value of $xy+xz+yz$. No calculus!
+\end{exercise}
+
+\begin{exercise}[Simon's favorite factoring trick, Hint: 4]
+How many integer solutions \((a,b)\) does \(ab-3b-2a=7\) have?
+\end{exercise}
+
+\begin{exercise}[2018 A1, Hint: 11]
+Find all ordered pairs \((a,b)\) of positive integers for
+which
+\begin{align*} 
+    \frac{1}{a} + \frac{1}{b} = \frac{3}{2018}
+\end{align*}
+\end{exercise}
+
+\begin{exercise}
+If the expression 
+\[(x^3-x^2y+xy^2+y^3)^5\] 
+is expanded and simplified, what is the sum of all the coefficients of the resulting polynomial?
+\end{exercise}
+
+\begin{exercise}[Hint: 10]
+Prove that for any non-negative number $n$, the number 
+\begin{align*}
+    5^{5^{n+1}} + 5^{5^n} + 1
+\end{align*}
+is not a prime.
+\end{exercise}
+
+\begin{exercise}[Hint: 7]
+Let \(x,y,z\) be distinct real numbers.
+Prove that
+\[\sqrt[3]{x-y} + \sqrt[3]{y-z} + \sqrt[3]{z-x} \neq 0.\]
+\end{exercise}
+
+\begin{exercise}[2019 A1, Hint: 8]
+Determine all possible values of the expression
+\[A^3 + B^3 + C^3 - 3ABC,\]
+where \(A\), \(B\), and \(C\) are nonnegative integers.
+\end{exercise}
+
+\begin{exercise}[Hint: 9]
+Factor $5^{1985}-1$ into three integers, each one larger than $5^{100}$.
+\end{exercise}
+
+\begin{exercise}[Hint: 5]
+Prove that the number
+\[\frac{5^{125}-1}{5^{25}-1}\]
+is not prime.
+\end{exercise}
+
+\begin{exercise}[1977 A2]
+Determine all solutions in real numbers $x,y,z,w$ of the system
+\begin{align*}
+    x+y+z&= w \\
+    \frac{1}{x}+\frac{
+    1}{y}+\frac{1}{z} &= \frac{1}{w}
+\end{align*}
+\end{exercise}
+
+\newpage 
+\section{Hints}
+
+\begin{enumerate}
+    \item Cubing stuff
+    \item Cubing stuff
+    \item Cubing stuff
+    \item Factorize
+    \item Similar to form to previous exercise. Consider $(25x^4+15x^2+1)^2-(5x)^2(5x^2+1)^2$.
+    \item Squaring stuff
+    \item Find a factorization of \(a^3+b^3+c^3-3abc\) involving the term \((a+b+c)\)
+    \item Use the factorization from hint 7.
+    \item $625x^8 + 125x^6 + 25x^4 + 5x^2 + 1 = (25x^4-25x^3+15x^2-5x+1)(25x^4+25x^3+15x^2+5x+1)$
+    \item A cool substitution can do the trick.
+    \item Previous exercise!
+\end{enumerate}
+
+\end{document}
