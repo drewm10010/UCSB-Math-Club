@@ -1,0 +1,117 @@
+\documentclass{article}
+
+\usepackage{../mathclub}
+\DeclareMathOperator{\GL}{GL}
+
+
+\title{Group Theory - Week 10}
+\author{}
+\date{November 29, 2021}
+
+\begin{document}
+
+\section{Introduction}
+This week marks the final week of Math Club for the Fall quarter! We've put together lots of group theory problems to celebrate ``dead week'' and give you inspiration as you march valiently into Finals and the Putnam! (If you have no idea what group theory is, that's totally fine; you can get away with pretending.)
+
+Speaking of which, the Putnam exam is \textbf{this Saturday, December 4th}. It is composed of two exams, an ``A'' exam from (roughly) 8AM to 11AM and a ``B'' exam from 12PM to 3PM. That means you gotta wake up early! (This is often the greatest obstruction to students taking the Putnam, rather than finals.) More details to be mentioned during the meeting.  
+
+\section{Group theory: Some useful facts} 
+
+I'm sure you know about sets. When we speak of groups, we are talking about a very special class of sets—sets where we can impose additional \emph{structure}. This structure comes in the form of a \emph{group operation} which allows one to ``multiply'' elements together. With this structure, there are many interesting questions we can ask whose answers allow us to classify all such ``structures'' a set could have (up to ``isomorphism''). This gives us extra information about the set we are dealing with. 
+
+Okay, obviously we need to start with the definition of a group.
+\begin{definition}
+Given a set $S$, a \emph{binary operation on $S$} is a map $\cdot:S\times S\to S$. 
+\end{definition}
+If this seems like overly formal mumbo-jumbo to you, just think of a binary operation as something that takes as input a pair $(r,s)$ of elements from $S$ and spits out an element $r\cdot s$ of $S$. Just like addition, $+$, associates to two integers, say $4$ and $6$, their sum $4+6$, which we call ``$10$.'' Also, don't confuse $\cdot$ with multiplication! This is admittedly an abuse of notation, but I am using $\cdot$ to refer to \emph{any} binary operation on \emph{any} set.  
+\begin{definition}
+A \emph{group} is a pair $(G,\cdot)$ where $G$ is a set and $\cdot$ is a binary operation on $S$, such that 
+\begin{enumerate}[label=(G\arabic*)]
+\item the binary operation $\cdot$ is \emph{associative}. This means that $(a\cdot b)\cdot c = a\cdot (b\cdot c)$ for all $a,b,c\in G$. 
+\item there is an \emph{identity element} with respect to the binary operation $\cdot$. This means that there is some element $e\in G$ of $G$ such that $e\cdot a = a\cdot e = a$ for all $a\in G$, i.e. multiplication by $e$ leaves every element unchanged.
+\item every element has an \emph{inverse} with respect to the binary operation $\cdot$. This means that for every element $a\in G$, there is some element $b\in G$ (possibly equal to $a$) such that $a\cdot b = b\cdot a = e$. An easy exercise is to show that such an element, if it exists, must be unique.
+\end{enumerate}
+If in addition, we have that $\cdot$ is commutative, that is $a\cdot b = b\cdot a$ for all $a,b\in G$, then we call $G$ \emph{abelian}.
+\end{definition}
+
+Often (this is just notation), we just say that $G$ is a group, omitting all reference to the binary operation, and we denote products under this operation $a\cdot b$ by concatenating the elements together, as in $ab$. We also abuse the multiplicative notation further to talk about \emph{powers}, denoting $aa$ by $a^2$; in general we define $a^0=e$, $aa^{n-1}=a^n$ for $n\geqs 1$, and $a^{-n}=(a^n)^{-1}$.  
+
+\begin{example2}
+I can't possibly list all of the interesting/important examples of groups, but here are a few of them. The integers $\ZZ$ with respect to addition. The integers modulo $n$, $\ZZ/n\ZZ$, with respect to addition modulo $n$. The integers modulo $n$ which are coprime to $n$, $(\ZZ/n\ZZ)^\times$, with respect to multiplication modulo $n$. The dihedral group $D_n$ of symmetries of the regular $n$-gon. The group $S_n$ of permutations of $\{1,\dots,n\}$ with respect to composition, also called the symmetric group on $n$ letters. The complex $n$th roots of unity. The group $\GL_n(\RR)$ of $n\times n$ matrices with entries in $\RR$ and nonzero determinant with respect to matrix multiplication, also called the general linear group.
+\end{example2}
+
+If at this point, you are gasping for breath, utterly petrified that I mischievously lured you into the Math Club during dead week promising fun, refreshing, mathematical ecstasy, only to force-feed you a quarter's worth of group theory concepts in half a page, I urge you to not fear. We shall get into some fun exercises which for the most part won't need much background. Perhaps I just wanted to convey the scope of group theory and its ubiquity throughout a large portion of mathematics. So pay attention during 111A or 220A: you will be rewarded for it!
+
+\section{Problems}
+
+Throughout these exercises, we let $G$ denote a group. The first few should give you a feel for algebraic arguments and basic properties of groups.
+
+\begin{exercise}
+Prove the cancellation laws: if elements $a,b,c\in G$ satisfy $ac=bc$ or $ca=cb$, then $a=b$.  
+\end{exercise}
+
+\begin{exercise}
+Let $a\in G$. Prove that there is a \emph{unique} $b\in G$ such that $ab=e$ (show uniqueness, as existence is implied by the definition of a group).
+\end{exercise}
+
+\begin{exercise}
+Let $G$ be a finite group and let $x\in G$. Prove that for some positive integer $n\leqs |G|$, $x^n = e$. The least $n$ for which this is true is called the \emph{order} of $x$. 
+\end{exercise}
+
+\begin{exercise}
+Assume that $a,b\in G$ satisfy $(a b a^{-1})^n = e$ for some positive integer $n$. Prove that $b^n = e$.
+\end{exercise}
+
+The next few problems also use algebra, but are a little more tricky.
+
+\begin{exercise}
+Suppose $G$ has the following properties: (i) $G$ has no element of order $2$, and (ii) $(xy)^2=(yx)^2$ for all $x,y\in G$. Prove that $G$ is abelian.
+\end{exercise}
+
+\begin{exercise}
+Let $\Gamma$ denote a finite set of matrices with complex entries which form a group with respect to matrix multiplication. Denote by $M$ the sum of the matrices in $\Gamma$. Prove that $\det M$ is an integer.
+\end{exercise}
+
+The next few problems have a slightly more combinatorial flavor. 
+
+\begin{exercise}[1968 B2]
+$A$ is a subset of a finite group $G$ (with group operation called multiplication), and $A$ contains more than one half of the elements of $G$. Prove that each element of $G$ is the product of two elements of $A$.
+\end{exercise}
+
+\begin{exercise}
+Prove that if $G$ is a finite group with $n$ elements and $p$ is a prime divisor of $n$, then the number of solutions to the equation $x^p=e$ is divisible by $p$. (Start by considering the set $S$ of ordered $p$-tuples $(a_1,\dots,a_p)$ with $a_i\in G$ and $a_1\cdots a_p=e$, and call two such $p$-tuples equivalent if one is a cyclic permutation of the other. Now count the members of $S$ in two different ways.)
+\end{exercise}
+This implies \emph{Cauchy's theorem}, which states that if a group $G$ has order divisible by $p$, then there exists some $x\in G$ with order $p$. We now take a detour through analysis. The following theorem is an excellent example of how the existence of a group structure gives us a much clearer picture of what it looks like.
+
+\begin{theorem}
+A set $S$ of real numbers which forms a group with respect to addition is either cyclic (of the form $\{na:n\in \ZZ\}$ for some $a\in S$) or dense in the real numbers.
+\end{theorem}
+\noindent This has some interesting applications, such as the following:
+
+\begin{exercise}
+Show that the sequence $(\sin n)_n$ is dense in $[-1,1]$. 
+\end{exercise}
+
+\begin{exercise}
+Show that infinitely many powers of $2$ start with the digit $7$.
+\end{exercise}
+
+We finally return to the realm of algebra, and in particular some Putnam problems.
+
+\begin{exercise}[2007 A5]
+Suppose that a finite group has exactly $n$ elements of order $p$, where $p$ is a prime. Prove that either $n = 0$ or $p$ divides $n + 1$.
+\end{exercise}
+\begin{exercise}[2008 A6]
+Prove that there exists a constant $c > 0$ such that in every nontrivial finite group $G$ there exists a sequence of length at most $c \log |G|$ with the property that each element of $G$ equals the product of some subsequence. (The elements of $G$ in the sequence are not required to be distinct. A subsequence of a sequence is obtained by selecting some of the terms, not necessarily consecutive, without reordering them; for example, $4, 4, 2$ is a subsequence of $2,4,6,4,2$, but $2,2,4$ is not.)
+\end{exercise}
+
+I conclude with a Putnam problem which is difficult, but mostly due to the background needed to elegantly answer it. The solution on Kedlaya's website is one of the most beautiful solutions to a Putnam problem I have ever read, and I have not forgotten it since. 
+
+\begin{exercise}[2011 A6]
+Let $G$ be an abelian group with $n$ elements, and let $\{g_1 = e,g_2,\dots,g_k\} \subsetneq G$ be a (not necessarily minimal) set of distinct generators of $G$. A special die, which randomly selects one of the elements $g_1,g_2,\dots,g_k$ with equal probability, is rolled $m$ times and the selected elements are multiplied to produce an element $g\in G$. Prove that there exists a real number $b\in (0,1)$ such that 
+\[\lim_{m\to\infty}\frac{1}{b^{2m}}\sum_{x\in G} 
+\left(\operatorname{Prob}(g=x)-\frac{1}{n}\right)^2\] is positive and finite. 
+\end{exercise}
+
+\end{document}
+ 

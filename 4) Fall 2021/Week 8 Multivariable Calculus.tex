@@ -1,0 +1,133 @@
+\documentclass{article}
+
+\usepackage{../mathclub}
+\usepackage{stix}
+
+\title{Multivariable Calculus - Week 8}
+\author{}
+\date{November 15, 2021}
+
+\begin{document}
+
+\section{Introduction}
+
+Welcome to Week 8 of Math Club! Today we will be taking a stab at some Multivariable Calculus. Though many 
+of you may have already encountered these topics in your Math 6a or 6b class, we will be looking at Multivariable Calculus in different lens. That is, instead of memorizing calculus tricks solely for your next exam, we will be making connections between competitive mathematics. Without further ado, let's begin.
+\\\\
+\emph{Derivatives} \\
+Not unlike its "cousin", the Partial Derivative tells you how fast a certain coordinate changes. 
+That is, the Partial Derivative with respect to some variable $x$ is the rate of change of $x$, where every other coordinate is fixed. Formally, we have the following definition,
+\begin{align*} 
+    \frac{\partial}{\partial x_i} f(\textbf{a}) = \lim_{h \rightarrow 0 } \frac{f(\textbf{a} + h\textbf{e}_i) - f(\textbf{a})}{h} 
+\end{align*}
+In practice, to take the partial derivative with respect to some variable $x$, you treat every other variable as a constant and simply take the regular derivative. 
+\\\\
+\emph{Integrals} \\\\
+In the one dimensional case, we are used to integrate along a line. Now, since we're working in higher dimensions, we may need to integrate along higher dimension regions. In some instances, our region of integration is "nice."  Consider this worked example,\\
+\emph{Example.} Compute the integral $\iint_D xy\ d\!A$, where $D = \left\{ (x,y) \in \mathbb{R}^2 | 0 \leq x \leq 1, 0 \leq y \leq 1 \right\}$. Notice that the region of integration is just the unit square, which is equivalent to integrating one unit along the $x$-axis, and one unit along the $y$-axis.
+\begin{align*} 
+    \iint_D x\ d\!xd\!y = \int_{0}^1\int_{0}^1 xy\ d\!A = \int_{0}^{1} \left(\frac{x^2y}{2}\right)\bigg|_{0}^{1} = \int_{0}^1 \frac{y}{2}\ d\!y = \frac{1}{4}
+\end{align*}
+In other cases, our region of integration might not be too nice.
+However, there are certain tools that can help us with this. \\\\
+\emph{Change of Coordinates} \\
+Let $f: D \subset \mathbb{R}^n \rightarrow \mathbb{R}$ be an integrable function. Let also $x(u) =(x_i(u_j ))^{n}_{i,j=1}$ be a change of coordinates, viewed as a map from some domain $D^*$ to $D$, with Jacobian $\frac{\partial x}{\partial u} = \det \left( \frac{\partial x_i}{\partial u_j}\right)$. Then,
+    \begin{align*} 
+        \int_D f(x)\ d\!x = \int_{D^*} f(x(u)) \bigg| \frac{\partial x}{\partial u} \bigg|\ d\!u
+    \end{align*}
+One very common change in coordinates is from Cartesian coordinates to Polar Coordinates. Where $x = r\sin(\theta)$, $y = r\cos(\theta)$, and the Jacobian $r$.
+
+\begin{theorem}[Tonelli]
+Let \(f:\mathbb R^2\to\mathbb R\) be a positive piecewise continuous function. Then
+\[\int_a^b\!\int_c^df(x,y)\ d\!xd\!y = \int_c^d\!\int_a^bf(x,y)\ d\!yd\!x.\]
+In other words, we can often (but not always!) switch the order of integration.
+\end{theorem}
+
+%Polar Coords
+% \section{Resources}
+
+% Here are some resources.
+% \begin{enumerate}
+%     some resources
+% \end{enumerate}
+
+\section{Problems} 
+
+%Understanding checks
+\begin{exercise}
+    Given that $f(x,y,z) = (2xy)^2 + zy^{314159265} + xy$, determine $\frac{\partial}{\partial y}\frac{\partial f}{\partial x}$ and $\frac{\partial}{\partial x}\frac{\partial f}{\partial y}$.
+\end{exercise}
+\begin{exercise} 
+    Evaluate the following integral, $\int_{0}^{1} \int_{0}^{y} x^2 + y^2\ d\!xd\!y$
+\end{exercise}
+
+%Problems
+
+\begin{exercise}
+    Given that $\int_{0}^{1} \frac{\ln(x+1)}{x}\ d\!x = \frac{\pi^2}{12}$,
+    evaluate $\int_{0}^{1} \int_{0}^{y} \frac{\ln(x+1)}{x}\ d\!xd\!y$.
+    (Hint: Think of the region of integration!)
+    As a (harder) exercise, prove that the value of the integral we gave you is indeed $\pi^2/12$.
+\end{exercise}
+
+\begin{exercise} 
+    Show the existence of and find the global minimum of the function $f:\mathbb{R}^2\to\mathbb{R}$ defined by
+    \[f(x,y) = x^4 + 6x^2y^2 + y^4 - \frac94x - \frac74 y.\]
+\end{exercise}
+
+\begin{exercise}
+    Compute the integral $\iint_D x\ d\!xd\!y$, where
+    \[D = \left\{(x,y)\in\mathbb R^2\mid x\geq 0,\ 1\leq xy\leq 2,\ 1\leq\frac yx\leq 2\right\}.\]
+    (Hint: Find a nice change of variables to convert hyperbolas into rectangles)
+\end{exercise}
+
+\begin{exercise}
+    Prove the Gaussian integral formula:
+    \[\int_{-\infty}^\infty e^{-x^2}\ d\!x = \sqrt\pi.\]
+    (Hint: what kind of bear lives in the arctic?)
+\end{exercise}
+
+\begin{exercise}
+    Show that for $a,b>0$, 
+    \[\int_0^\infty \frac{e^{-ax}-e^{-bx}}{x}d\!x = \ln\frac ba.\]
+    (Hint: Tonelli)
+\end{exercise}
+
+
+\begin{exercise}[1986 A5]
+    $f:\mathbb{R}^n \rightarrow \mathbb{R}^n$ is defined by $f(x) =(f_1(x), f_2(x), ... , f_n(x))$, where $x = (x1, x2, ... , xn)$ and the $n$ functions $f_i:\mathbb{R}^n\rightarrow \mathbb{R}$ have continuous 2nd order partial derivatives and satisfy $\frac{\partial f_i}{\partial x_j} - \frac{\partial f_j}{\partial x_i} = c_{ij}$ (for all $1 \leq i, j \leq n$) for some constants $c_{ij}$. Prove that there is a function $g:\mathbb{R}^n\rightarrow \mathbb{R}$ such that $f_i + \frac{\partial g}{\partial x_i}$ is linear (for all $1 \leq i \leq n$).
+
+
+\end{exercise}
+
+%Difficult problems
+
+\begin{exercise}[1989 A2]
+Evaluate $\int_{0}^{a} \int_{0}^{b} e^{max\{b^2x^2, a^2y^2\}}dydx$, where $a,b$ are positive.
+\end{exercise}
+
+\begin{exercise}[2010 A3]
+    Suppose that the function $h: \mathbb{R}^2 \rightarrow \mathbb{R}$ has continuous partial derivatives and satisfies the equation 
+    \begin{align*} 
+        h(x,y) = a\frac{\partial h}{\partial x} + b\frac{\partial h}{\partial y}
+    \end{align*}
+    for some constants a,b. Prove that if there is a constant $M$ such that $|h(x,y)| \leq M$ for all $(x,y) \in \mathbb{R}^2$, then $h$ is identically 0.
+\end{exercise}
+
+\begin{exercise}
+    Let $f: \mathbb{R}^2 \rightarrow \mathbb{R}$ be a differentiable function with continuous partial derivatives and with $f(0,0) = 0$. Prove that there exists continuous functions $g_1, g_2$, such that 
+    \begin{align*} 
+        f(x,y) = xg_1(x,y) + yg_2(x,y)
+    \end{align*}
+\end{exercise}
+
+\begin{exercise}[2018 B5]
+    Let $f = (f_1, f_2)$ be a function from $\mathbb{R}^2 \rightarrow \mathbb{R}^2$ with continuous partial derivatives that are positive everywhere. Suppose that 
+    \begin{align*} 
+        \frac{\partial f_1}{\partial x_1} \frac{\partial f_2}{\partial x_2} - \frac{1}{4} \left(\frac{\partial f_1}{\partial x_2} + \frac{\partial f_2}{\partial x_1}\right)^2 > 0
+    \end{align*}
+    everywhere. Prove that $f$ is one-to-one.
+\end{exercise} 
+
+
+\end{document}

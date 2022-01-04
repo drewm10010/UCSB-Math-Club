@@ -1,0 +1,138 @@
+\documentclass{article}
+
+\usepackage{../mathclub}
+\usepackage{stix}
+
+\title{Planar Geometry - Week 9}
+\author{}
+\date{November 22, 2021}
+
+\begin{document}
+
+\section{Introduction}
+Welcome to Week 9 of Math Club! Today we will be taking a stab at planar geometry. Recorded in the Euclid's \emph{Elements}, planar geometry was a protagonist of the math community dating back to Ancient Greece. Even if nowadays there're less ongoing research in planar geometry, the subject still fascinates math people and occasionally appears in the Putnam contest. In this handout, we introduce the Euclid's Postulates and present several problems in planar geometry. Some of them are less in the spirit of Euclid, being based on more algebraic or combinatorial considerations. Here “imagination is more important than knowledge’’ (A. Einstein).
+
+\section{Euclid's Postulates} 
+\begin{itemize}
+    \item A straight line segment can be drawn joining any two points.
+    \item Any straight line segment can be extended indefinitely in a straight line.
+    \item Given any straight line segment, a circle can be drawn having the segment as radius and one endpoint as center.
+    \item All right angles are congruent.
+    \item If two lines are drawn which intersect a third in such a way that the sum of the inner angles on one side is less than two right angles, then the two lines inevitably must intersect each other on that side if extended far enough. This postulate is equivalent to what is known as the Parallel Postulate.
+\end{itemize}
+
+\section{Useful Definitions}
+\begin{definition}
+A polygon is a plane figure that is described by a finite number of straight line segments connected to form a closed polygonal chain.
+\end{definition}
+
+\begin{definition}
+A subset of $\mathbb{R}^{n}$ is convex if, given any two points in the subset, the subset contains the whole line segment that joins them.
+\end{definition}
+
+\begin{definition}
+A convex polygon is a polygon that is the boundary of a convex set.
+\end{definition}
+
+\begin{definition}
+A regular convex polygon is a convex polygon where each side is of equal length. 
+\end{definition}
+
+\begin{definition}
+A parametrized curve in $\mathbb{R}^{n}$ is a map $\gamma: (\alpha, \beta) \rightarrow \mathbb{R}^{n}$ defined by 
+\[\gamma(t) = (x_{1}(t), \ldots, x_{n}(t)).\]  
+\end{definition}
+
+\begin{definition}
+The arc length of $\gamma$ starting at $\gamma(t_{0})$ is a function 
+\[
+s(t) = \int_{t_{0}}^{t} ||\gamma'(u)|| du.
+\]
+\end{definition}
+
+\begin{definition}
+$\gamma$ is a unit speed curve if for all $t \in (\alpha, \beta)$, 
+\[
+||\gamma'(t)|| = 1. 
+\]
+\end{definition}
+
+\section{Problems}
+
+\begin{exercise}[2002 A2]
+Given any five points on a sphere, show that some four of them must lie on a closed hemisphere.
+\end{exercise}
+
+\begin{exercise}
+Let \(u,v\) be integers such that \(0<u<v\). Let \(A=(u,v)\), let \(B\) be the reflection of \(A\) across the line \(y=x\), let \(C\) be the reflection of \(B\) across the \(y\)-axis, let \(D\) be the reflection of \(C\) across the \(x\)-axis, and let \(E\) be the reflection of \(D\) across the \(y\)-axis. The area of the pentagon \(ABCDE\) is 451. Find \(u+v\).
+\end{exercise}
+
+\begin{exercise}
+In a quadrilateral \(ABCD\), \(\angle BA\cong\angle ADC\) and \(\angle ABD\cong\angle BCD\), \(AB=8\), \(BD=10\), and \(BC=6\). Find the length \(CD\) as a fraction in lowest terms.
+\end{exercise}
+
+\begin{exercise}
+Two convex polygons are placed one inside the other. Prove that the perimeter of the polygon that lies inside is smaller.
+\end{exercise}
+
+\begin{exercise}
+Prove that the midpoints of the sides of a quadrilateral form a parallelogram.
+\end{exercise}
+
+\begin{exercise}[2008 B1]
+What is the maximum number of rational points that can be on a circle in $\mathbb{R}^{2}$ whose centre is not a rational point? (A rational point is a point both of whose coordinates are rational numbers.)
+\end{exercise}
+
+\begin{exercise}[2016 B3] 
+Suppose that $S$ is a finite set of points in the plane such that the area of triangle $ABC$ is at most $1$ whenever $A$, $B$, and $C$ are in $S$. Show that there exists a triangle of area $4$ that (together with its interior) covers the set $S$.
+\end{exercise}
+
+\begin{exercise}[2004 A2]
+For $i = 1, 2$, let $T_{i}$ be a triangle with side lengths $a_i$,$b_i$, $c_i$ and area $A_i$. Suppose that $a_{1} \leq a_{2}$, $b_{1} \leq b_{2}$, and $c_{1} \leq c_{2}$, and that $T_{2}$ is an acute triangle. Does it follow that $A_{1} \leq A_{2}$? 
+\end{exercise}
+
+\begin{exercise}
+Someone has drawn two squares of side $0.9$ inside a disk of radius $1$. Prove that the squares overlap.
+\end{exercise}
+
+\begin{exercise}[2015 A1]
+Let $A$ and $B$ be points on the same branch of the hyperbola $xy = 1$. Suppose that $P$ is a point lying between $A$ and $B$ on this hyperbola, such that the area of the triangle $APB$ is as large as possible. Show that the region bounded by the hyperbola and the chord $AP$ has the same area as the region bounded by the hyperbola and the chord $PB$.
+\end{exercise}
+
+\begin{exercise}[2001 A4]
+Triangle $ABC$ has area $1$. Points $E, F, G$ lie, respectively, on sides $BC, CA, AB$ such that $AE$ bisects $BF$ at point $R$, $BF$ bisects $CG$ at point $S$, and $CG$ bisects $AE$ at point $T$. Find the area of triangle $RST$.
+\end{exercise}
+
+\begin{exercise}[1998 A2]
+Let $s$ be any arc of the unit circle lying entirely inside the first quadrant. Let $A$ be the area of the region lying below $s$ and above the $x$-axis, and let $B$ be the area of the region lying to the right of the $y$-axis and to the left of $s$. Prove that $A + B$ depends only on the arc length, and not on the position, of $s$.
+\end{exercise}
+
+\begin{exercise}[2017 B5]
+A line in the plane of a triangle $T$ is called an equalizer if it divides $T$ into two regions having equal area and equal perimeter. Find positive integers $a > b > c$, with a as small as possible, such that there exists a triangle with side lengths $a, b, c$ that has exactly two equalizers.
+\end{exercise}
+
+\begin{exercise}[2018 A6]
+Suppose that $A$, $B$, $C$, and $D$ are distinct points, no three of which lie on a line, in the Euclidean plane. Show that if the squares of the lengths of the line segments $AB$, $AC$, $AD$, $BC$, $BD$, and $CD$ are rational numbers, then the quotient
+\[\frac{\area(\Delta ABC)}{\area(\Delta ABD)}\]
+is a rational number.
+\end{exercise}
+
+\newpage
+\section{Appendix}
+Here are important things in middle/high school Olympiads competitions. Some of the results might be used to solve planar geometry problems in the Putnam contest.    
+\begin{itemize}
+    \item Properties of parallelism, orthogonality, similar triangles, and cyclic quadrilateral   
+    \item The Law of Sines, The Law of Cosines, Heron's Formula
+    \item Intersecting Chords Theorem, Tangent Secant Theorem 
+    \item Pythagorean Theorem 
+    \item Geometric Mean Theorem 
+    \item Stewart's Theorem 
+    \item Menelaus's Theorem, Ceva's Theorem 
+    \item Ptolemy's Theorem, Simson's Theorem 
+    \item The incenter, circumcenter, centroid, orthocenter, and escenter of a triangle 
+    \item Radical axis of two circles 
+    \item Euler's Theorem, Fermat Point, Nine-point circle 
+    \item Coordinate geometry: line, circle, parabola, ellipse, hyperbola, and second definitions  
+\end{itemize}
+\end{document}
+ 
