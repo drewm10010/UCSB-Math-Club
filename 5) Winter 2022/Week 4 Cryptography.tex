@@ -10,16 +10,10 @@
 
 \section{Introduction}
 
-    Welcome to our final meeting of Math Club this year and our final meeting online!
-    Thanks for sticking around thus far.
-    As a reminder, we are still taking applications for the role of math club officer until Friday.
-    Please fill out the form on Slack if you are interested.
+    Welcome back to math club!
+    Today, we will be taking a look at the mathematics of cryptography.
+    Cryptography is the process by which two parties share information secretly, so that no third party may easily gain access to the information shared.
 
-    Today we will be discussing cryptography, or the study and practice of securing digital information from adversarial attacks.
-    In other words, cryptography looks at the mathematical ways in which we can safely and securely send messages from point \(A\) to point \(B\).
-    With cryptography, the sender will scramble up the message in some way so that it looks like gibberish until it gets unscrambled by the receiver.
-
-    Some definitions:
     \begin{definition}
         We call any set of mathematical tools used for cryptography a \textbf{cryptosystem}.
         A cryptosystem \(\Sigma\) is composed of the following:
@@ -33,89 +27,18 @@
         The encryption and decryption functions have the property that \(D(E(m))=m\), so that the decryption undoes the encryption, revealing the message.
     \end{definition}
 
-    Most of cryptography follows a certain storyline.
-    Alice wants to send some kind of message to Bob.
-    She wants to do so in a way that nobody other than Bob can read this message.
-    Eve, an adversary to Alice and Bob, wants to try and read the message Alice sends.
-    The assumption in the story is that Eve has access to anything not kept completely secret.
-
 \section{Resources}
 
-    A great text for learning cryptography from a mathematical point of view (or maybe learning cryptography at all) is \textit{An Introduction to Mathematical Cryptography} by Hoffstein, Pipher, and Silverman.
-    Its only prerequisite is some linear algebra knowledge (Math 4A is fine).
-    
-    For a more applied approach, for those of you looking to implement cryptography, check out \textit{An Introduction to Modern Cryptography} by Katz and Lindell.
-    As a warning: don't roll your own crypto.
-    Don't write your own encryption scheme and use it in a non-trivial way.
-    If someone is willing enough, your scheme \textit{will} be broken.
-
-\section{The RSA Cryptosystem}
-
-    The RSA cryptosystem (named for the creators Rivest, Shamir, and Adleman) allows Alice and Bob to share a message using a public key (i.e., one that Eve has access to).
-
-    In RSA, we have that \(\mathcal{K}=\NN\).
-    For the key, Bob picks two primes \(p,q\) and a positive integer \(e\) such that \(\gcd(e,(p-1)(q-1))=1\).
-    The message space and ciphertext space are both the set of integers modulo \(N=pq\).
-    That is, \(\mathcal{M}=\mathcal{C}=\ZZ/N\ZZ\).
-
-    Alice chooses a message \(m\), an integer between 0 and \(pq-1\) inclusive.
-    To encrypt the message, she computes \(c\equiv m^e\pmod{N}\) and sends this over to Bob.
-    Bob then computes, using the Euclidean algorithm, an integer \(d\) satisfying \(ed\equiv 1\pmod{(p-1)(q-1)}\).
-    By Bezout's lemma, there exist integers \(x,d\) such that 
-    \[1 = \gcd(e,(p-1)(q-1)) = x(p-1)(q-1) + de.\]
-    Bob computes \(x\) and \(d\) using the reverse Euclidean algorithm.
-    Note that indeed \(de\equiv 1\pmod{(p-1)(q-1)}\).
-    Then Bob computes \(m'\equiv c^d\pmod{N}\).
-    Here, we have
-    \[m' \equiv c^d \equiv \left(m^e\right)^d \equiv m^{ed} \equiv m\pmod{N}.\]
-    This last equivalence follows from Euler's theorem. The following table gives an outline of how RSA is done.
-
-    \begin{table}[h!]
-        \centering
-        \begin{tabular}{|p{5cm}|p{5cm}|}
-            \hline
-            \textbf{Bob} & \textbf{Alice}\\
-            \hline\hline
-            \multicolumn{2}{|c|}{\bf Key creation}\\
-            \hline
-            Choose secret primes \(p\) and \(q\).
-            Choose encryption exponent \(e\) with \(\gcd(e,(p-1)(q-1))=1\).
-            Publish \(N=pq\) &\\
-            \hline
-            \multicolumn{2}{|c|}{\bf Encryption}\\
-            \hline
-            & Choose plaintext \(m\).
-            Use Bob's public key \((N,e)\) to compute \(c\equiv m^e\pmod{N}\).
-            Send ciphertext \(c\) to Bob.\\
-            \hline
-            \multicolumn{2}{|c|}{\bf Decryption}\\
-            \hline
-            Compute \(d\) satisfying \(ed\equiv 1\pmod{(p-1)(q-1)}\).
-            Compute \(m' \equiv c^d\pmod{N}\).
-            Then \(m'\) equals the plaintext \(m\).&\\
-            \hline
-        \end{tabular}
-    \end{table}
-
-    So what makes RSA secure?
-    In order for Eve to uncover useful information, Eve has to either factor \(N\) into a product of two very large primes or solve congruences of the form \(x^e\equiv c\pmod{N}\).
-    The first method runs into the problem of factoring.
-    As it stands now, factoring large numbers takes a very long time.
-    In particular, Eve has to factor \(N=pq\), where \(p\) and \(q\) are both very large.
-    As a result, this task is not feasible to do in a reasonable amount of time.
-    The other method runs into a difficult problem known as the discrete logarithm problem.
-    The process of finding \(x\) from the congruence \(x^e\equiv c\pmod{N}\) is known to take a ridiculous amount of time to do.
-    The hardness of these problems makes RSA secure.
-
-    RSA is not perfect though.
-    One must be careful about how one sends messages using RSA.
-    It is essential to choose large primes so that the modulus \(N\) is very tough to factor.
-    Some of the exercises explore other mistakes one can make with RSA, such as sending messages that are pairwise coprime with the same encryption exponent, or sending multiple messages using the same key.
-    You will play the role of Eve uncover the messages that Alice and Bob send to each other.
+    Here are some of our favorite books on cryptography:
+    \begin{itemize}
+        \item \textit{An Introduction to Mathematical Cryptography} by Hoffstein, Pipher, and Silverman.
+        \item \textit{An Introduction to Modern Cryptography} by Katz and Lindell.
+    \end{itemize}
 
 \section{Exercises}
 
     \begin{exercise}
+        We define \(\phi(N)\) as the number of natural numbers \(<N\) that are relatively prime to \(N\).
         The Euler \(\phi\)-function has some marvelous properties.
         \begin{enumerate}
             \item[(a)] If \(p\) is a prime, what is the value of \(\phi(p)\)?
@@ -263,6 +186,42 @@
         Either way, Eve can recover the message.
     \end{enumerate}
     \fi
+
+\newpage 
+
+Here is a compilation of things that should be useful to you.
+
+\section{The RSA Cryptosystem}
+
+    The RSA cryptosystem (named for the creators Rivest, Shamir, and Adleman) allows Alice and Bob to share a message using a public key.
+    The following table gives an outline of how RSA is done.
+
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{|p{5cm}|p{5cm}|}
+            \hline
+            \textbf{Bob} & \textbf{Alice}\\
+            \hline\hline
+            \multicolumn{2}{|c|}{\bf Key creation}\\
+            \hline
+            Choose secret primes \(p\) and \(q\).
+            Choose encryption exponent \(e\) with \(\gcd(e,(p-1)(q-1))=1\).
+            Publish \(N=pq\) &\\
+            \hline
+            \multicolumn{2}{|c|}{\bf Encryption}\\
+            \hline
+            & Choose plaintext \(m\).
+            Use Bob's public key \((N,e)\) to compute \(c\equiv m^e\pmod{N}\).
+            Send ciphertext \(c\) to Bob.\\
+            \hline
+            \multicolumn{2}{|c|}{\bf Decryption}\\
+            \hline
+            Compute \(d\) satisfying \(ed\equiv 1\pmod{(p-1)(q-1)}\).
+            Compute \(m' \equiv c^d\pmod{N}\).
+            Then \(m'\) equals the plaintext \(m\).&\\
+            \hline
+        \end{tabular}
+    \end{table}
 
 \section{Number Theory Reference Guide}
 
