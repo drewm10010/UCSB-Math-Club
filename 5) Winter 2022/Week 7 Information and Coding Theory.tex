@@ -23,15 +23,15 @@ We will suppose for today that all of our messages are just binary strings: coll
 
 \section{Basic Error Correcting Codes}
 
-\subsection{Repitition codes}
+\subsection{Repetition codes}
 
 Suppose Alice wanted to send the message \(s = \texttt{0010110}\) to Bob across a noisy channel, where some of the bits (binary digits) might get flipped \((0\mapsto 1\textrm{ or }1\mapsto 0)\) along the way.
 Suppose the chances of a bit flipping are \(f=0.1\).
-One way might be to use a \textbf{repitition code} such as \(R_3\), in which we simply repeat each bit three times.
+One way might be to use a \textbf{repetition code} such as \(R_3\), in which we simply repeat each bit three times.
 After sending our encoded message \(t = \texttt{000 000 111 000 111 111 000}\) across the noisy channel, we get the result
 \[n = \texttt{000 001 111 000 010 111 000}.\]
 Knowing Alice encoded with \(R_3\), Bob might deduce that the message is \(s' = \texttt{0010010}\), where he simply took the majority as the intended bit. 
-Of course, Bob got unlucky here because two bits corresponding to the second 1 got flipped, so he incorrecly thought this was a 0.
+Of course, Bob got unlucky here because two bits corresponding to the second 1 got flipped, so he incorrectly thought this was a 0.
 
 \begin{exercise}
     In the example above, compute the probability that the message \(s\) makes its way through the channel without getting any bits flipped. Assume we have not encoded it in any way, but just sent \(s\) alone.
@@ -43,7 +43,7 @@ Of course, Bob got unlucky here because two bits corresponding to the second 1 g
 
 \begin{exercise}
     Devise a way of encoding a message with higher probability of successful decoding than the \(R_3\) code.
-    Can you devise a way that is \textit{not} a repitition code?
+    Can you devise a way that is \textit{not} a repetition code?
 \end{exercise}
 
 \begin{exercise}
@@ -52,18 +52,18 @@ Of course, Bob got unlucky here because two bits corresponding to the second 1 g
 
 \begin{exercise}
     \begin{enumerate}
-        \item[(a)] Show that the probability of error of \(R_N\), the repitition code with \(N\) repititions is 
+        \item[(a)] Show that the probability of error of \(R_N\), the repetition code with \(N\) repetitions is 
         \[p_b = \sum_{n=(N+1)/2}^N\binom{N}{n}f^n(1-f)^{N-n},\]
         for odd \(N\), where \(f\) is the probability of a bit flip across the noisy channel.
         \item[(b)] Assuming \(f=0.1\), which of the terms in the sum is the largest?
         How much larger is it than the second-largest term?
         \item[(c)] Using \textbf{Stirling's approximation}
         \[x! \approx x^xe^{-x}\sqrt{2\pi x}\]
-        to approximate \(\binom{N}{n}\) in the largest term, find the approximate probability of error in the repitition code with \(N\) repititions.
-        \item[(d)] Assuming \(f=0.1\), find how many repititions are required to get the probability of error down to \(10^{-15}\).
+        to approximate \(\binom{N}{n}\) in the largest term, find the approximate probability of error in the repetition code with \(N\) repetitions.
+        \item[(d)] Assuming \(f=0.1\), find how many repetitions are required to get the probability of error down to \(10^{-15}\).
     \end{enumerate}
     This exercise tells us that in order to build a gigabyte disk drive with good enough reliability (\(10^{-15}\) chance of error), we would need \(k\) gigabytes of data if \(f=0.1\), where \(k\) is the answer to part (4). 
-    This says that maybe the repitition code isn't the most efficient way to do this.
+    This says that maybe the repetition code isn't the most efficient way to do this.
 \end{exercise}
 
 \subsection{Block Codes}
@@ -83,25 +83,25 @@ We can ensure this happens by choosing the parity check bits \(t_5t_6t_7\) in a 
     Generate the value of \(t\) for the following values of \(s\): \(s = \texttt{0000}\), \(s = \texttt{1111}\), \(s = \texttt{1010}\), \(s = \texttt{0111}\), \(s = \texttt{1000}\).
 \end{exercise}
 
-Since this is more complicated than the repitition codes, it stands to reason that decoding the (7,4) Hamming code is more complicated.
+Since this is more complicated than the repetition codes, it stands to reason that decoding the (7,4) Hamming code is more complicated.
 Remember that when sent across the noisy channel, \textit{any} of the bits of \(t\) might have been flipped, including the parity check bits.
 The trick is to compute a 3-bit \textbf{syndrome} as follows:
-Write the message you recieve in the Venn diagram as above.
+Write the message you receive in the Venn diagram as above.
 Then your syndome \(z = z_1z_2z_3\) checks whether the three circles are satisfied (parity-wise) or not.
-More precisely, \(z_1=1\) if the top circle violates the partiy rules and 0 otherwise. \(z_2\) is the same but for the circle on the right, and \(z_3\) is for the circle on the left.
+More precisely, \(z_1=1\) if the top circle violates the parity rules and 0 otherwise. \(z_2\) is the same but for the circle on the right, and \(z_3\) is for the circle on the left.
 This allows us to check which bit has been flipped and unflip it so that we recover the original message.
 Given the message \(r_1r_2r_3r_4r_5r_6r_7\), we use the table:
 \begin{table}[h!]
     \begin{center}
         \begin{tabular}{l|llllllll}
-            Syndome \(z\) &\texttt{000} &\texttt{001} &\texttt{010} &\texttt{011} &\texttt{100} &\texttt{101} &\texttt{110} &\texttt{111} \\\hline
+            Syndrome \(z\) &\texttt{000} &\texttt{001} &\texttt{010} &\texttt{011} &\texttt{100} &\texttt{101} &\texttt{110} &\texttt{111} \\\hline
             Unflip this bit & none & \(r_7\) & \(r_6\) & \(r_4\) & \(r_5\) & \(r_1\) & \(r_2\) & \(r_3\)
         \end{tabular}
     \end{center}
 \end{table}
 
 \begin{exercise}
-    Decode the following recieved strings: \(r = \texttt{1101011}\), \(r = \texttt{0110110}\), \(r = \texttt{0100111}\), \(r = \texttt{1111111}\).
+    Decode the following received strings: \(r = \texttt{1101011}\), \(r = \texttt{0110110}\), \(r = \texttt{0100111}\), \(r = \texttt{1111111}\).
 \end{exercise}
 
 \begin{exercise}
@@ -114,7 +114,7 @@ Given the message \(r_1r_2r_3r_4r_5r_6r_7\), we use the table:
 \end{exercise}
 
 \begin{exercise}
-    Devise your own error-correcting code other than a repitition code and the (7,4) Hamming code and a decoding algorithm for it.
+    Devise your own error-correcting code other than a repetition code and the (7,4) Hamming code and a decoding algorithm for it.
     Compute the probability of error.
     Don't worry if it's not as efficient or successful as the ones we've seen.
 \end{exercise}
