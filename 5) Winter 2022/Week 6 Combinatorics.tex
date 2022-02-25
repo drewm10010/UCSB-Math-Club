@@ -1,0 +1,90 @@
+\documentclass{article}
+
+\usepackage{../mathclub}
+
+\title{Combinatorics}
+\author{}
+\date{February 14, 2022}
+
+
+\begin{document}
+\section{Introduction}
+In a typical combinatorics course at this school (such as MATH 116), you will learn the basics of how to count. Usually, they'll cover the multiplication rule, stars and bars, the pigeonhole principle, the principle of inclusion-exclusion, and other things. Today, we delve into such techniques in a more contest-esque context. In other words, enjoy counting for adults!
+
+
+
+\section{Resources}
+Lots of these problems are shamelessly pulled from the textbooks Putnam and Beyond and Enumerative Combinatorics (by Richard Stanley). Putnam and Beyond is available for free online, while Enumerative Combinatorics is free if you're brave enough. Chances are, you would be able to pull sample solutions from the internet for our selection of exercises.
+
+\section{Exercises}
+
+\begin{exercise} 
+How many subsets of $\{2,3,4,5,6,7,8,9\}$ contain at least one prime number?
+\end{exercise}
+
+\begin{exercise}
+    How many odd positive $3$-digit integers are divisible by $3$ but do not contain the digit $3$?
+\end{exercise}
+
+\begin{exercise}
+Let $B_{n}$ denote the set of binary words with $n$ digits. Moreover, let $C_{n}$ be the set of integer compositions of $n$. For example,
+\[C_{4} = \{(4), (1,3), (2,2), (3,1), (1,1,2), (1,2,1), (2,1,1), (1,1,1,1)\}.\] 
+Describe a bijection from $B_{n - 1}$ to $C_{n}$. 
+\end{exercise}
+
+\begin{exercise} 
+    A license plate in a certain state consists of $4$ digits, not necessarily distinct, and $2$ letters, also not necessarily distinct. These six characters may appear in any order, except that the two letters must appear next to each other. How many distinct license plates are possible?
+\end{exercise}
+
+\begin{exercise}[824. Putnam and Beyond]
+    Let $M$ be a subset of $\{1, \cdots, 15\}$ such that the product of any three distinct elements of $M$ is not a square. 
+\end{exercise}
+
+\begin{exercise}[2005 AMC 12A 23]
+    Two distinct numbers a and b are chosen randomly from the set $\{2, 2^2, 2^3, ..., 2^{25}\}$. What is the probability that $\mathrm{log}_a b$ is an integer?
+\end{exercise}
+
+\begin{exercise} 
+Find a simple expression for the generating function $F(x) = \sum_{n \geq 0} a_n x^n$, where $a_0 = a_1 = 1$ and $a_n = a_{n-1} + a_{n-2}$ if $n \geq 2$.
+\end{exercise}
+
+\begin{exercise}
+Prove that among any ten points located inside a circle with diameter $5$, there exist at least two at a distance less than $2$ from each other. 
+\end{exercise}
+
+\begin{exercise}
+Let $(a_{1}, \ldots, a_{12})$ be a permutation of $(1, \ldots, 12)$ for which $a_{1} > a_{2} > a_{3} > a_{4} > a_{5} > a_{6}$ and $a_{6} < a_{7} < a_{8} < a_{9} < a_{10} < a_{11} < a_{12}$. An example of such a permutation is $(6,5,4,3,2,1,7,8,9,10,11,12)$. Find the number of such permutations. 
+\end{exercise}
+
+\begin{exercise}
+Prove the Vandermonde's identity 
+\[
+\binom{m + n}{r} = \sum_{k = 0}^{r} \binom{m}{k} \binom{n}{r - k}
+\]
+for any nonnegative integers $r, m, n$. Prove the generalized Vandermonde's identity 
+\[
+\binom{n_{1} + \cdots n_{p}}{m} = \sum_{k_{1} + \cdots + k_{p} = m} \binom{n_{1}}{k_{1}} \cdots \binom{n_{p}}{k_{p}}. 
+\]
+\end{exercise}
+
+\begin{exercise}[2013 $A_{1}$] 
+Recall that a regular icosahedron is a convex polyhedron having $12$ vertices and $20$ faces; the faces are congruent equilateral triangles. On each face of a regular icosahedron is written a nonnegative integer such that the sum of all $20$ integers is $39$. Show that there are two faces that share a vertex and have the same integer written on them.
+\end{exercise}
+
+\begin{exercise}
+A circle is divided into $432$ congruent arcs by $432$ points. The points are colored in four colors such that some $108$ points are colored Red, some $108$ points are colored Green, some $108$ points are colored Blue, and the remaining $108$ points are colored Yellow. Prove that one can choose three points of each color in such a way that the four triangles formed by the chosen points of the same color are congruent.
+\end{exercise}
+
+\begin{exercise}
+For each even positive integer $x$, let $g(x)$ denote the greatest power of $2$ that divides $x$. For example, $g(20) = 4$ and $g(16) = 16$. For each positive integer $n$, let $S_n = \sum_{k=1}^{2^{n-1}}g(2k).$ Find the greatest integer $n$ less than $1000 $such that $S_n$ is a perfect square.
+\end{exercise}
+
+\begin{exercise}
+A school has $n$ students. Each student can participate in any number of classes that he wants. Every class has at least two students participating in it, and if two different classes have at least two common students, then the number of students in these two classes is different. Prove that the number of classes is not greater than $(n - 1)^2$.
+\end{exercise}
+
+\begin{exercise}
+Let $A$ be a set with $|A| = 225$, meaning that $A$ has $225$ elements. Suppose further that there are eleven subsets $A_1, \ldots, A_{11}$ of $A$ such that $|A_i| = 45$ for $1 \leq i \leq11$ and $|A_i \cap A_j| = 9$ for $1 \leq i < j \leq 11$. Prove that $|A_1 \cup A_2 \cup \ldots \cup A_{11}| \geq 165$, and give an example for which equality holds. 
+\end{exercise}
+
+\end{document}
