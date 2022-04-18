@@ -1,0 +1,55 @@
+\documentclass{article}
+
+\usepackage{../mathclub}
+
+\title{Arithmetic Functions} 
+\author{}
+\date{April 18, 2022}
+
+\begin{document}
+
+\section{Introduction}
+
+Welcome to week 4 of Math Club!
+Today we will be talking about some functions that tend to appear when studying analytic number theory.
+These are functions \(f(n)\) which express some number-theoretic fact about \(n\).
+We provide some examples of such functions
+\begin{enumerate}
+    \item \(\nu(n) =\) the number of distinct prime divisors of \(n\).
+    \item \(\Omega(n) =\) the number of prime divisors of \(n\) counted with multiplcity (e.g., \(\Omega(4)=2\)).
+    \item The \(s\)-fold divisor function \(\sigma_s(n) = \sum_{d\mid n}d^s\) for \(s\in\CC\). If \(s=0\), write \(\sigma_s(n)=d(n)\), the number of divisors of \(n\).
+    \item The M\"obius function 
+    \[\mu(n) = \begin{cases}
+        (-1)^{\nu(n)} & \textrm{if }n\textrm{ is squarefree}\\
+        0 & \textrm{otherwise,}
+    \end{cases}\]
+    along with \(\mu(1)=1\).
+    \item Euler's totient function, or \(\phi\)-function
+    \[\phi(n) = n\prod_{p\mid n}\left(1-\frac{1}{p}\right).\]
+    \item The von Mangoldt function
+    \[\Lambda(n) = \begin{cases}
+        \log p & \textrm{if }n=p^\alpha\textrm{ for some }\alpha\geq 1\textrm{ and }p\textrm{ prime}\\
+        0 & \textrm{otherwise.}
+    \end{cases}\]
+\end{enumerate}
+
+\section{Exercises}
+
+For each of these exercises, you may use the results from the previous exercises.
+
+\begin{exercise}
+    Prove that
+    \[\sum_{d\mid n}\mu(d)=\begin{cases}
+        1 & \textrm{if }n=1\\
+        0 & \textrm{otherwise}
+    \end{cases}\]
+\end{exercise}
+
+\begin{exercise}[M\"obius Inversion]
+    Show that
+    \[f(n) = \sum_{d\mid n}g(d)\qquad \forall n\in\NN\]
+    if and only if
+    \[g(n) = \sum_{d\mid n}\mu(d)f(n/d)\qquad \forall n\in\NN.\]
+\end{exercise}
+
+\end{document}
