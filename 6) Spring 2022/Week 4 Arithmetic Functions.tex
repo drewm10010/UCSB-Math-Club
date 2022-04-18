@@ -8,10 +8,11 @@
 
 \begin{document}
 
-\section{Introduction}
-
 Welcome to week 4 of Math Club!
 Today we will be talking about some functions that tend to appear when studying analytic number theory.
+
+\section{Arithmetic Functions}
+
 These are functions \(f(n)\) which express some number-theoretic fact about \(n\).
 We provide some examples of such functions
 \begin{enumerate}
@@ -33,6 +34,18 @@ We provide some examples of such functions
     \end{cases}\]
 \end{enumerate}
 
+\section{Dirichlet Series}
+
+If \(f\) is an arithmetic function, the formal Dirichlet series attached to \(f\) is defined by
+\[D(f,s) = \sum_{n=1}^\infty f(n)n^{-s},\]
+where \(s\in\CC\).
+We can define the sum of two Dirichlet series as
+\[D(f,s) + D(g,s) = \sum_{n=1}^\infty\left(f(n)+g(n)\right)n^{-s}\]
+and the product as
+\[D(f,s)D(g,s) = \sum_{n=1}^\infty h(n)n^{-s},\quad\textrm{where}\quad h(n) = \sum_{de=n}f(d)g(e).\]
+We sometimes write \(h=f*g\).
+It is also helpful to write \(\delta(n)=1\) if \(n=1\) and \(\delta(n)=0\) if \(n\neq 1\), so that \(D(\delta,s)=1\).
+
 \section{Exercises}
 
 For each of these exercises, you may use the results from the previous exercises.
@@ -50,6 +63,47 @@ For each of these exercises, you may use the results from the previous exercises
     \[f(n) = \sum_{d\mid n}g(d)\qquad \forall n\in\NN\]
     if and only if
     \[g(n) = \sum_{d\mid n}\mu(d)f(n/d)\qquad \forall n\in\NN.\]
+\end{exercise}
+
+\begin{exercise}
+    Show that
+    \[\sum_{d\mid n}\phi(d) = n.\]
+\end{exercise}
+
+\begin{exercise}
+    Show that 
+    \[\sum_{d\mid n}\Lambda(d) = \log n.\]
+    Deduce that
+    \[\Lambda(n) = -\sum_{d\mid n}\mu(d)\log d.\]
+\end{exercise}
+
+\begin{exercise}
+    Let \(f\) be multiplicative (i.e., \(f(nm)=f(n)f(m)\) for coprime \(n,m\)). 
+    Suppose that
+    \[n = \prod_{p^\alpha\mid\mid n}p^\alpha\]
+    is the unique factorization of \(n\) into powers of distinct primes.
+    Show that
+    \[\sum_{d\mid n}f(d) = \prod_{p^{\alpha}\mid\mid n}\left(1 + f(p) + f(p^2) + \cdots + f(p^\alpha)\right).\]
+    The notation \(p^\alpha\mid\mid n\) means that \(p^{\alpha}\) is the exact power of \(p\) dividing \(n.\)
+\end{exercise}
+
+\begin{exercise}
+    Let \(f\) be multiplicative. 
+    Show that
+    \[D(f,s) = \prod_p\left(\sum_{\nu=0}^\infty f(p^\nu)p^{-\nu s}\right).\]
+\end{exercise}
+
+\begin{exercise}
+    If 
+    \[\zeta(s) = D(1,s) = \sum_{n=1}^\infty\frac{1}{n^s},\]
+    show that 
+    \[D(\mu,s)=\frac{1}{\zeta(s)}.\]
+\end{exercise}
+
+\begin{exercise}
+    Show that
+    \[D(\Lambda,s) = \sum_{n=1}^\infty\frac{\Lambda(n)}{n^s} = -\frac{\zeta'}{\zeta}(s),\]
+    where \(-\zeta'(s) = \sum_{n=1}^\infty(\log n)n^{-s}\).
 \end{exercise}
 
 \end{document}
