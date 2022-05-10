@@ -1,0 +1,273 @@
+\documentclass{article}
+
+\usepackage{../mathclub}
+
+\DeclareMathOperator{\conv}{conv}
+
+\title{Convexity}
+
+\author{Daniel Zhang}
+
+\date{Spring 2022}
+
+\begin{document}
+
+\section{Introduction}
+
+Many theorems and exercises here are from Alexander Barvinok's \textit{A Course in Convexity}.
+
+\begin{definition}
+
+A set $A\subseteq\mathbb{R}^d$ is convex if for any $x,y\in A$ and $\alpha\in[0,1]$, \[\alpha x+(1-\alpha)y\in A\]
+
+The empty set is convex.
+
+\end{definition}
+
+
+
+\begin{exercise}
+
+Show that the following sets are convex:
+
+\begin{enumerate}[label=(\alph*)]
+
+\item the half-open interval $[0,1)$
+
+\item the open unit disk $\{(x,y)\in\mathbb{R}^2:x^2+y^2<1\}$
+
+\item any hyperplane $\{x\in\mathbb{R}^d:c\cdot x= \alpha\}$, where $c\in\mathbb{R}^d\setminus\{0\}$ and $\alpha\in\mathbb{R}$.
+
+\item any closed halfspace $\{x\in\mathbb{R}^d:c\cdot x\ge  \alpha\}$, where $c\in\mathbb{R}^d\setminus\{0\}$ and $\alpha\in\mathbb{R}$.
+
+\item any open halfspace $\{x\in\mathbb{R}^d:c\cdot x>\alpha\}$, where $c\in\mathbb{R}^d\setminus\{0\}$ and $\alpha\in\mathbb{R}$.
+
+\item the standard simplex
+
+\[\{(x_1,x_2,\ldots,x_d)\in\mathbb{R}^d:x_1+x_2+\ldots+x_d=1,x_i\ge 0\text{ for $i=0,1,\ldots,d$}\}\]
+
+\end{enumerate}
+
+\end{exercise}
+
+
+
+\begin{exercise}
+
+Show that the following sets are not convex:
+
+\begin{enumerate}[label=(\alph*)]
+
+\item the unit circle $\{(x,y)\in\mathbb{R}^2:x^2+y^2=1\}$
+
+\item the parabola $\{(x,y)\in\mathbb{R}^2:y=x^2\}$
+
+\end{enumerate}
+
+\end{exercise}
+
+
+
+\begin{exercise}
+
+Prove that the intersection of any collection of convex sets is convex.
+
+\end{exercise}
+
+
+
+\begin{exercise}
+
+Show that the union of two convex sets is not necessarily convex.
+
+\end{exercise}
+
+
+
+\begin{exercise}
+
+Let $A\subseteq \mathbb{R}^m$ be a convex set and $T:\mathbb{R}^m\rightarrow\mathbb{R}^n$ be a linear transformation. Prove that $T(A)$ is convex. Note that $T$ need not be invertible!
+
+\end{exercise}
+
+
+
+\begin{exercise}
+
+Let $A$ and $B$ be convex sets in $\mathbb{R}^d$. Show that their Minkowski sum $\{x+y:x\in A,y\in B\}$ is convex.
+
+\end{exercise}
+
+
+
+\begin{definition}
+
+A convex combination of a finite set of points $x_1,x_2,\ldots,x_n$ in $\mathbb{R}^d$ is
+\[\sum_{i=1}^n\alpha_ix_i\]
+where $\alpha_i\ge 0$ for all $i=1,2,\ldots,n$, and $\sum_{i=1}^n\alpha_i=1$.
+
+\end{definition}
+
+\begin{definition}
+
+For $S\subseteq\mathbb{R}^n$, the convex hull of $S$, denoted $\conv(S)$, is the set of all convex combinations of points in $S$.
+
+\end{definition}
+
+
+
+\begin{exercise}
+
+Show that for any $S$, $\conv(S)$ is convex, and any convex set containing $S$ contains $\conv(S)$.
+
+\end{exercise}
+
+
+
+\begin{exercise}
+
+Show that for any $S\subseteq\mathbb{R}^d$, $\conv(\conv(S))=\conv(S)$.
+
+\end{exercise}
+
+
+
+\begin{exercise}
+
+Let $S\subseteq\mathbb{R}^d$. Show that if $x\in\conv(S\cup\{y\})\setminus \conv(S)$ and $y\in\conv(S\cup\{x\})\setminus \conv(S)$, then $x=y$.
+
+\end{exercise}
+
+
+
+\begin{exercise}[Carathéodory's theorem]
+
+Let $S\subseteq\mathbb{R}^d$. Show that any $x\in\conv(S)$ can be written as a convex combination of at most $d+1$ points in $S$. (Hint: $\omega$)
+
+\end{exercise}
+
+
+
+\begin{exercise}[Radon's theorem]
+
+Let $S\subseteq\mathbb{R}^d$ be a set containing at least $d+2$ points. Show that there are disjoint subsets $R,B\subset S$ such that 
+\[\conv(R)\cap \conv(B)\ne \emptyset\]
+(Hint: $\omega$)
+
+\end{exercise}
+
+
+
+\begin{exercise}[Helly's theorem]
+
+Let $A_1,A_2,\ldots,A_m$, $m\ge d+1$ be a finite collection of convex sets in $\mathbb{R}^d$. Show that if every subcollection of $d+1$ sets have a common point, then all sets have a common point. (Hint: $\tau$)
+
+\end{exercise}
+
+
+
+\iffalse
+
+\begin{exercise}
+
+Let $R$ and $B$ be sets of points in $\mathbb{R}^d$. Suppose that for any set $S\subseteq R\cup B$ of $d+2$ or fewer points, there exists a halfplane which strictly separates $S\cap R$ and $S\cap B$. That is. there exists $c\in\mathbb{R}^d\setminus\{0\}$ and $\alpha\in\mathbb{R}$ such that for every $x\in S\cap R$,
+\[c\cdot x<\alpha\]
+and for every $x\in S\cap R$,
+\[c\cdot x>\alpha\]
+Show that there exists a hyperplane that strictly separates $R$ and $B$. (Hint: $\epsilon$)
+
+\end{exercise}
+
+\fi
+
+
+
+\begin{exercise}[Canadian Mathematical Olympiad 2009 Problem 5]
+
+A set of points is marked on the plane, with the property that any three marked points can be covered with a disk of radius 1. Prove that the set of all marked points can be covered with a disk of radius 1. (Hint: $\epsilon$)
+
+\end{exercise}
+
+
+
+\iffalse
+
+\begin{exercise}
+
+Let $A_1,A_2,\ldots,A_n$ be lines in $\mathbb{R}^3$ such that for any three $i,j,k\in\{1,2,\ldots,n\}$, there exists a line that intersects $A_i$, $A_j$, and $A_k$. Show that there is a line that intersects each of the $A_i$. (Hint: $\epsilon$)
+
+\end{exercise}
+
+\fi
+
+
+
+\section{Harder problems}
+
+
+
+\begin{exercise}
+
+Which of the following sets are convex?
+
+\begin{itemize}
+
+\item[(g)] the set of $n\times n$ positive definite matrices
+
+\item[(h)] the set of $n\times n$ positive semidefinite matrices
+
+\item[(i)] the set of $n\times n$ indefinite matrices
+
+\item[(i)] the set of $n\times n$ singular matrices
+
+\end{itemize}
+
+\end{exercise}
+
+
+
+\begin{exercise}
+
+Show that the convex hull of the set of $n\times n$ permutation matrices is the set of $n\times n$ doubly-stochastic matrices.
+
+\end{exercise}
+
+
+
+\begin{exercise}[Colorful Carathéodory theorem]
+
+Let $S_1,S_2,\ldots,S_{d+1}\subseteq\mathbb{R}^d$. Suppose $u\in\conv(S_i)$ for each $i$. Then, there exist points $v_i\in S_i$ such that $u\in\conv(\{v_1,v_2,\ldots,v_{d+1}\})$.
+
+\end{exercise}
+
+
+
+\begin{exercise}
+
+Let $S\subset\mathbb{R}^d$ be a finite set. Show that $\conv(S)$ is the intersection of finitely many closed halfspaces.
+
+\end{exercise}
+
+
+
+\begin{exercise}[Minkowski's Theorem]
+
+Show that any convex set in $\mathbb{R}^d$ symmetric about the origin with volume greater than $2^d$ contains at least one point with integer coordinates besides the origin.
+
+\end{exercise}
+
+
+
+\section{Hints}
+
+\begin{enumerate}
+
+    \item[$\omega$.] Linear dependence
+
+    \item[$\tau$.] Use induction and Radon's theorem
+
+    \item[$\epsilon$.] Helly's theorem
+
+\end{enumerate}
+
+\end{document}
