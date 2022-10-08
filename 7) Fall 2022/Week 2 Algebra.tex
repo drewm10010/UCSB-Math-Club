@@ -1,0 +1,126 @@
+\documentclass{article}
+\usepackage{../mathclub}
+
+\title{Algebraic Techniques}
+\author{UCSB}
+\date{October 3, 2022}
+
+\begin{document}
+
+\section{Introduction}
+Welcome to Week 2 of Math Club! We hope you're excited for a throwback, because today we'll be facing our fears of high school algebra! Though basic algebra is more of an elementary skill, it is fundamental 
+in your success in math competitions such as the Putnam. And in case the blast to the past is too much to handle, remember that UCSB offers free mental health services through CAPS. Anyway, enjoy!
+
+\section{Useful identities}
+\begin{enumerate}[label=\Roman*.]
+    \item Add \(0\) (adding and subtracting the same thing): \[a^4+4b^4 = a^4 + 4b^4 + 0 = a^4 + 4b^4 + 4b^2-4b^2 = (a^4+ 4b^2 + 4b^4) - 4b^2\]
+    This adding and subtracting of $4b^2$ might seem useless, but it is actually very powerful, because both terms on the right hand side are squares, so it combines very well with the next trick.
+    (Note that multiplying by 1 in a clever way is also often helpful.)
+    \item Factoring and Expanding: 
+    \[(a^4 + 4b^2 + 4b^4) - 4b^2 = (a^2+2b^2)^2 - (2b)^2 = (a^2 + 2b^2 + 2b)(a^2+2b^2-2b)\]
+    First we used the square-of-sum expansion, $(x+y)^2 = x^2 + 2xy + y^2$, with $x=a^2$, $y=2b^2$, and then we used the difference-of-squares factorization, $x^2-y^2 = (x+y)(x-y)$, with $x=a^2+2b^2$ and $y=2b$. This concludes the proof of the \emph{Sophie-Germain identity}: $a^4+4b^4 = (a^2+2b^2 + 2b)(a^2+2b^2-2b)$.
+    
+    An essential part of this kind of algebraic manipulation is \emph{knowing how to create and recognize squares and cubes}. Examples are given.
+    \begin{enumerate}[label=(\alph*)]
+    \item $x^n - y^n = (x-y)(x^{n-1}+x^{n-2}y + \cdots + xy^{n-2}+y^{n-1})$ 
+    \item If $n$ is odd, $x^n + y^n=(x+y)(x^{n-1}-x^{n-2}y+x^{n-3}y^2-\cdots + x^2y^{n-3}-xy^{n-2}+y^{n-1})$
+    \item $x^{4} + 4y^{4} = (x^2 + 2y^2 + 2y)(x^2 + 2y^2-2y)$ 
+    \item $x^3 + y^3 + z^3 - 3xyz = (x + y + z)(x^2 + y^2 + z^2 -xy - xz - yz)$\\$ = \frac{1}{2}(x+y+z)\left[ (x-y)^2 + (y-z)^2 + (x-z)^2\right]$ 
+    \item $(x+y)^2 =x^2+2xy+y^2$
+    \item $(x-y)^2 = x^2 -2xy+y^2$
+    \item $(x+y)^3 = x^3 + 3x^2y +3xy^2 + y^3 = x^3 + y^3 +3xy(x+y)$
+    \item $(x-y)^3 = x^3 - 3x^2y+3xy^2-y^3 = x^3 - y^3 -3xy(x-y)$
+    \item (The Binomial Theorem) $(x+y)^n = \sum_{k=0}^n \binom{n}{k} x^{n-k}y^k$
+\end{enumerate}
+    \item Substitution and Simplification
+    This final trick is often used to vastly simplify complicated-looking equations. The heuristic here is, \emph{always move in the direction of greater beauty or simplicity}. In other words, \emph{be lazy!} For example, supposed you're asked to find the product of the solutions to the equation \begin{equation}x^2+18x+30 = 2\sqrt{x^2 + 18x + 45}\end{equation} While you could certainly square both sides and solve the resulting quartic (ugh) equation, it would be much easier to let $y=\sqrt{x^2 + 18x + 45}$, and find all possible solutions for $y$. The equation would become
+    \[y^2-15 = 2y\]
+    Now it's easy: solve the quadratic equation for $y$ (by factoring or the quadratic formula), and once you have the value of $y$, you can plug back into $y=\sqrt{x^2 + 18x + 45}$ to find the solutions for $x$. \emph{We essentially just reduced the problem of solving a quartic equation into that of solving two quadratic equations}.
+\end{enumerate}
+
+\section{Exercises}
+
+
+\begin{exercise}
+If $xy=x+y = 3$, find $x^3+y^3$.
+\end{exercise}
+
+\begin{exercise}
+            Given $x^2 + y^2 + z^2 = 1$, find the minimum value of $xy+xz+yz$. No calculus!
+\end{exercise}
+
+\begin{exercise}
+    Show that for no positive integer $n$ can both $n+3$ and $n^2 +3n+3$ be perfect cubes.
+\end{exercise}
+
+\begin{exercise}
+Prove that the number
+\[\frac{5^{125}-1}{5^{25}-1}\]
+is not prime.
+
+\emph{The factorization is a bit wonky so don't be too down if you can't solve this problem!}
+\end{exercise}
+
+\begin{exercise}
+            Solve for $x$:
+            \[\sqrt[3]{x-1} + \sqrt[3]{x}  + \sqrt[3]{x+1} = 0\]
+\end{exercise}
+            
+\begin{exercise}
+            How many integer solutions \((a,b)\) does \(ab-3b-2a=7\) have?
+\end{exercise}
+            
+\begin{exercise}
+Find all ordered pairs \((a,b)\) of positive integers for
+which
+\begin{align*} 
+    \frac{1}{a} + \frac{1}{b} = \frac{3}{2018}
+\end{align*}
+\end{exercise}
+
+\begin{exercise}
+Prove that for any non-negative number $n$, the number 
+\begin{align*}
+    5^{5^{n+1}} + 5^{5^n} + 1
+\end{align*}
+is not a prime.
+\end{exercise}
+
+\begin{exercise}
+            If the expression 
+            \[(x^3-x^2y+xy^2+y^3)^5\] 
+            is expanded and simplified, what is the sum of all the coefficients of the resulting polynomial?
+\end{exercise}
+
+        
+\begin{exercise}
+        Suppose that $a,b,c$ are distinct real numbers. Show that 
+            \begin{equation*}
+                \sqrt[3]{a - b} + \sqrt[3]{b - c}  + \sqrt[3]{c - a} \neq 0
+            \end{equation*}
+\end{exercise}
+
+\begin{exercise}
+    Find all triples $x,y,z$ of integers such that 
+        \begin{equation*}
+                x^3 + y^3 + z^3 -3xyz = p
+        \end{equation*}
+        where $p$ is a prime strictly greater than 3.
+\end{exercise}
+
+%1985 IMO 3
+\begin{exercise} 
+For any polynomial $P(x) = a_0 + a_1 x + \cdots + a_k x^k$ with integer coefficients, the number of coefficients which are odd is denoted by $w(P)$. For $i = 0, 1, \ldots$, let $Q_i (x) = (1+x)^i$. Prove that if $i_1, i_2, \ldots , i_n$ are integers such that $0 \leq i_1 < i_2 < \cdots < i_n$, then
+$w(Q_{i_1} + Q_{i_2} + \cdots + Q_{i_n}) \ge w(Q_{i_1})$.
+\end{exercise}
+
+\begin{exercise} 
+The real numbers $a$, $b$, $c$, $d$ are such that $a \geq b \geq c \geq d > 0$ and $a + b + c + d = 1$. Prove that\[(a + 2b + 3c + 4d) a^a b^b c^c d^d < 1.\]
+\end{exercise}
+
+\begin{exercise} 
+    For integer $n \ge 2$, let $x_1$, $x_2$, $\dots$, $x_n$ be real numbers satisfying\[x_1 + x_2 + \dots + x_n = 0, \quad \text{and} \quad x_1^2 + x_2^2 + \dots + x_n^2 = 1.\]For each subset $A \subseteq \{1, 2, \dots, n\}$, define\[S_A = \sum_{i \in A} x_i.\](If $A$ is the empty set, then $S_A = 0$.)
+Prove that for any positive number $\lambda$, the number of sets $A$ satisfying $S_A \ge \lambda$ is at most $2^{n - 3}/\lambda^2$. For what choices of $x_1$, $x_2$, $\dots$, $x_n$, $\lambda$ does equality hold?
+\end{exercise}
+
+\end{document}
