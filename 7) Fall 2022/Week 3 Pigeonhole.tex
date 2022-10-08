@@ -1,0 +1,134 @@
+\documentclass{article}
+\usepackage{../mathclub}
+
+\title{Pigeonhole Principle}
+\author{UCSB}
+\date{October 10, 2022}
+
+\begin{document}
+
+\section{Introduction}
+
+Welcome to week 3 of Math Club!
+First, in Club news, we are looking for new officers to join the team.
+If you are interested, please let one of us know and be on the lookout for an upcoming Google form where you can apply.
+Also, the Putnam exam is on Saturday December 3.
+We will post a sign up link in Slack for this.
+We have included a few Putnam problems labeled (e.g., 2006 B2) and one unlabeled (can you spot it?) for those who wish to practice (or those who want to try their hands at these anyway).
+Onward to math!
+
+Today we will be discussing something that may seem obvious, but can be applied in clever ways to solve challenging problems.
+The technique is known as the \textit{pigeonhole principle}.
+The idea is as follows: Suppose you have \(n+1\) pigeons and you stuff them into \(n\) holes.
+Then some hole will contain at least 2 pigeons.
+There are a few generalizations of this principle.
+In particular, if we have \(nk+1\) pigeons and \(n\) holes, some hole will have at least \(k+1\) pigeons.
+The trick with these types of problems is to determine what your pigeons are and what your holes are --- try to do this with each problem.
+% This time, the problems are arranged roughly in order of difficulty.
+
+\section{Problems}
+
+\begin{exercise}
+    Prove the pigeonhole principle and the given generalization.
+\end{exercise}
+
+\begin{exercise}
+    Among thirteen people, prove that at least two of them were born in the same month.
+\end{exercise}
+
+\begin{exercise}
+    Seventeen people are swimming in a lake.
+    Prove that at least three of them were born on the same day of the week.
+\end{exercise}
+
+\begin{exercise}
+    Show that if there are $n$ people at the party, then two of them know the same number of people (among those present).
+\end{exercise}
+
+\begin{exercise}
+    Briar the cat likes to wear socks on all four of its feet. 
+    Briar's sock drawer is filled with yellow, cyan, and pink socks. 
+    Every morning Briar pulls socks out of the drawer one at a time until four matching socks are found. 
+    What is the largest number of socks Briar may pull from the drawer before finding a complete set?
+\end{exercise}
+
+\begin{exercise}
+    Simone is coloring in the squares on a (really really big) sheet of graph paper with red and green pencils. 
+    Her goal is to color all the squares on the page so that there is no rectangle (of size at least \(3\times 3\)) all of whose corners are the same color (Simone calls such rectangles \textit{unichrome} and she hates them.) 
+    \begin{enumerate}
+        \item[(a)] Prove that it is impossible for Simone to successfully color the entire sheet of graph paper without any unichrome rectangles.
+        \item[(b)] What is the largest \(3\times n\) box Simone can color without making a unichrome rectangle?
+        \item[(c)] Prove that using three colors instead of two will not help Simone avoid the dreaded unichrome rectangles.
+        Can you generalize this result?
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+    Given any two people, they have either high-fived in their lifetime or they haven't.
+    Prove that if there are 6 people in a room, then there are three of them who either all high-fived one another or who have never high-fived one another.
+\end{exercise}
+
+\begin{exercise}
+    You and four others are playing tag in an equilateral triangle-shaped garden with side length 2 miles.
+    Prove that, try as they might to get away, there will always be some pair of people within one mile of each other.
+\end{exercise}
+
+\begin{exercise}
+    Suppose that 101 positive integers are arranged in a circle.
+    The sum of all these is 300.
+    Prove that you can always choose a consecutive sequence that sums to 200.
+\end{exercise}
+
+\begin{exercise}
+    If \(\alpha\) is a real number and \(n\geq 1\) is a positive integer, show that there is a rational number \(p/q\) such that
+    \[\left|\alpha-\frac{p}{q}\right|<\frac{1}{nq}.\]
+\end{exercise}
+
+\begin{exercise}
+    A closed disk of radius 1 contains seven points with mutual distance \(\geq 1\).
+    Prove that the center of the disk is one of those seven points.
+\end{exercise}
+
+\begin{exercise}
+    Show that the decimal expansion of a rational number must eventually become periodic.
+\end{exercise}
+
+\begin{exercise}
+    Suppose you draw 5 points on a perfectly spherical tangerine.
+    Show that no matter where you draw the points, there is some closed hemisphere containing at least 4 of the points.
+\end{exercise}
+
+\begin{exercise}
+    A chess player prepares for a tournament by playing some practice games over a period of eight weeks. 
+    She plays at least one game per day, but no more than 11 games per week. 
+    Show that there must be a period of consecutive days during which she plays exactly 23 games.
+\end{exercise}
+
+\begin{exercise}
+    Let \(X\) be any real number. Prove that among the numbers 
+    \[X,2X,\dots,(n-1)X\] 
+    there is one that differs from an integer by at most \(1/n\).
+\end{exercise}
+
+\begin{exercise}[2006 B2]
+    Prove that, for every set \(X=\{x_1,x_2,\dots,x_n\}\) of \(n\) real numbers, there exists a nonempty subset \(S\) of \(X\) and an integer \(m\) such that 
+    \[\left|m+\sum_{x\in S} x\right| \leq \frac{1}{n+1}\]
+\end{exercise}
+    
+\begin{exercise}[1994 A3]
+    Show that if the points of an isosceles right triangle of side length $1$ are each colored with one of four colors, then there must be two points of the same color which are at least a distance \(2-\sqrt{2}\) apart. 
+\end{exercise}
+    
+\begin{exercise}[1993 A4]
+    Let \(x_1,x_2,\dots,x_{19}\) be positive integers each of which is less than or equal to 93. 
+    Let \(y_1,y_2,\dots,y_{93}\) be positive integers each of which is less than 19. 
+    Prove that there exists a (nonempty) sum of some \(x_{i}\)'s equal to a sum of some \(y_j\)'s.
+\end{exercise}
+
+\begin{exercise}
+    Let \(x_1,x_2,\dots,x_k\) be real numbers such that the set 
+    \[A=\{\cos(n\pi x_1)+\cos(n\pi x_2)+\cdots+\cos(n\pi x_k) : n\geq 1\}\] 
+    is finite. Prove that all the \(x_i\) are rational numbers.
+\end{exercise}
+
+\end{document}
