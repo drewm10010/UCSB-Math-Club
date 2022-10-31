@@ -1,0 +1,133 @@
+\documentclass{article}
+\usepackage{../mathclub}
+
+\title{Invariants}
+\author{UCSB}
+\date{October 31, 2022}
+
+\begin{document}
+
+\section*{Introduction}
+Happy Halloween, and welcome to the Math Club Week 6 (Tree)House of Horror!!
+This week our theme is \emph{invariants}.
+An invariant in a problem is something that stays constant, i.e. it does not vary, i.e. invariant, under any and all extraneous changes.
+Here is a demonstrative example.
+\begin{example}[Hotel Paradox]
+    Three guests check into a hotel room. 
+    The manager says the bill is \$30, so each guest pays \$10. Later the manager realizes the bill should only have been \$25.
+    To rectify this, he gives the bellhop \$5 as five one-dollar bills to return to the guests.
+    
+    On the way to the guests' room to refund the money, the bellhop realizes that he cannot equally divide the five one-dollar bills among the three guests.
+    As the guests aren't aware of the total of the revised bill, the bellhop decides to just give each guest \$1 back and keep \$2 as a tip for himself, and proceeds to do so.
+
+    As each guest got \$1 back, each guest only paid \$9, bringing the total paid to \$27.
+    The bellhop kept \$2, which when added to the \$27, comes to \$29.
+    So if the guests originally handed over \$30, what happened to the remaining \$1?
+    
+    Here is one invariant of the problem. 
+    Let \(g\), \(p\), and \(m\) be, respectively, the amount the guests spent, the amount the bellhop pocketed, and the amount the manager at the hotel desk received. 
+    The value \(g-p-m\) is invariant and always equal to zero.
+    With respect to the problem, this is equivalent to saying that, no matter how the money flows between the guests, the bellhop, and the manager, we know that the amount spent by the guests less the amount received by the manager and bellhop is identically zero.
+    Take it as an exercise to use this invariant in solving the mystery of the missing dollar.
+\end{example}
+
+If you can find a (nontrivial) invariant in one of the below problems, it is likely a powerful tool in reaching the solution!
+
+\section*{Exercises}
+
+\subsection*{Spooky}
+
+    \begin{exercise}[The Pizza Problem]
+        Suppose a pizza is divided into six slices. Moving clockwise, we add one slice of pepperoni to the first slice, none to the second, one to the third, and none to the remaining slices. You may only add one pepperoni to each adjacent slice. For instance, you may add one to slice 3 and 4, or slice 6 and 1. Is it possible to make every slice contain the same number of pepperoni?
+    \end{exercise}
+    
+    %% NEW https://www.math.cmu.edu/~cargue/arml/archive/15-16/proofs-02-28-16.pdf
+    \begin{exercise}
+        An $8\times 8$ chessboard is colored in the usual way.
+        You can take any row, column, or $2\times2$ square and reverse the colors inside it, switching the color of each square from white to black or from black to white.
+        Prove that it is impossible to end up with $63$ white squares and $1$ black square.
+    \end{exercise}
+
+    \begin{exercise}
+        In an elimination-style tournament of a two-person game (for example, chess or judo), once you lose, you are out, and the tournament proceeds until only one person is left. Find a formula for the number of games that must be played in an elimination-style tournament starting with \(n\) contestants.
+    \end{exercise}
+    
+    \begin{exercise}
+            Suppose two opposite corners of a chessboard \((8\times 8)\) are removed. Is it possible for the remaining 62 squares to be tiled with dominoes \((2\times 1)\)?
+        \end{exercise}
+
+    \begin{exercise}
+        Suppose the integer \(n\) is odd. First Kevin writes up the numbers \(1, 2, \ldots, 2n\) on the blackboard. Then he picks any two numbers \(a, b,\) erases them, and writes, instead, \(|a-b|\). Prove that an odd number will remain at the end.
+    \end{exercise}
+
+    \begin{exercise}
+        At first, a room is empty. Each minute, either one person enters the room or two people leave. After exactly 2,147,483,647 minutes, could the room contain 65,535 people?
+    \end{exercise}
+        
+    \begin{exercise}
+        A dragon has 100 heads. A strange knight can cut off 15, 17, 20, or 5 heads, respectively with one blow of his sword. However, the dragon has mystical regenerative powers, and it will grow back 24, 2, 14, or 17 heads, respectively, in each case. If all heads are blown off, the dragon dies. Will the dragon ever die?
+    \end{exercise}
+
+    \begin{exercise}
+        There is a heap of 1001 stones on a table. You are allowed to perform the following operation: you choose one of the heaps containing more than one stone, throw away a stone from the heap, then divide it into two smaller (not necessarily equal) heaps. Is it possible to reach a situation in which all the heaps on the table contain exactly 3 stones by performing the operation finitely many times?
+    \end{exercise}
+
+\subsection*{Frightening}
+
+    \begin{exercise}
+            In a very large tank, there are 10 blue octopi, 14 red octopi, and 15 green octopi who are all quite clumsy.
+            When two octopi of different colors bump into each other, they both immediately change their color into the third color.
+            For example, when a blue octopus and a red octopus collide, they both become green.
+            Is it possible for all the octopi in the tank to become the same color?
+        \end{exercise}
+
+    \begin{exercise} %%% NEW
+        Suppose we have the symbols \texttt{M}, \texttt{I}, and \texttt{U}.
+        You begin with the string \texttt{MI}.
+        Transform this into the string \texttt{MU} using only the following operations:
+        \begin{enumerate}
+            \item Add \texttt{U} to the end of any string ending in \texttt{I} \((x\texttt{I}\mapsto x\texttt{IU})\)
+            \item Double the string after the first \texttt{M} \((\texttt{M}x\mapsto\texttt{M}xx)\)
+            \item Replace any \texttt{III} with \texttt{U} \((x\texttt{III}y\mapsto x\texttt{U}y)\)
+            \item Remove any \texttt{UU} \((x\texttt{UU}y\mapsto xy)\),
+        \end{enumerate}
+        or prove that this is impossible.
+    \end{exercise}
+
+    \begin{exercise}
+        If 127 people play in a singles tennis tournament, prove that at the end of the tournament, the number of people who have played an odd number of games is even. Would this still be true if the number of players was even?
+    \end{exercise}
+
+    \begin{exercise}
+        Let \(a_1,a_2,\ldots,a_n\) represent an arbitrary arrangement of the numbers \(1,2,\ldots,n\). Prove that if \(n\) is odd, the product
+        \[(a_1-1)(a_2-2)\cdots(a_n-n)\]
+        is an even number.
+    \end{exercise}
+
+    \begin{exercise}
+        To a polynomial \(P(x)=ax^3+bx^2+cx+d\), of degree at most 3, one can apply two operations: (a) switch simultaneiously \(a\) and \(d\), respectively \(b\) and \(c\), (b) translate the variable \(x\) to \(x+t\), where \(t\in\RR\). Can one transform by successive application of these rules the polynomial \(P_1(x)=x^3+x^2-2x\) into \(P_2(x)=x^3-3x-2\). 
+    \end{exercise}
+
+    \begin{exercise}[St. Petersburg City Math Olympiad 1997]
+        The number \(99\ldots99\) (having 1997 nines) is written on a blackboard. Each minute, one number written on the blackboard is factored into two factors and erased, each factor is (independently) increased or decreased by \(2\), and the resulting two numbers are written. Is it possible that at some point all of the numbers on the blackboard are equal to 9?
+    \end{exercise}
+
+\subsection*{Terrifying}
+
+    \begin{exercise}
+        Set, recursively, \((x_0,y_0)\) with \(0<x_0<y_0\) and
+        \[x_{n+1}=\frac{x_n+y_n}{2}\quad\text{and}\quad y_{n+1}=\sqrt{x_{n+1}y_n}.\]
+        Moreover, we are given that
+        \[x_n<y_n\implies x_{n+1}<y_{n+1}\quad\text{and}\quad y_{n+1}-x_{n+1}<\frac{y_n-x_n}{4}\text{ for all }n.\]
+        Find the common limit \(\displaystyle\lim_{n\to\infty}x_n=\lim_{n\to\infty}y_n=x=y\).
+    \end{exercise}
+
+    \begin{exercise}
+        There are 2000 white balls in a box. There are also unlimited supplies of white, green, and red balls, initially outside the box. During each turn, we can replace two balls in the box with one or two balls as follows: two whites with a green, two reds with a green, two greens with a white and red, a white and a green with a red, or a green and red with a white. (a) After finitely many of the above operations there are three balls left in the box. Prove that at least one of them is green. (b) Is it possible that after finitely many operations only one ball is left in the box?
+    \end{exercise}
+    
+    \begin{exercise}[2008 A3]
+    Start with a finite sequence $a_1,a_2,\dots,a_n$ of positive integers. If possible, choose two indices $j < k$ such that $a_j$ does not divide $a_k$, and replace $a_j$ and $a_k$ by $\gcd(a_j , a_k )$ and $\lcm(a_j , a_k )$, respectively. Prove that if this process is repeated, it must eventually stop and the final sequence does not depend on the choices made.
+    \end{exercise}
+
+\end{document}
