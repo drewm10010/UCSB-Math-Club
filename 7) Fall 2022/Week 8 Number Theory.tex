@@ -1,0 +1,182 @@
+\documentclass{article}
+
+\usepackage{../mathclub}
+
+\title{Number Theory - Week 8}
+\author{}
+\date{November 14, 2022}
+
+\begin{document}
+
+\section{Introduction}
+
+    Welcome back to Math Club in week 8! 
+    Today we will be playing with some concepts in elementary number theory. 
+    We will cover modular arithmetic as well as some stuff about primes and divisibility, all of which will be helpful in not just math competitions but \textit{every single one of your math classes moving forward}. 
+    We have provided some useful definitions and theorems for your convenience.
+
+    \begin{definition}
+        Let \(x\), \(y\), and \(n\) be integers. 
+        We say that \(x\) is congruent (or equivalent) to \(y\) modulo (or mod) \(n\) if \(x\) and \(y\) differ by a multiple of \(n\). 
+        We write \(x\equiv y\pmod{n}\).
+    \end{definition}
+
+    \begin{definition}
+        Let \(a,b\in\ZZ\). 
+        We say that $b$ divides $a$, in symbols $b \mid a$, if there exists an integer $k$ such that $a=kb$. We write $b\nmid a$ to mean ``$b$ does not divide $a$.''
+    \end{definition}
+
+    \begin{definition}
+        Let \(a,b\in\NN\). 
+        Then their greatest common divisor, written \((a,b)\) or \(\gcd(a,b)\), is the largest integer that divides both \(a\) and \(b\). 
+        Their least common multiple, written \(\lcm(a,b)\), is the smallest positive integer that is a multiple of both \(a\) and \(b\).
+
+        If \(\gcd(a,b)=1\), we say that \(a\) and \(b\) are coprime or relatively prime.
+    \end{definition}
+    
+    \begin{theorem}
+        The following hold:
+        \begin{enumerate}
+            \item If \(g\mid a\) and \(g\mid b\), then \(g\mid ax+by\) for any integers \(x,y\)
+            \item \(\gcd(a+b,b)=\gcd(a,b)\)
+            \item \(\gcd(a,b)\cdot\lcm(a,b)=a\cdot b\)
+            \item If \(p\) is prime and \(p\mid ab\), then \(p\mid a\) or \(p\mid b\)
+        \end{enumerate}
+    \end{theorem}
+    
+    \begin{theorem}[Division Algorithm]
+    Let $a, b\in \ZZ$ with $b\neq 0$. There exist unique integers $q,r$ such that $a=bq+r$ and $0 \leq r < |b|$.
+    \end{theorem}
+
+    Here are some useful results that will help you in your problem-solving endeavors.
+
+    \begin{theorem}[Fermat's Little Theorem]
+        Let \(a\in\ZZ\) and let \(p\) be a prime number. 
+        Then
+        \[a^p\equiv a\pmod{p}.\]
+    \end{theorem}
+
+    \begin{theorem}[Bezout's Identity/Lemma]
+        Let \(a,b\in\NN\). 
+        Then there exist \(x,y\in\ZZ\) such that
+        \[ax+by=\gcd(a,b).\]
+        and moreover, $\gcd(a,b)$ is the least positive integer expressible in this form.
+    \end{theorem}
+    
+    \begin{theorem}[Fundamental Theorem of Arithmetic]
+    Every positive integer $n>2$ can be represented in exactly one way as the product of prime powers
+    \[n=p_1^{k_1}p_2^{k_2}\cdots p_r^{k_r}=\prod_{i=1}^r p_i^{k_i}\] where $p_1<p_2<\cdots<p_r$ are primes and the $k_i$ are positive integers.
+    \end{theorem}
+
+\section{Problems}
+
+    Try to prove some of the results given in the introduction section.
+
+    \begin{exercise}
+        Prove that there are infinitely many prime numbers.
+    \end{exercise}
+
+    \begin{exercise}
+        Prove that there are infinitely many primes \(p\) such that \(p\equiv 3\pmod{4}\).
+    \end{exercise}
+
+    \begin{exercise}
+        Let \(n\) be an odd positive integer not divisible by 3. Show that \(n^2-1\) is divisible by 24.
+    \end{exercise}
+
+    \begin{exercise}
+        A \textit{palindrome} is a positive integer that reads the same forward and backward, like 2552 or 1991. 
+        Find a positive integer greater than 1 that divides all four-digit palindromes.
+    \end{exercise}
+
+    \begin{exercise}
+        Find and integer \(c\) such that \(x^2+18x+c\) is a perfect square for all integers \(x\). 
+        Prove that this choice of \(c\) is unique. 
+    \end{exercise}
+
+    \begin{exercise}[Due to Sun-tzu, 3rd century]
+        There are certain things whose number is unknown. 
+        If we count them by threes, we have two left over; by fives, we have three left over; and by sevens, two are left over. 
+        How many things are there?
+    \end{exercise}
+
+    \begin{exercise}
+        Show that any two consecutive Fibonacci numbers are relatively prime. 
+        Recall that the Fibonacci numbers are defined recursively by \(F_1=F_2=1\) and \(F_n=F_{n-1}+F_{n-2}\) for \(n\geq 3\).
+    \end{exercise}
+
+    \begin{exercise}
+        Determine whether there exist three positive integers \(a,b,c\) such that \(a+b\), \(b+c\), and \(a+c\) are all pairwise distinct prime numbers.
+    \end{exercise}
+
+    \begin{exercise}
+        Let \(k=2020^2+2^{2020}\).
+        What is the last digit of
+        \[2^k+k^2\mathord{?}\]
+    \end{exercise}
+
+    \begin{exercise}
+        Show that if \(a^2+b^2=c^2\), then \(3\mid ab\).
+    \end{exercise}
+
+    \begin{exercise}
+        Show that the fraction \(\dfrac{21n+4}{14n+3}\) is irreducible for all positive integers \(n\).
+    \end{exercise}
+
+    \begin{exercise}
+        Prove that the number \(n=1,280,000,401\) is composite.
+    \end{exercise}
+
+    \begin{exercise}
+        Let \(N\) be a number with nine distinct non-zero digits, such that, for each \(k\) from 1 to 9 inclusive, the first \(k\) digits of \(N\) form a number that is divisible by \(k\). 
+        Find \(N\).
+    \end{exercise}
+
+    \begin{exercise}[2000 B2]
+        Prove that the expression
+        \[\frac{\gcd(m,n)}{n}\binom{n}{m}\]
+        is an integer for all pairs of integers \(n\geq m\geq 1\).
+    \end{exercise}
+
+    \begin{exercise}[2017 A1]
+        Let \(S\) be the smallest set of positive integers such that
+        \begin{enumerate}
+            \item[(a)] \(2\in S\),
+            \item[(b)] \(n\in S\) whenever \(n^2\in S\),
+            \item[(c)] \((n+5)^2\in S\) whenever \(n\in S\).
+        \end{enumerate}
+        Which positive integers are not in \(S\)?
+    \end{exercise}
+    
+    \begin{exercise}
+        If $a\in \NN$ and $p$ is a prime number for which $p$ divides $(a^7-1)/(a-1)$, prove that either $p \equiv 1 \pmod{7}$ or $p=7$.
+    \end{exercise}
+    
+    \begin{exercise}
+        Find all integer solutions of the equation
+        \[\frac{a^7-1}{a-1} = b^5-1\]
+    \end{exercise}
+    
+    \begin{exercise}
+        If $a\equiv b \pmod{n}$ prove that $a^n \equiv b^n \pmod{n^2}$.
+    \end{exercise}
+
+    \begin{exercise}[2011 A4]
+        For which positive integers n is there an \(n\times n\) matrix with integer entries such that every dot product of a row with itself is even, while every dot product of two different rows is odd?
+    \end{exercise}
+    
+    \begin{exercise}
+        Let $p$ be a prime. Show that there are infinitely many positive integers $n$ such that $p$ divides $2^n-n$.
+    \end{exercise}
+    
+    \begin{exercise}
+        Let $n>1$ be a positive integer. Prove that 
+        \[1+\frac{1}{2}+\frac{1}{3}+\cdots + \frac{1}{n}\] is not an integer.
+    \end{exercise}
+
+    \begin{exercise}[2001 A5]
+        Prove that there are unique positive integers \(a\) and \(n\) such that 
+        \[a^{n+1}-(a-1)^n = 2001.\]
+    \end{exercise}
+
+\end{document}
